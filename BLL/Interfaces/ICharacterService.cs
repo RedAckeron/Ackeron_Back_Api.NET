@@ -1,5 +1,4 @@
 ﻿using BLL.Models;
-using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +9,8 @@ namespace BLL.Interfaces
 {
     public interface ICharacterService
     {
-    IEnumerable<Character> GetAllCharacters();
-    Character GetCharacter(int id);
-    int AddCharacter(Character c);
+    public IEnumerable<Character> GetAllCharacters();
+    public Character GetCharacter(int id);
+    public int AddCharacter(Character c);
     }
 }

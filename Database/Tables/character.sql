@@ -1,7 +1,6 @@
-﻿CREATE TABLE [dbo].[character]
+﻿CREATE TABLE [dbo].[Character]
 (
 	[Id] INT NOT NULL PRIMARY KEY identity,
 	[name] varchar(100),
-	loc_x int,
-	loc_y int
+	ts_in int
 )

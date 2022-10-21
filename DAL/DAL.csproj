@@ -64,7 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\ICharacterRepo.cs" />
-    <Compile Include="Models\Character.cs" />
+    <Compile Include="Models\CharacterStat.cs" />
+    <Compile Include="Models\CharacterLoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CharacterRepo.cs" />
   </ItemGroup>

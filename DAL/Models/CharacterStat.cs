@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace DAL.Models
 {
-    public class CharacterInfo
+    public class CharacterStat
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-    }
-    public class CharacterLoc
-    {
-        public int LocX { get; set; }
-        public int LocY { get; set; }
+        public string Name{ get; set; }
+      
     }
 }
