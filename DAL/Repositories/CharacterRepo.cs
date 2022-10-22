@@ -19,72 +19,43 @@ namespace DAL.Repositories
         {
             _connectionString = config.GetConnectionString("default");
         }
-        public int AddCharacterLoc(CharacterLoc c)
-        {
-        using (SqlConnection cnx = new SqlConnection(_connectionString))
-            {
-                using (SqlCommand cmd = cnx.CreateCommand())
-                {
-                    cmd.CommandText = "insert into CharacterLoc @id";
-                    cmd.Parameters.AddWithValue("id", c.Id);
-                    
-                    cnx.Open();
-                return cmd.ExecuteNonQuery();
-                    cnx.Close();
-                }
-            }
 
-            
-        }
-        public CharacterStat GetCharacterStat(int id)
-        { 
-        return null;
-        }
-
-        public int AddCharacterLoc(int IdChar, int LocU, int LocS, int LocP, int LocA, int LocA_X, int LocA_Y)
+        public int AddCharacterLoc(CharacterLoc CLoc)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
                     cmd.CommandText = "insert into CharacterLoc(IdChar,LocU,LocS,LocP,LocA,LocA_X,LocA_Y)values(@IdChar,@LocU,@LocS,@LocP,@LocU,@LocA_X,@LocA_Y);";
-                    cmd.Parameters.AddWithValue("IdChar", IdChar);
-                    cmd.Parameters.AddWithValue("LocU", IdChar);
-                    cmd.Parameters.AddWithValue("LocS", IdChar);
-                    cmd.Parameters.AddWithValue("LocP", IdChar);
-                    cmd.Parameters.AddWithValue("LocA", IdChar);
-                    cmd.Parameters.AddWithValue("LocA_X", IdChar);
-                    cmd.Parameters.AddWithValue("LocA_Y", IdChar);
+                    cmd.Parameters.AddWithValue("IdChar", CLoc.Id);
+                    cmd.Parameters.AddWithValue("LocU", CLoc.LocU);
+                    cmd.Parameters.AddWithValue("LocS", CLoc.LocS);
+                    cmd.Parameters.AddWithValue("LocP", CLoc.LocP);
+                    cmd.Parameters.AddWithValue("LocA", CLoc.LocA);
+                    cmd.Parameters.AddWithValue("LocA_X", CLoc.LocA_X);
+                    cmd.Parameters.AddWithValue("LocA_Y", CLoc.LocA_Y);
                     cnx.Open();
-                    return cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
                     cnx.Close();
+                    return 1;
                 }
             }
-
-
-            
         }
-
-
-
-
-
-
-
-        /*
-        public int AddCharacter(string Name, int LocX, int LocY)
+        public int AddCharacterStat(int IdChar, string Name)
         {
-            return 0;
+            using (SqlConnection cnx = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = cnx.CreateCommand())
+                {
+                    cmd.CommandText = "insert into CharacterStat(IdChar,Name)values(@IdChar,@Name);";
+                    cmd.Parameters.AddWithValue("IdChar", IdChar);
+                    cmd.Parameters.AddWithValue("Name", Name);
+                    cnx.Open();
+                    cmd.ExecuteNonQuery();
+                    cnx.Close();
+                    return 1;
+                }
+            }
         }
-        public CharacterLoc GetCharacter(int id)
-        {
-            return null;
-        }
-        public IEnumerable<CharacterLoc> GetAllCharacters()
-        {
-            return null;
-        }
-        */
-
     }
 }

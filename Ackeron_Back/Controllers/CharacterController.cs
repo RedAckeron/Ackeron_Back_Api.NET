@@ -16,7 +16,7 @@ namespace Ackeron_Back.Controllers
         {
             _characterService = characterService;
         }
-
+        /*
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -27,8 +27,9 @@ namespace Ackeron_Back.Controllers
         public IActionResult GetById(int id)
         {
             return Ok(_characterService.GetCharacter(id));
-            Console.WriteLine("COUCHE CONTROLER");
+           
         }
+        */
         [HttpPost]
         public IActionResult AddCharacter(Character c)
         {

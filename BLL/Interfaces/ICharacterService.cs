@@ -9,8 +9,8 @@ namespace BLL.Interfaces
 {
     public interface ICharacterService
     {
-    public IEnumerable<Character> GetAllCharacters();
-    public Character GetCharacter(int id);
-    public int AddCharacter(Character c);
+    //public IEnumerable<Character> GetAllCharacters();
+    //public Character GetCharacter(int id);
+    int AddCharacter(Character c);
     }
 }

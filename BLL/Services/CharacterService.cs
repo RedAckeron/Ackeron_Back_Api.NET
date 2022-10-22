@@ -1,6 +1,8 @@
 ﻿using BLL.Interfaces;
+using BLL.Mapper;
 using BLL.Models;
 using DAL.Interfaces;
+using DAL.Models;
 using System.Data.Common;
 
 namespace BLL.Services
@@ -12,23 +14,29 @@ namespace BLL.Services
         { 
             _characterRepo = characterRepo;
         }
-
-        IEnumerable<Character> ICharacterService.GetAllCharacters()
-        {
-            throw new NotImplementedException();
-            Character c = new Character();
-            
-        }
-
-        Character ICharacterService.GetCharacter(int id)
+        /*
+        public IEnumerable<Character> GetAllCharacters()
         {
             throw new NotImplementedException();
         }
 
-        public int AddCharacter(Character c)
+        public Character GetCharacter(int id)
         {
-            _characterRepo.AddCharacterLoc(c.Id,c.Loc_U,c.Loc_S,c.Loc_P,c.Loc_A,c.LocA_X,c.LocA_Y);
             throw new NotImplementedException();
+        }
+        */
+        public int AddCharacter(Character C)
+        {
+        CharacterMapper mapper = new();
+        CharacterStat CStat = new();
+        CharacterLoc CLoc = new();
+        CStat = mapper.CharacterToCharacterStat(C);
+        CLoc = mapper.CharacterToCharacterLoc(C);
+
+        _characterRepo.AddCharacterLoc(CLoc);
+        _characterRepo.AddCharacterStat(CStat);
+
+        return 1;
         }
     }
 }

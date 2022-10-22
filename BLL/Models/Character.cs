@@ -21,4 +21,5 @@ namespace BLL.Models
         public int LocA_X { get; set; }
         public int LocA_Y { get; set; }
     }
+
 }
