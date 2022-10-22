@@ -14,10 +14,7 @@ builder.Services.AddSwaggerGen();
 
 
 builder.Services.AddScoped<ICharacterService, CharacterService>();
-
 builder.Services.AddScoped<ICharacterRepo, CharacterRepo>();
-
-
 
 
 var app = builder.Build();

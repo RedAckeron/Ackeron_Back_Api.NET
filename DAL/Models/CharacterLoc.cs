@@ -9,6 +9,7 @@ namespace DAL.Models
     public class CharacterLoc
     {
         public int Id { get; set; }
+        public int IdChar { get; set; }
         public int LocU { get; set; }
         public int LocS { get; set; }
         public int LocP { get; set; }

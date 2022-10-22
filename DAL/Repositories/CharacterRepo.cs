@@ -1,4 +1,5 @@
-﻿using DAL.Models;
+﻿using DAL.Interfaces;
+using DAL.Models;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
-    public class CharacterRepo
+    public class CharacterRepo:ICharacterRepo
     {
         private string _connectionString;
 
@@ -41,15 +42,15 @@ namespace DAL.Repositories
                 }
             }
         }
-        public int AddCharacterStat(int IdChar, string Name)
+        public int AddCharacterStat(CharacterStat CStat)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
                     cmd.CommandText = "insert into CharacterStat(IdChar,Name)values(@IdChar,@Name);";
-                    cmd.Parameters.AddWithValue("IdChar", IdChar);
-                    cmd.Parameters.AddWithValue("Name", Name);
+                    cmd.Parameters.AddWithValue("IdChar", CStat.Id);
+                    cmd.Parameters.AddWithValue("Name", CStat.Name);
                     cnx.Open();
                     cmd.ExecuteNonQuery();
                     cnx.Close();

@@ -9,8 +9,7 @@ namespace DAL.Interfaces
 {
     public interface ICharacterRepo
     {
-        CharacterLoc GetCharacterLoc(int idChar);
-        CharacterStat AddCharacterStat(CharacterStat CStat);
-        CharacterLoc AddCharacterLoc(CharacterLoc CLoc);
+        int AddCharacterStat(CharacterStat CStat);
+        int AddCharacterLoc(CharacterLoc CLoc);
     }
 }

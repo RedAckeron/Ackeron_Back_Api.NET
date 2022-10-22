@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[CharacterLoc]
 (
-	[Id] INT NOT NULL PRIMARY KEY identity,
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
 	IdChar int not null,
 	LocU int not null,
 	LocS int not null,
