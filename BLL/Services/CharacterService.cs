@@ -30,6 +30,8 @@ namespace BLL.Services
         CharacterMapper mapper = new();
         CharacterStat CStat = new();
         CharacterLoc CLoc = new();
+        CharacterResist CRes= new();
+        CharacterPower CPow= new();
         CStat = mapper.CharacterToCharacterStat(C);
         CLoc = mapper.CharacterToCharacterLoc(C);
 

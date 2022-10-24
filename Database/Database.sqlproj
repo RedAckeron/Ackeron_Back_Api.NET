@@ -62,6 +62,7 @@
     <Build Include="Tables\character.sql" />
     <Build Include="Tables\CharacterLoc.sql" />
     <Build Include="Tables\CharacterStat.sql" />
+    <Build Include="Tables\CharacterResist_1.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Database.publish.xml" />

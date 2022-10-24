@@ -2,5 +2,9 @@
 (
 	[Id] INT NOT NULL PRIMARY KEY identity,
 	[name] varchar(100),
-	ts_in int
+	race int,
+	sexe int,
+	class int,
+	CitizenPlanet int,
+ 	TsCreation int
 )

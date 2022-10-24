@@ -2,7 +2,7 @@
 using BLL.Models;
 using BLL.Services;
 using Microsoft.AspNetCore.Mvc;
-
+using System.ComponentModel;
 namespace Ackeron_Back.Controllers
 {
 
@@ -22,14 +22,21 @@ namespace Ackeron_Back.Controllers
         {
             return null;
         }
+        */
 
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            return Ok(_characterService.GetCharacter(id));
+            Character c = new();
+            
+            Loc loc = new();
+
+
+            c.Loc = loc;//on ajoute la loc a l objet char            
+            return Ok(c);
            
         }
-        */
+        
         [HttpPost]
         public IActionResult AddCharacter(Character c)
         {

@@ -2,6 +2,8 @@ using BLL.Interfaces;
 using BLL.Services;
 using DAL.Interfaces;
 using DAL.Repositories;
+using System.Data;
+using System.Data.SqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddTransient<IDbConnection>(service =>
+{
+    return new SqlConnection(builder.Configuration["default"]);
+});
 
 
 builder.Services.AddScoped<ICharacterService, CharacterService>();

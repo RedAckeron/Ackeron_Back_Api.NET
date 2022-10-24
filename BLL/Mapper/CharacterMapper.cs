@@ -14,21 +14,22 @@ namespace BLL.Mapper
         {
             CharacterLoc CLoc = new();
             CLoc.Id = C.Id;
-            CLoc.LocU = C.Loc_U;
-            CLoc.LocS = C.Loc_S;
-            CLoc.LocP = C.Loc_P;
-            CLoc.LocA = C.Loc_A;
-            CLoc.LocA_X = C.LocA_X;
-            CLoc.LocA_Y = C.LocA_Y;
+            CLoc.LocU = C.Loc.U;
+            CLoc.LocS = C.Loc.S;
+            CLoc.LocP = C.Loc.P;
+            CLoc.LocA = C.Loc.A;
+            CLoc.LocA_X = C.Loc.A_X;
+            CLoc.LocA_Y = C.Loc.A_Y;
             return CLoc;
         }
         public CharacterStat CharacterToCharacterStat(Character C)
         {
             CharacterStat CStat = new();
             CStat.Id = C.Id;
-            CStat.Name = C.Name;
+            CStat.Name = C.Info.Name;
             return CStat;
         }
+
 
     }
   
