@@ -8,6 +8,7 @@ namespace DAL.Models
 {
     public class CharacterResist
     {
+        public int IdChar { get; set; }
         public int Eau { get; set; }
         public int Feu { get; set; }
         public int Air { get; set; }

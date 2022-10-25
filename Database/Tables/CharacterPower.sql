@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[CharacterResist]
+﻿CREATE TABLE [dbo].[CharacterPower]
 (
 	[Id] INT NOT NULL PRIMARY KEY identity,
 	[IdChar] int,

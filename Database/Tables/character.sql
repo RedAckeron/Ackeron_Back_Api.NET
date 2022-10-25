@@ -1,10 +1,10 @@
 ﻿CREATE TABLE [dbo].[Character]
 (
 	[Id] INT NOT NULL PRIMARY KEY identity,
-	[name] varchar(100),
-	race int,
-	sexe int,
-	class int,
+	[Name] varchar(100),
+	Race int,
+	Sexe int,
+	Classe int,
 	CitizenPlanet int,
- 	TsCreation int
+ 	TsIn int
 )

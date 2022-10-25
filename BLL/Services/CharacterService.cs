@@ -28,17 +28,32 @@ namespace BLL.Services
         public int AddCharacter(Character C)
         {
         CharacterMapper mapper = new();
-        CharacterStat CStat = new();
-        CharacterLoc CLoc = new();
-        CharacterResist CRes= new();
-        CharacterPower CPow= new();
+        CharacterInfo CInfo;
+        CharacterStat CStat;
+        CharacterLoc CLoc;
+        CharacterPower CPow;
+        CharacterResist CRes;
+        
+        CInfo=mapper.CharacterToCharacterInfo(C);
+        int IdChar = _characterRepo.AddCharacterInfo(CInfo);
+        
         CStat = mapper.CharacterToCharacterStat(C);
-        CLoc = mapper.CharacterToCharacterLoc(C);
-
-        _characterRepo.AddCharacterLoc(CLoc);
+        CStat.IdChar = IdChar;
         _characterRepo.AddCharacterStat(CStat);
-
-        return 1;
+           
+        CLoc = mapper.CharacterToCharacterLoc(C);
+        CLoc.IdChar = IdChar;
+        _characterRepo.AddCharacterLoc(CLoc);
+        
+        CPow=mapper.CharacterToCharacterPower(C);
+        CPow.IdChar = IdChar;
+        _characterRepo.AddCharacterPower(CPow);
+        
+        CRes=mapper.CharacterToCharacterResist(C);
+        CRes.IdChar = IdChar;
+        _characterRepo.AddCharacterResist(CRes);
+        
+        return IdChar;
         }
     }
 }
