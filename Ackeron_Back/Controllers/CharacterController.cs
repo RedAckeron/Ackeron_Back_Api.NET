@@ -3,6 +3,8 @@ using BLL.Models;
 using BLL.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel;
+using ToolBox;
+
 namespace Ackeron_Back.Controllers
 {
 
@@ -28,13 +30,11 @@ namespace Ackeron_Back.Controllers
         public IActionResult GetById(int id)
         {
             Character c = new();
-            
             Loc loc = new();
-
-
             c.Loc = loc;//on ajoute la loc a l objet char            
             return Ok(c);
-           
+          
+
         }
         
         [HttpPost]
