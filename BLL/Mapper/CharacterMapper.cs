@@ -26,13 +26,13 @@ namespace BLL.Mapper
         public CharacterLoc CharacterToCharacterLoc(Character C)
         {
             CharacterLoc CLoc = new();
-            CLoc.Id = C.Id;
-            CLoc.LocU = C.Loc.U;
-            CLoc.LocS = C.Loc.S;
-            CLoc.LocP = C.Loc.P;
-            CLoc.LocA = C.Loc.A;
-            CLoc.LocA_X = C.Loc.A_X;
-            CLoc.LocA_Y = C.Loc.A_Y;
+            CLoc.IdChar = C.Id;
+            CLoc.LocU = C.Loc.LocU;
+            CLoc.LocS = C.Loc.LocS;
+            CLoc.LocP = C.Loc.LocP;
+            CLoc.LocA = C.Loc.LocA;
+            CLoc.LocA_X = C.Loc.LocA_X;
+            CLoc.LocA_Y = C.Loc.LocA_Y;
             return CLoc;
         }
         public CharacterStat CharacterToCharacterStat(Character C)
@@ -42,7 +42,7 @@ namespace BLL.Mapper
             CStat.TimestampSimul = C.Stat.TimestampSimul;
             CStat.PtMove = C.Stat.PtMove;
             CStat.PtMoveMax = C.Stat.PtMoveMax;
-            CStat.Xp = C.Stat.xp;
+            CStat.Xp = C.Stat.Xp;
             CStat.Gold = C.Stat.Gold;
             CStat.Pv = C.Stat.Pv;
             CStat.PvMax = C.Stat.PvMax;

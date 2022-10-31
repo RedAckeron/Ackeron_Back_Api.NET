@@ -12,5 +12,7 @@ namespace BLL.Interfaces
     //public IEnumerable<Character> GetAllCharacters();
     //public Character GetCharacter(int id);
     int AddCharacter(Character c);
+    Character GetOneCharacter(int id);
+    int UpdateCharacter(Character c);
     }
 }

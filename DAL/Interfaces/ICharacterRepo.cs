@@ -14,5 +14,13 @@ namespace DAL.Interfaces
         int AddCharacterLoc(CharacterLoc CLoc);
         int AddCharacterPower(CharacterPower CPow);
         int AddCharacterResist(CharacterResist CRes);
+       
+        CharacterInfo GetCharacterInfo(int id);
+        CharacterLoc GetCharacterLoc(int id);
+        CharacterStat GetCharacterStat(int id);
+        CharacterPower GetCharacterPower(int id);
+        CharacterResist GetCharacterResist(int id);
+
+        int UpdateCharacterInfo(CharacterInfo CInfo);
     }
 }

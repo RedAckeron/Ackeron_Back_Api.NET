@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\ICharacterRepo.cs" />
+    <Compile Include="Mapper\CharacterMapper.cs" />
     <Compile Include="Models\CharacterInfo.cs" />
     <Compile Include="Models\CharacterPower.cs" />
     <Compile Include="Models\CharacterResist.cs" />
