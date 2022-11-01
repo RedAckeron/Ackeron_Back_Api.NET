@@ -8,7 +8,7 @@
 	xp int,
 	Pv int,
 	PvMax int,
-	Pe int,
-	PeMax int,
+	Pw int,
+	PwMax int,
 	Gold int
 	)

@@ -247,9 +247,7 @@ namespace DAL.Repositories
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
-                    cmd.CommandText = "UPDATE [dbo].[Character] SET (Name=@Name,Race=@Race,Sexe=@Sexe,Classe=@Classe,CitizenPlanet=@CitizenPlanet,TsIn=@TsIn) WHERE IdChar = @IdChar;";
-
-                    //cmd.CommandText = "Insert into [dbo].[Character] (Name,Race,Sexe,Classe,CitizenPlanet,TsIn)output inserted.Id values(@Name,@Race,@Sexe,@Classe,@CitizenPlanet,@TsIn);";
+                    cmd.CommandText = "UPDATE [dbo].[Character] SET Name='@Name',Race=@Race,Sexe=@Sexe,Classe=@Classe,CitizenPlanet=@CitizenPlanet,TsIn=@TsIn WHERE Id = @IdChar;";
                     cmd.Parameters.AddWithValue("IdChar", CInfo.IdChar);
                     cmd.Parameters.AddWithValue("Name", CInfo.Name);
                     cmd.Parameters.AddWithValue("Race", CInfo.Race);
@@ -258,8 +256,35 @@ namespace DAL.Repositories
                     cmd.Parameters.AddWithValue("CitizenPlanet", CInfo.CitizenPlanet);
                     cmd.Parameters.AddWithValue("TsIn", CInfo.TsIn);
                     cnx.Open();
+                    System.Console.WriteLine(cmd.CommandText);
                     return (int)(cmd.ExecuteNonQuery());
                     cnx.Close();
+                }
+            }
+        }
+     
+        public int UpdateCharacterStat(CharacterStat CStat)
+        {
+            using (SqlConnection cnx = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = cnx.CreateCommand())
+                {
+                    cmd.CommandText = "UPDATE CharacterStat SET TimestampSimul=@TimestampSimul,PtMove=@PtMove,PtMoveMax=@PtMoveMax,Xp=@Xp,Gold=@Gold,Pv=@Pv,PvMax=@PvMax,Pw=@Pw,PwMax=@PwMax where IdChar = @IdChar;";
+                    cmd.Parameters.AddWithValue("IdChar", CStat.IdChar);
+                    cmd.Parameters.AddWithValue("TimestampSimul", CStat.TimestampSimul);
+                    cmd.Parameters.AddWithValue("PtMove", CStat.PtMove);
+                    cmd.Parameters.AddWithValue("PtMoveMax", CStat.PtMoveMax);
+                    cmd.Parameters.AddWithValue("Xp", CStat.Xp);
+                    cmd.Parameters.AddWithValue("Gold", CStat.Gold);
+                    cmd.Parameters.AddWithValue("Pv", CStat.Pv);
+                    cmd.Parameters.AddWithValue("PvMax", CStat.PvMax);
+                    cmd.Parameters.AddWithValue("Pw", CStat.Pw);
+                    cmd.Parameters.AddWithValue("PwMax", CStat.PwMax);
+
+                    cnx.Open();
+                    cmd.ExecuteNonQuery();
+                    cnx.Close();
+                    return 1;
                 }
             }
         }
@@ -280,31 +305,6 @@ namespace DAL.Repositories
                     cnx.Open();
                     return (cmd.ExecuteNonQuery());
                     cnx.Close();
-                }
-            }
-        }
-        public int UpdateCharacterStat(CharacterStat CStat)
-        {
-            using (SqlConnection cnx = new SqlConnection(_connectionString))
-            {
-                using (SqlCommand cmd = cnx.CreateCommand())
-                {
-                    cmd.CommandText = "insert into CharacterStat values(@IdChar,@TimestampSimul,@PtMove,@PtMoveMax,@Xp,@Gold,@Pv,@PvMax,@Pw,@PwMax);";
-                    cmd.Parameters.AddWithValue("IdChar", CStat.IdChar);
-                    cmd.Parameters.AddWithValue("TimestampSimul", CStat.TimestampSimul);
-                    cmd.Parameters.AddWithValue("PtMove", CStat.PtMove);
-                    cmd.Parameters.AddWithValue("PtMoveMax", CStat.PtMoveMax);
-                    cmd.Parameters.AddWithValue("Xp", CStat.Xp);
-                    cmd.Parameters.AddWithValue("Gold", CStat.Gold);
-                    cmd.Parameters.AddWithValue("Pv", CStat.Pv);
-                    cmd.Parameters.AddWithValue("PvMax", CStat.PvMax);
-                    cmd.Parameters.AddWithValue("Pw", CStat.Pw);
-                    cmd.Parameters.AddWithValue("PwMax", CStat.PwMax);
-
-                    cnx.Open();
-                    cmd.ExecuteNonQuery();
-                    cnx.Close();
-                    return 1;
                 }
             }
         }

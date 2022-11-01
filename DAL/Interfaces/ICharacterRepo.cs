@@ -22,5 +22,6 @@ namespace DAL.Interfaces
         CharacterResist GetCharacterResist(int id);
 
         int UpdateCharacterInfo(CharacterInfo CInfo);
+        int UpdateCharacterStat(CharacterStat CStat);
     }
 }

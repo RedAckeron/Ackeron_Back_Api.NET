@@ -88,12 +88,11 @@ namespace BLL.Services
             CharacterResist CRes;
 
             CInfo = mapper.CharacterToCharacterInfo(C);
-            int row_affected= _characterRepo.UpdateCharacterInfo(CInfo);
-            /*
+            int CharInfo= _characterRepo.UpdateCharacterInfo(CInfo);
+            
             CStat = mapper.CharacterToCharacterStat(C);
-            CStat.IdChar = IdChar;
-            _characterRepo.AddCharacterStat(CStat);
-
+            int CharStat = _characterRepo.UpdateCharacterStat(CStat);
+            /*
             CLoc = mapper.CharacterToCharacterLoc(C);
             CLoc.IdChar = IdChar;
             _characterRepo.AddCharacterLoc(CLoc);
@@ -106,7 +105,7 @@ namespace BLL.Services
             CRes.IdChar = IdChar;
             _characterRepo.AddCharacterResist(CRes);
             */
-            return row_affected;
+            return CharInfo+CharStat;
 
         }
     }
