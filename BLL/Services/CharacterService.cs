@@ -3,6 +3,7 @@ using BLL.Mapper;
 using BLL.Models;
 using DAL.Interfaces;
 using DAL.Models;
+using System;
 using System.Data;
 using System.Data.Common;
 
@@ -79,7 +80,6 @@ namespace BLL.Services
         }
         public int UpdateCharacter(Character C)
         {
-
             CharacterMapper mapper = new();
             CharacterInfo CInfo;
             CharacterStat CStat;
@@ -89,25 +89,24 @@ namespace BLL.Services
 
             CInfo = mapper.CharacterToCharacterInfo(C);
             int row_affected= _characterRepo.UpdateCharacterInfo(CInfo);
-            /*
-            CStat = mapper.CharacterToCharacterStat(C);
-            CStat.IdChar = IdChar;
-            _characterRepo.AddCharacterStat(CStat);
-
+            
             CLoc = mapper.CharacterToCharacterLoc(C);
-            CLoc.IdChar = IdChar;
-            _characterRepo.AddCharacterLoc(CLoc);
+            CLoc.IdChar = C.Id;
+            _characterRepo.UpdateCharacterLoc(CLoc);
+
+            CStat = mapper.CharacterToCharacterStat(C);
+            CStat.IdChar = C.Id;
+            _characterRepo.UpdateCharacterStat(CStat);
 
             CPow = mapper.CharacterToCharacterPower(C);
-            CPow.IdChar = IdChar;
-            _characterRepo.AddCharacterPower(CPow);
+            CPow.IdChar = C.Id;
+            _characterRepo.UpdateCharacterPower(CPow);
 
             CRes = mapper.CharacterToCharacterResist(C);
-            CRes.IdChar = IdChar;
-            _characterRepo.AddCharacterResist(CRes);
-            */
+            CRes.IdChar = C.Id;
+            _characterRepo.UpdateCharacterResist(CRes);
+            
             return row_affected;
-
         }
     }
 }

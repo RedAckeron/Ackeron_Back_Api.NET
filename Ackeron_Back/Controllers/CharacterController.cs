@@ -7,7 +7,7 @@ using System.ComponentModel;
 namespace Ackeron_Back.Controllers
 {
 
-    [Route("ackeron/[controller]")]
+    [Route("ackeron/character/[controller]")]
     [ApiController]
     public class CharacterController : ControllerBase
     {
@@ -19,25 +19,25 @@ namespace Ackeron_Back.Controllers
         }
 
         
-        [HttpGet]
+        [HttpGet("/GetAll")]
         public IActionResult GetAll()
         {
             return null;
         }
         
 
-        [HttpGet("{id}")]
+        [HttpGet("/GetOne/{id}")]
         public IActionResult GetById(int id)
         {
         return Ok(_characterService.GetOneCharacter(id));
         }
         
-        [HttpPost]
+        [HttpPost("/Add")]
         public IActionResult AddCharacter(Character c)
         {
             return Ok(_characterService.AddCharacter(c));
         }
-        [HttpPut]
+        [HttpPut("/Update")]
         public IActionResult UpdateCharacter(Character c)
         {
             return Ok(_characterService.UpdateCharacter(c));

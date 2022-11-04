@@ -2,6 +2,7 @@
 using DAL.Mapper;
 using DAL.Models;
 using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -12,14 +13,12 @@ namespace DAL.Repositories
     {
         private string _connectionString;
         private readonly IDbConnection _connection;
-
         public CharacterRepo(IConfiguration config, IDbConnection connection)
         {
             _connectionString = config.GetConnectionString("default");
             //_connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Ackeron;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             //_connection = connection;
         }
-
         public int AddCharacterInfo(CharacterInfo CInfo)
         {
         using (SqlConnection cnx = new SqlConnection(_connectionString))
@@ -240,16 +239,13 @@ namespace DAL.Repositories
             return null;
         }
 
-
         public int UpdateCharacterInfo(CharacterInfo CInfo)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
-                    cmd.CommandText = "UPDATE [dbo].[Character] SET (Name=@Name,Race=@Race,Sexe=@Sexe,Classe=@Classe,CitizenPlanet=@CitizenPlanet,TsIn=@TsIn) WHERE IdChar = @IdChar;";
-
-                    //cmd.CommandText = "Insert into [dbo].[Character] (Name,Race,Sexe,Classe,CitizenPlanet,TsIn)output inserted.Id values(@Name,@Race,@Sexe,@Classe,@CitizenPlanet,@TsIn);";
+                    cmd.CommandText = "UPDATE [dbo].[Character] SET Name=@Name,Race=@Race,Sexe=@Sexe,Classe=@Classe,CitizenPlanet=@CitizenPlanet,TsIn=@TsIn WHERE Id = @IdChar;";
                     cmd.Parameters.AddWithValue("IdChar", CInfo.IdChar);
                     cmd.Parameters.AddWithValue("Name", CInfo.Name);
                     cmd.Parameters.AddWithValue("Race", CInfo.Race);
@@ -269,7 +265,7 @@ namespace DAL.Repositories
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
-                    cmd.CommandText = "insert into CharacterLoc(IdChar,LocU,LocS,LocP,LocA,LocA_X,LocA_Y)values(@IdChar,@LocU,@LocS,@LocP,@LocU,@LocA_X,@LocA_Y);";
+                    cmd.CommandText = "UPDATE CharacterLoc SET LocU=@LocU,LocS=@LocS,LocP=@LocP,LocA=@LocA,LocA_X=@LocA_X,LocA_Y=@LocA_Y WHERE IdChar=@IdChar;";
                     cmd.Parameters.AddWithValue("IdChar", CLoc.IdChar);
                     cmd.Parameters.AddWithValue("LocU", CLoc.LocU);
                     cmd.Parameters.AddWithValue("LocS", CLoc.LocS);
@@ -278,7 +274,7 @@ namespace DAL.Repositories
                     cmd.Parameters.AddWithValue("LocA_X", CLoc.LocA_X);
                     cmd.Parameters.AddWithValue("LocA_Y", CLoc.LocA_Y);
                     cnx.Open();
-                    return (cmd.ExecuteNonQuery());
+                    return (int)(cmd.ExecuteNonQuery());
                     cnx.Close();
                 }
             }
@@ -289,7 +285,7 @@ namespace DAL.Repositories
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
-                    cmd.CommandText = "insert into CharacterStat values(@IdChar,@TimestampSimul,@PtMove,@PtMoveMax,@Xp,@Gold,@Pv,@PvMax,@Pw,@PwMax);";
+                    cmd.CommandText = "UPDATE CharacterStat SET @TimestampSimul,@PtMove,@PtMoveMax,@Xp,@Gold,@Pv,@PvMax,@Pw,@PwMax WHERE IdChar=@IdChar;";
                     cmd.Parameters.AddWithValue("IdChar", CStat.IdChar);
                     cmd.Parameters.AddWithValue("TimestampSimul", CStat.TimestampSimul);
                     cmd.Parameters.AddWithValue("PtMove", CStat.PtMove);
@@ -314,7 +310,7 @@ namespace DAL.Repositories
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
-                    cmd.CommandText = "insert into CharacterPower values(@IdChar,@Eau,@Feu,@Air,@Terre,@Lumiere,@Tenebre,@Tranchant,@Ecrasant,@Percant,@Poison);";
+                    cmd.CommandText = "UPDATE CharacterPower SET Eau=@Eau,Feu=@Feu,Air=@Air,Terre=@Terre,Lumiere=@Lumiere,tenebre=@Tenebre,Tranchant=@Tranchant,Ecrasant=@Ecrasant,Percant=@Percant,Poison=@Poison WHERE IdChar=@IdChar;";
                     cmd.Parameters.AddWithValue("IdChar", CPow.IdChar);
                     cmd.Parameters.AddWithValue("Eau", CPow.Eau);
                     cmd.Parameters.AddWithValue("Feu", CPow.Feu);
@@ -339,7 +335,7 @@ namespace DAL.Repositories
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
-                    cmd.CommandText = "insert into CharacterResist values(@IdChar,@Eau,@Feu,@Air,@Terre,@Lumiere,@Tenebre,@Tranchant,@Ecrasant,@Percant,@Poison);";
+                    cmd.CommandText = "UPDATE CharacterResist SET Eau=@Eau,Feu=@Feu,Air=@Air,Terre=@Terre,Lumiere=@Lumiere,tenebre=@Tenebre,Tranchant=@Tranchant,Ecrasant=@Ecrasant,Percant=@Percant,Poison=@Poison WHERE IdChar=@IdChar;";
                     cmd.Parameters.AddWithValue("IdChar", CRes.IdChar);
                     cmd.Parameters.AddWithValue("Eau", CRes.Eau);
                     cmd.Parameters.AddWithValue("Feu", CRes.Feu);
@@ -358,8 +354,6 @@ namespace DAL.Repositories
                 }
             }
         }
-
-
 
     }
 }
