@@ -59,11 +59,15 @@
     <Folder Include="Tables" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Tables\character.sql" />
+    <Build Include="Tables\Character.sql" />
     <Build Include="Tables\CharacterLoc.sql" />
     <Build Include="Tables\CharacterStat.sql" />
     <Build Include="Tables\CharacterResist.sql" />
     <Build Include="Tables\CharacterPower.sql" />
+    <Build Include="Tables\Item.sql" />
+    <Build Include="Tables\CharacterItem.sql" />
+    <Build Include="Tables\Spell.sql" />
+    <Build Include="Tables\CharacterSpell.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Database.publish.xml" />

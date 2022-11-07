@@ -26,28 +26,29 @@ namespace BLL.Services
         {
             //on creez l objet
             Character C = new Character();
-
             //on recupere les dataset
             CharacterInfo datacharinfo = new();
             CharacterLoc datacharloc = new();
             CharacterStat datacharstat = new();
             CharacterPower datacharpow = new();
             CharacterResist datacharres = new();
+            List<Item>inventory = new List<Item>();
             datacharinfo = _characterRepo.GetCharacterInfo(id);
             datacharloc = _characterRepo.GetCharacterLoc(id);
             datacharstat = _characterRepo.GetCharacterStat(id);
             datacharpow = _characterRepo.GetCharacterPower(id);
             datacharres = _characterRepo.GetCharacterResist(id);
+           
             //on rempli l objet char avec ses sous objets
             C.Info = datacharinfo;
             C.Loc = datacharloc;
             C.Stat = datacharstat;
             C.Power = datacharpow;
             C.Resist = datacharres;
+            C.Inventory = _characterRepo.GetCharacterInventory(id);
 
             return C;
         }
-        
         public int AddCharacter(Character C)
         {
         CharacterMapper mapper = new();
@@ -78,7 +79,7 @@ namespace BLL.Services
         
         return IdChar;
         }
-        public int UpdateCharacter(Character C)
+        public bool UpdateCharacter(Character C)
         {
             CharacterMapper mapper = new();
             CharacterInfo CInfo;
@@ -88,25 +89,25 @@ namespace BLL.Services
             CharacterResist CRes;
 
             CInfo = mapper.CharacterToCharacterInfo(C);
-            int row_affected= _characterRepo.UpdateCharacterInfo(CInfo);
+            bool info =(_characterRepo.UpdateCharacterInfo(CInfo)==1);
             
             CLoc = mapper.CharacterToCharacterLoc(C);
             CLoc.IdChar = C.Id;
-            _characterRepo.UpdateCharacterLoc(CLoc);
+            bool loc = (_characterRepo.UpdateCharacterLoc(CLoc)==1);
 
             CStat = mapper.CharacterToCharacterStat(C);
             CStat.IdChar = C.Id;
-            _characterRepo.UpdateCharacterStat(CStat);
+            bool stat = (_characterRepo.UpdateCharacterStat(CStat)==1);
 
             CPow = mapper.CharacterToCharacterPower(C);
             CPow.IdChar = C.Id;
-            _characterRepo.UpdateCharacterPower(CPow);
+            bool power = (_characterRepo.UpdateCharacterPower(CPow)==1);
 
             CRes = mapper.CharacterToCharacterResist(C);
             CRes.IdChar = C.Id;
-            _characterRepo.UpdateCharacterResist(CRes);
+            bool resist = (_characterRepo.UpdateCharacterResist(CRes)==1);
             
-            return row_affected;
+            return (info || loc || stat || power ||resist);
         }
     }
 }

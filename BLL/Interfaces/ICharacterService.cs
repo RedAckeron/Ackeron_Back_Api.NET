@@ -13,6 +13,6 @@ namespace BLL.Interfaces
     //public Character GetCharacter(int id);
     int AddCharacter(Character c);
     Character GetOneCharacter(int id);
-    int UpdateCharacter(Character c);
+    bool UpdateCharacter(Character c);
     }
 }

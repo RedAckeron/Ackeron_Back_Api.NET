@@ -18,13 +18,13 @@ namespace Ackeron_Back.Controllers
             _characterService = characterService;
         }
 
-        
+        /*
         [HttpGet("/GetAll")]
         public IActionResult GetAll()
         {
             return null;
         }
-        
+        */
 
         [HttpGet("/GetOne/{id}")]
         public IActionResult GetById(int id)
@@ -37,7 +37,7 @@ namespace Ackeron_Back.Controllers
         {
             return Ok(_characterService.AddCharacter(c));
         }
-        [HttpPut("/Update")]
+        [HttpPut("/Update/{id}")]
         public IActionResult UpdateCharacter(Character c)
         {
             return Ok(_characterService.UpdateCharacter(c));

@@ -1,9 +1,11 @@
-﻿using DAL.Interfaces;
+﻿using BLL.Models;
+using DAL.Interfaces;
 using DAL.Mapper;
 using DAL.Models;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 namespace DAL.Repositories
@@ -238,6 +240,41 @@ namespace DAL.Repositories
             }
             return null;
         }
+        public List<Item> GetCharacterInventory(int id)
+        {
+
+            
+
+            List <Item> Inventory = new List<Item>();
+
+           // CharacterMapper mapper = new CharacterMapper();
+            using (SqlConnection cnx = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = cnx.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM CharacterItem where idChar = @IdChar";
+                    cmd.Parameters.AddWithValue("IdChar", id);
+
+                    cnx.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Item item = new Item();
+                            item.IdItem = (int)reader["IdItem"];
+                            item.Qt = (int)reader["Qt"];
+
+                            Inventory.Add(item);
+                        }
+                        return Inventory;
+                    }
+                }
+            }
+        }
+
+
+
+
 
         public int UpdateCharacterInfo(CharacterInfo CInfo)
         {
@@ -254,7 +291,7 @@ namespace DAL.Repositories
                     cmd.Parameters.AddWithValue("CitizenPlanet", CInfo.CitizenPlanet);
                     cmd.Parameters.AddWithValue("TsIn", CInfo.TsIn);
                     cnx.Open();
-                    return (int)(cmd.ExecuteNonQuery());
+                    return (cmd.ExecuteNonQuery());
                     cnx.Close();
                 }
             }
@@ -274,7 +311,7 @@ namespace DAL.Repositories
                     cmd.Parameters.AddWithValue("LocA_X", CLoc.LocA_X);
                     cmd.Parameters.AddWithValue("LocA_Y", CLoc.LocA_Y);
                     cnx.Open();
-                    return (int)(cmd.ExecuteNonQuery());
+                    return (cmd.ExecuteNonQuery());
                     cnx.Close();
                 }
             }
@@ -285,7 +322,7 @@ namespace DAL.Repositories
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
-                    cmd.CommandText = "UPDATE CharacterStat SET @TimestampSimul,@PtMove,@PtMoveMax,@Xp,@Gold,@Pv,@PvMax,@Pw,@PwMax WHERE IdChar=@IdChar;";
+                    cmd.CommandText = "UPDATE CharacterStat SET TimestampSimul=@TimestampSimul,PtMove=@PtMove,PtMoveMax=@PtMoveMax,Xp=@Xp,Gold=@Gold,Pv=@Pv,PvMax=@PvMax,Pw=@Pw,PwMax=@PwMax WHERE IdChar=@IdChar;";
                     cmd.Parameters.AddWithValue("IdChar", CStat.IdChar);
                     cmd.Parameters.AddWithValue("TimestampSimul", CStat.TimestampSimul);
                     cmd.Parameters.AddWithValue("PtMove", CStat.PtMove);
@@ -298,9 +335,8 @@ namespace DAL.Repositories
                     cmd.Parameters.AddWithValue("PwMax", CStat.PwMax);
 
                     cnx.Open();
-                    cmd.ExecuteNonQuery();
+                    return cmd.ExecuteNonQuery();
                     cnx.Close();
-                    return 1;
                 }
             }
         }
@@ -323,9 +359,9 @@ namespace DAL.Repositories
                     cmd.Parameters.AddWithValue("Percant", CPow.Percant);
                     cmd.Parameters.AddWithValue("Poison", CPow.Poison);
                     cnx.Open();
-                    cmd.ExecuteNonQuery();
+                    return cmd.ExecuteNonQuery();
                     cnx.Close();
-                    return 1;
+                    
                 }
             }
         }
@@ -354,6 +390,5 @@ namespace DAL.Repositories
                 }
             }
         }
-
     }
 }
