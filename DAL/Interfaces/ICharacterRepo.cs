@@ -22,6 +22,7 @@ namespace DAL.Interfaces
         CharacterPower GetCharacterPower(int id);
         CharacterResist GetCharacterResist(int id);
         List<Item> GetCharacterInventory(int id);
+        List<Spell> GetCharacterSpell(int id);
 
         int UpdateCharacterInfo(CharacterInfo CInfo);
         int UpdateCharacterLoc(CharacterLoc CLoc);

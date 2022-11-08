@@ -33,6 +33,7 @@ namespace BLL.Services
             CharacterPower datacharpow = new();
             CharacterResist datacharres = new();
             List<Item>inventory = new List<Item>();
+            List<Spell> spellbook = new List<Spell>();
             datacharinfo = _characterRepo.GetCharacterInfo(id);
             datacharloc = _characterRepo.GetCharacterLoc(id);
             datacharstat = _characterRepo.GetCharacterStat(id);
@@ -46,7 +47,7 @@ namespace BLL.Services
             C.Power = datacharpow;
             C.Resist = datacharres;
             C.Inventory = _characterRepo.GetCharacterInventory(id);
-
+            C.SpellBook= _characterRepo.GetCharacterSpell(id);
             return C;
         }
         public int AddCharacter(Character C)

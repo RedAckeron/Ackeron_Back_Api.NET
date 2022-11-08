@@ -7,7 +7,7 @@
 	IdSpell int,
 		CONSTRAINT FK_CharacterSpell_IdSpell FOREIGN KEY (IdSpell)
         REFERENCES Spell (Id),
-	Qt int,
+	
 	
 
 )

@@ -16,6 +16,6 @@ namespace BLL.Models
         public CharacterPower Power { get; set; }
         public CharacterResist Resist { get; set; }
         public List<Item> Inventory { get; set; }
-        IEnumerable<Spell>Spellbook { get; set; }
+        public List<Spell> SpellBook{ get; set; }
     }
 }

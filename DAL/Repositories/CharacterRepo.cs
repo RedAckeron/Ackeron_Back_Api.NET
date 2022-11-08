@@ -192,7 +192,6 @@ namespace DAL.Repositories
                         {
                             return mapper.CharacterLocMapper(reader);
                         }
-
                     }
                 }
             }
@@ -242,12 +241,8 @@ namespace DAL.Repositories
         }
         public List<Item> GetCharacterInventory(int id)
         {
-
-            
-
             List <Item> Inventory = new List<Item>();
-
-           // CharacterMapper mapper = new CharacterMapper();
+            // CharacterMapper mapper = new CharacterMapper();
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
@@ -271,11 +266,30 @@ namespace DAL.Repositories
                 }
             }
         }
+        public List<Spell> GetCharacterSpell(int id)
+        {
+            List<Spell> Spellbook = new List<Spell>();
+            using (SqlConnection cnx = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = cnx.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM CharacterSpell where idChar = @IdChar";
+                    cmd.Parameters.AddWithValue("IdChar", id);
 
-
-
-
-
+                    cnx.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Spell spell = new Spell();
+                            spell.IdSpell = (int)reader["IdSpell"];
+                            Spellbook.Add(spell);
+                        }
+                        return Spellbook;
+                    }
+                }
+            }
+        }
         public int UpdateCharacterInfo(CharacterInfo CInfo)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
