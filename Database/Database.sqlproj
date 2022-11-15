@@ -68,6 +68,10 @@
     <Build Include="Tables\CharacterItem.sql" />
     <Build Include="Tables\Spell.sql" />
     <Build Include="Tables\CharacterSpell.sql" />
+    <Build Include="Tables\Quest.sql" />
+    <Build Include="Tables\CharacterQuest.sql" />
+    <Build Include="Tables\QuestStep.sql" />
+    <Build Include="Tables\QuestStepLoot.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Database.publish.xml" />

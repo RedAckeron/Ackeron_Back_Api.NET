@@ -19,3 +19,14 @@ insert into CharacterSpell values(1,1);
 insert into CharacterSpell values(1,2);
 insert into CharacterSpell values(1,3);
 insert into CharacterSpell values(1,4);
+
+
+insert into Quest values('L eveil des Nagmas','Introduction a la quest des Nagmas',0);
+
+insert into QuestStep values(1,'Le reveil d Ackeron','Dans le teritoire des nagmas , un volcan se reveil se qui provoque l emergence du Ki chez de plus en plus d habitant',0);
+insert into QuestStep values(1,'La colere d Ackeron','Les Nagmien meurent en masse , et visiblement les survivants recupere les Ki des victimes se qui les rend plus fort',0);
+
+insert into QuestStepLoot values(1,1,1,10);
+insert into QuestStepLoot values(1,2,1,20);
+
+insert into CharacterQuest values(1,1,1,0);

@@ -32,14 +32,16 @@ namespace BLL.Services
             CharacterStat datacharstat = new();
             CharacterPower datacharpow = new();
             CharacterResist datacharres = new();
-            List<Item>inventory = new List<Item>();
-            List<Spell> spellbook = new List<Spell>();
+            //List<Item>inventory = new List<Item>();
+            //List<Spell>spellbook = new List<Spell>();
+            //List<Quest>questbook= new List<Quest>();
+
             datacharinfo = _characterRepo.GetCharacterInfo(id);
             datacharloc = _characterRepo.GetCharacterLoc(id);
             datacharstat = _characterRepo.GetCharacterStat(id);
             datacharpow = _characterRepo.GetCharacterPower(id);
             datacharres = _characterRepo.GetCharacterResist(id);
-           
+        
             //on rempli l objet char avec ses sous objets
             C.Info = datacharinfo;
             C.Loc = datacharloc;
@@ -48,6 +50,7 @@ namespace BLL.Services
             C.Resist = datacharres;
             C.Inventory = _characterRepo.GetCharacterInventory(id);
             C.SpellBook= _characterRepo.GetCharacterSpell(id);
+            C.QuestBook = _characterRepo.GetCharacterQuest(id);
             return C;
         }
         public int AddCharacter(Character C)

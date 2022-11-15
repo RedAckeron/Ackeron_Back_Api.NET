@@ -17,5 +17,6 @@ namespace BLL.Models
         public CharacterResist Resist { get; set; }
         public List<Item> Inventory { get; set; }
         public List<Spell> SpellBook{ get; set; }
+        public List<Quest>QuestBook{ get; set; }
     }
 }

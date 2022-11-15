@@ -290,6 +290,32 @@ namespace DAL.Repositories
                 }
             }
         }
+        public List<Quest> GetCharacterQuest(int id)
+        {
+            List<Quest> Questbook = new List<Quest>();
+            using (SqlConnection cnx = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = cnx.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM CharacterQuest where idChar = @IdChar";
+                    cmd.Parameters.AddWithValue("IdChar", id);
+
+                    cnx.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Quest quest = new Quest();
+                            quest.IdQuest = (int)reader["IdQuest"];
+                            quest.Step = (int)reader["IdStep"];
+                            quest.Validate = (bool)reader["Validate"];
+                            Questbook.Add(quest);
+                        }
+                        return Questbook;
+                    }
+                }
+            }
+        }
         public int UpdateCharacterInfo(CharacterInfo CInfo)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
