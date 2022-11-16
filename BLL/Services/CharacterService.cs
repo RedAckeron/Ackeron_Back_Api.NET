@@ -51,37 +51,41 @@ namespace BLL.Services
             C.Inventory = _characterRepo.GetCharacterInventory(id);
             C.SpellBook= _characterRepo.GetCharacterSpell(id);
             C.QuestBook = _characterRepo.GetCharacterQuest(id);
+            foreach (Quest q in C.QuestBook)
+            {
+                Console.WriteLine("Quest : "+q.Name);
+            }
             return C;
         }
         public int AddCharacter(Character C)
         {
-        CharacterMapper mapper = new();
-        CharacterInfo CInfo;
-        CharacterStat CStat;
-        CharacterLoc CLoc;
-        CharacterPower CPow;
-        CharacterResist CRes;
+            CharacterMapper mapper = new();
+            CharacterInfo CInfo;
+            CharacterStat CStat;
+            CharacterLoc CLoc;
+            CharacterPower CPow;
+            CharacterResist CRes;
         
-        CInfo=mapper.CharacterToCharacterInfo(C);
-        int IdChar = _characterRepo.AddCharacterInfo(CInfo);
+            CInfo=mapper.CharacterToCharacterInfo(C);
+            int IdChar = _characterRepo.AddCharacterInfo(CInfo);
         
-        CStat = mapper.CharacterToCharacterStat(C);
-        CStat.IdChar = IdChar;
-        _characterRepo.AddCharacterStat(CStat);
+            CStat = mapper.CharacterToCharacterStat(C);
+            CStat.IdChar = IdChar;
+            _characterRepo.AddCharacterStat(CStat);
            
-        CLoc = mapper.CharacterToCharacterLoc(C);
-        CLoc.IdChar = IdChar;
-        _characterRepo.AddCharacterLoc(CLoc);
+            CLoc = mapper.CharacterToCharacterLoc(C);
+            CLoc.IdChar = IdChar;
+            _characterRepo.AddCharacterLoc(CLoc);
         
-        CPow=mapper.CharacterToCharacterPower(C);
-        CPow.IdChar = IdChar;
-        _characterRepo.AddCharacterPower(CPow);
+            CPow=mapper.CharacterToCharacterPower(C);
+            CPow.IdChar = IdChar;
+            _characterRepo.AddCharacterPower(CPow);
         
-        CRes=mapper.CharacterToCharacterResist(C);
-        CRes.IdChar = IdChar;
-        _characterRepo.AddCharacterResist(CRes);
+            CRes=mapper.CharacterToCharacterResist(C);
+            CRes.IdChar = IdChar;
+            _characterRepo.AddCharacterResist(CRes);
         
-        return IdChar;
+            return IdChar;
         }
         public bool UpdateCharacter(Character C)
         {

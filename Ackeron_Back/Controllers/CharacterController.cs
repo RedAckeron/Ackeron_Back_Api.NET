@@ -29,7 +29,7 @@ namespace Ackeron_Back.Controllers
         [HttpGet("/GetOne/{id}")]
         public IActionResult GetById(int id)
         {
-        return Ok(_characterService.GetOneCharacter(id));
+            return Ok(_characterService.GetOneCharacter(id));
         }
         
         [HttpPost("/Add")]

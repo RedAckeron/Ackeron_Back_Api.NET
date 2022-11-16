@@ -10,8 +10,8 @@ namespace DAL.Models
     {
         public int IdQuest;
         public string Name;
-        public int Step;
-        public string info;
+        public string Description;
         public bool Validate;
+        public List<Step> StepBook { get; set; }
     }
 }

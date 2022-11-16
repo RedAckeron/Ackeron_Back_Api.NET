@@ -8,13 +8,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Reflection;
+
 namespace DAL.Repositories
 
 {
     public class CharacterRepo:ICharacterRepo
     {
         private string _connectionString;
-        private readonly IDbConnection _connection;
+        //private readonly IDbConnection _connection;
         public CharacterRepo(IConfiguration config, IDbConnection connection)
         {
             _connectionString = config.GetConnectionString("default");
@@ -257,7 +259,7 @@ namespace DAL.Repositories
                         {
                             Item item = new Item();
                             item.IdItem = (int)reader["IdItem"];
-                            item.Qt = (int)reader["Qt"];
+                            //item.Qt = (int)reader["Qt"];
 
                             Inventory.Add(item);
                         }
@@ -298,6 +300,7 @@ namespace DAL.Repositories
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM CharacterQuest where idChar = @IdChar";
+                    //cmd.CommandText = "SELECT * FROM CharacterQuest as CQ INNER JOIN Quest as Q ON CQ.IdQuest = Q.id where CQ.IdChar = @IdChar;";
                     cmd.Parameters.AddWithValue("IdChar", id);
 
                     cnx.Open();
@@ -307,15 +310,17 @@ namespace DAL.Repositories
                         {
                             Quest quest = new Quest();
                             quest.IdQuest = (int)reader["IdQuest"];
-                            quest.Step = (int)reader["IdStep"];
+                            //quest.Step = (int)reader["IdStep"];
                             quest.Validate = (bool)reader["Validate"];
                             Questbook.Add(quest);
+                            Console.WriteLine("****"+quest.Name);
                         }
                         return Questbook;
                     }
                 }
             }
         }
+        
         public int UpdateCharacterInfo(CharacterInfo CInfo)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))

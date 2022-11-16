@@ -20,6 +20,9 @@ builder.Services.AddTransient<IDbConnection>(service =>
 
 builder.Services.AddScoped<ICharacterService, CharacterService>();
 builder.Services.AddScoped<ICharacterRepo, CharacterRepo>();
+builder.Services.AddScoped<IItemService,ItemService>();
+builder.Services.AddScoped<IItemRepo, ItemRepo>();
+
 
 
 var app = builder.Build();

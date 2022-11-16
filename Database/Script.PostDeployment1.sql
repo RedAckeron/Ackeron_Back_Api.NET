@@ -4,8 +4,8 @@ insert into CharacterStat values(1,1,5,20,0,80,100,30,50,0);
 insert into CharacterPower values(1,10,10,10,10,10,10,10,10,10,10);
 insert into CharacterResist values(1,10,10,10,10,10,10,10,10,10,10);
 
-insert into Item values('Kredit','[Kr] - La monnaie du royaume',10);
-insert into Item values('Potion de vie mineur','Petit poition de vie qui rend 10 Pv',10);
+insert into Item values('Kredit','[Kr] - La monnaie du royaume',1,1,99,10,'img','yellow',1,1,60,600,'no','no');
+insert into Item values('Potion de vie mineur','Petit poition de vie qui rend 10 Pv',1,1,99,10,'img','yellow',1,1,60,600,'no','no');
 
 insert into Spell values('Boule de feu Mineur','Envoi une boule de feu qui vas tout bruler dans un rayon de 1 case',10);
 insert into Spell values('Boule de feu Majeur','Envoi une boule de feu qui vas tout bruler dans un rayon de 3 cases',30);
