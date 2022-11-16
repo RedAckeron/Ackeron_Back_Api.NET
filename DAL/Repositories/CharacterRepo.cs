@@ -299,8 +299,8 @@ namespace DAL.Repositories
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
-                    cmd.CommandText = "SELECT * FROM CharacterQuest where idChar = @IdChar";
-                    //cmd.CommandText = "SELECT * FROM CharacterQuest as CQ INNER JOIN Quest as Q ON CQ.IdQuest = Q.id where CQ.IdChar = @IdChar;";
+                    //cmd.CommandText = "SELECT * FROM CharacterQuest where idChar = @IdChar";
+                    cmd.CommandText = "SELECT * FROM CharacterQuest as CQ INNER JOIN Quest as Q ON CQ.IdQuest = Q.id where CQ.IdChar = @IdChar;";
                     cmd.Parameters.AddWithValue("IdChar", id);
 
                     cnx.Open();
@@ -309,11 +309,11 @@ namespace DAL.Repositories
                         while (reader.Read())
                         {
                             Quest quest = new Quest();
+                            
                             quest.IdQuest = (int)reader["IdQuest"];
-                            //quest.Step = (int)reader["IdStep"];
+                            quest.Name = (string)reader["Name"];
                             quest.Validate = (bool)reader["Validate"];
                             Questbook.Add(quest);
-                            Console.WriteLine("****"+quest.Name);
                         }
                         return Questbook;
                     }

@@ -49,12 +49,8 @@ namespace BLL.Services
             C.Power = datacharpow;
             C.Resist = datacharres;
             C.Inventory = _characterRepo.GetCharacterInventory(id);
-            C.SpellBook= _characterRepo.GetCharacterSpell(id);
+            C.SpellBook = _characterRepo.GetCharacterSpell(id);
             C.QuestBook = _characterRepo.GetCharacterQuest(id);
-            foreach (Quest q in C.QuestBook)
-            {
-                Console.WriteLine("Quest : "+q.Name);
-            }
             return C;
         }
         public int AddCharacter(Character C)
