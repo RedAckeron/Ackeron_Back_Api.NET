@@ -22,6 +22,19 @@ namespace BLL.Services
             throw new NotImplementedException();
         }
         */
+        public CharacterLoc GetCharacterLoc(int id)
+        {
+            CharacterLoc datacharloc = new();
+            datacharloc = _characterRepo.GetCharacterLoc(id);
+            return datacharloc;
+        }
+        public bool UpdateCharacterLoc(CharacterLoc CLoc)
+        {
+           // CharacterMapper mapper = new();
+            //CLoc = mapper.CharacterToCharacterLoc(CLoc);
+            bool loc = (_characterRepo.UpdateCharacterLoc(CLoc) == 1);
+            return loc; 
+        }
         public Character GetOneCharacter(int id)
         {
             //on creez l objet

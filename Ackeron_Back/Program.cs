@@ -5,7 +5,7 @@ using DAL.Repositories;
 using System.Data;
 using System.Data.SqlClient;
 var builder = WebApplication.CreateBuilder(args);
-
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -17,7 +17,15 @@ builder.Services.AddTransient<IDbConnection>(service =>
     return new SqlConnection(builder.Configuration["default"]);
 });
 
-
+builder.Services.AddCors(options =>{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+        policy =>
+        {
+            policy.AllowAnyHeader();
+            policy.AllowAnyMethod();
+            policy.WithOrigins("https://localhost:4200", "http://localhost:4200");
+        });
+});
 builder.Services.AddScoped<ICharacterService, CharacterService>();
 builder.Services.AddScoped<ICharacterRepo, CharacterRepo>();
 builder.Services.AddScoped<IItemService,ItemService>();
@@ -39,5 +47,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.UseCors(MyAllowSpecificOrigins);
 app.Run();

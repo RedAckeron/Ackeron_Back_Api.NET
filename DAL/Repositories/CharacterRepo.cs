@@ -38,7 +38,7 @@ namespace DAL.Repositories
                 cmd.Parameters.AddWithValue("TsIn", CInfo.TsIn);
                 cnx.Open();
                 return (int)(cmd.ExecuteScalar());
-                cnx.Close(); 
+                //cnx.Close(); 
             }
         }
     }
@@ -58,7 +58,7 @@ namespace DAL.Repositories
                     cmd.Parameters.AddWithValue("LocA_Y", CLoc.LocA_Y);
                     cnx.Open();
                     return (cmd.ExecuteNonQuery());
-                    cnx.Close();
+                    //cnx.Close();
                 }
             }
         }
@@ -337,7 +337,7 @@ namespace DAL.Repositories
                     cmd.Parameters.AddWithValue("TsIn", CInfo.TsIn);
                     cnx.Open();
                     return (cmd.ExecuteNonQuery());
-                    cnx.Close();
+                    //cnx.Close();
                 }
             }
         }
@@ -357,7 +357,7 @@ namespace DAL.Repositories
                     cmd.Parameters.AddWithValue("LocA_Y", CLoc.LocA_Y);
                     cnx.Open();
                     return (cmd.ExecuteNonQuery());
-                    cnx.Close();
+                    //cnx.Close();
                 }
             }
         }
@@ -381,7 +381,7 @@ namespace DAL.Repositories
 
                     cnx.Open();
                     return cmd.ExecuteNonQuery();
-                    cnx.Close();
+                    //cnx.Close();
                 }
             }
         }
@@ -405,7 +405,7 @@ namespace DAL.Repositories
                     cmd.Parameters.AddWithValue("Poison", CPow.Poison);
                     cnx.Open();
                     return cmd.ExecuteNonQuery();
-                    cnx.Close();
+                    //cnx.Close();
                     
                 }
             }

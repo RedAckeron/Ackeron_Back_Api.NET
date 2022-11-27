@@ -1,4 +1,4 @@
-﻿insert into [Character] values('Link',0,0,0,0,1666362817);
+﻿insert into [Character] values('Admin',0,0,0,0,1666362817);
 insert into CharacterLoc(IdChar,LocU,LocS,LocP,LocA,LocA_X,LocA_Y)values(1,1,1,1,1,10,15);
 insert into CharacterStat values(1,1,5,20,0,80,100,30,50,0);
 insert into CharacterPower values(1,10,10,10,10,10,10,10,10,10,10);
@@ -30,3 +30,15 @@ insert into QuestStepLoot values(1,1,1,10);
 insert into QuestStepLoot values(1,2,1,20);
 
 insert into CharacterQuest values(1,1,1,0);
+
+insert into MapLocUnivers(name,Owner)values('Arkhe',1);
+
+insert into MapLocSolar(LocU,name,Owner)values(1,'Inferno',1);
+insert into MapLocSolar(LocU,name,Owner)values(1,'Alpha',1);
+insert into MapLocSolar(LocU,name,Owner)values(1,'Anthares',1);
+
+insert into MapLocPlanet(name,LocU,LocS,LocX,LocY)values('Nagma Pyrgos',1,1,10,10);
+insert into MapLocPlanet(name,LocU,LocS,LocX,LocY)values('Meka Tackyon',1,2,10,10);
+insert into MapLocPlanet(name,LocU,LocS,LocX,LocY)values('Hangus Omega',1,3,10,10);
+
+

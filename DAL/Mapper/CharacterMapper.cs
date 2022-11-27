@@ -40,14 +40,16 @@ namespace DAL.Mapper
         public CharacterLoc CharacterLocMapper(IDataReader reader)
         {
             CharacterLoc CLoc = new CharacterLoc();
-            //CLoc.IdChar = (int)reader[1];
+            CLoc.IdChar = (int)reader[1];
             CLoc.LocU = (int)reader[2];
             CLoc.LocS = (int)reader[3];
             CLoc.LocP = (int)reader[4];
             CLoc.LocA = (int)reader[5];
             CLoc.LocA_X = (int)reader[6];
             CLoc.LocA_Y = (int)reader[7];
+            Console.WriteLine("IdChar:" + CLoc.IdChar + " => " + CLoc.LocA_X + "/" + CLoc.LocA_Y);
             return CLoc;
+            
         }
         public CharacterPower CharacterPowerMapper(IDataReader reader)
         {
