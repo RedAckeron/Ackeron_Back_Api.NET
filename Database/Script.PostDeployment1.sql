@@ -41,4 +41,11 @@ insert into MapLocPlanet(name,LocU,LocS,LocX,LocY)values('Nagma Pyrgos',1,1,10,1
 insert into MapLocPlanet(name,LocU,LocS,LocX,LocY)values('Meka Tackyon',1,2,10,10);
 insert into MapLocPlanet(name,LocU,LocS,LocX,LocY)values('Hangus Omega',1,3,10,10);
 
+insert into MapLocArea(name,LocU,LocS,LocP,LocX,LocY,MainTrigger,SubTrigger,ImgItem,Reachable,Lvl,Refresh)values('Rocher',1,1,1,5,5,'mt','st','rocher.gif',0,10,60);
+insert into MapLocArea(name,LocU,LocS,LocP,LocX,LocY,MainTrigger,SubTrigger,ImgItem,Reachable,Lvl,Refresh)values('Rocher',1,1,1,3,7,'mt','st','rocher.gif',0,10,60);
+insert into MapLocArea(name,LocU,LocS,LocP,LocX,LocY,MainTrigger,SubTrigger,ImgItem,Reachable,Lvl,Refresh)values('Buisson',1,1,1,1,9,'mt','st','bush.gif',0,10,60);
+insert into MapLocArea(name,LocU,LocS,LocP,LocX,LocY,MainTrigger,SubTrigger,ImgItem,Reachable,Lvl,Refresh)values('Buisson',1,1,1,9,1,'mt','st','bush.gif',0,10,60);
+insert into MapLocArea(name,LocU,LocS,LocP,LocX,LocY,MainTrigger,SubTrigger,ImgItem,Reachable,Lvl,Refresh)values('Buisson',1,1,1,7,3,'mt','st','bush.gif',0,10,60);
+insert into MapLocArea(name,LocU,LocS,LocP,LocX,LocY,MainTrigger,SubTrigger,ImgItem,Reachable,Lvl,Refresh)values('Stair',1,1,1,7,9,'mt','st','stair.gif',1,10,60);
+
 

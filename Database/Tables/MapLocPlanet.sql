@@ -10,7 +10,7 @@
     [ImgItem]        NVARCHAR (50) NULL DEFAULT 'planet.gif',
     [Lvl]            INT           NULL DEFAULT 0,
     [Size]           INT           NULL DEFAULT 0,
-    [Presentation]   TEXT          NULL DEFAULT 'Bienvenu sur notre planet' ,
+    [Presentation]   TEXT          NULL DEFAULT 'Bienvenu sur notre planet',
     [Faction]        INT           NULL DEFAULT 0,
     [TxShop]         INT           NULL DEFAULT 0,
     [TxArmy]         INT           NULL DEFAULT 0,

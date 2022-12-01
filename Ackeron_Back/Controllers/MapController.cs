@@ -7,7 +7,7 @@ namespace Ackeron_Back.Controllers
 {
     [Route("ackeron/map/[controller]")]
     [ApiController]
-    public class MapController : Controller
+    public class MapController : ControllerBase
     {
         private readonly IMapService _mapService;
 
@@ -16,10 +16,17 @@ namespace Ackeron_Back.Controllers
             _mapService = mapService;
         }
 
-        [HttpGet("/ChkTargetWalking/")]
-        public IActionResult GetItem(CharacterLoc CLoc)
+        [HttpPost("/ChkTargetWalking/")]
+        public IActionResult ChkTargetWalking(CharacterLoc CLoc)
         {
+            Console.WriteLine("couche controller");
+           
             return Ok(_mapService.ChkTargetWalking(CLoc));
+        }
+        [HttpGet("/map/GetMap/{IdPlanet}")]
+        public IActionResult GetMap(int IdPlanet)
+        {
+            return Ok(_mapService.GetMap(IdPlanet));
         }
     }
 }

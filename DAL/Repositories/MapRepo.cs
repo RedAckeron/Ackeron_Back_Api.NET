@@ -1,6 +1,8 @@
 ﻿using BLL.Models;
 using DAL.Interfaces;
+using DAL.Mapper.Map;
 using DAL.Models;
+using DAL.Models.Map;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -9,7 +11,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace DAL.Repositories
 {
     public class MapRepo : IMapRepo
@@ -25,45 +26,54 @@ namespace DAL.Repositories
 
         public bool ChkTargetWalking(CharacterLoc CLoc)
         {
+        using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
-                using (SqlConnection cnx = new SqlConnection(_connectionString))
+            using (SqlCommand cmd = cnx.CreateCommand())
                 {
-                    using (SqlCommand cmd = cnx.CreateCommand())
-                    {
-                        /*
-                        cmd.CommandText = "insert into Item values(@Name,@Description,@Type,@SubType,@Quality,@Price,@Img,@Color,@LvlItem,@QtProduction,@TimeProduction,@TimeDelete,@MainTrigger,@SubTrigger);";
-                        cmd.Parameters.AddWithValue("Name", I.Name);
-                        cmd.Parameters.AddWithValue("Description", I.Description);
-                        cmd.Parameters.AddWithValue("Type", I.Type);
-                        cmd.Parameters.AddWithValue("SubType", I.SubType);
-                        cmd.Parameters.AddWithValue("Quality", I.Quality);
-                        cmd.Parameters.AddWithValue("Price", I.Price);
-                        cmd.Parameters.AddWithValue("Img", I.Img);
-                        cmd.Parameters.AddWithValue("Color", I.Color);
-                        cmd.Parameters.AddWithValue("LvlItem", I.LvlItem);
-                        cmd.Parameters.AddWithValue("QtProduction", I.QtProduction);
-                        cmd.Parameters.AddWithValue("TimeProduction", I.TimeProduction);
-                        cmd.Parameters.AddWithValue("TimeDelete", I.TimeDelete);
-                        cmd.Parameters.AddWithValue("MainTrigger", I.MainTrigger);
-                        cmd.Parameters.AddWithValue("SubTrigger", I.SubTrigger);
-
-                        cnx.Open();
-                        cmd.ExecuteNonQuery();
-                        cnx.Close();
-                        */
-                        return true;
-                        
-                    }
+                cmd.CommandText = "select count(*) from MapLocArea where LocU=@LocU and LocS=@LocS and LocP=@LocP and LocX=@LocX and LocY=@LocY and reachable=@Reachable;";
+                cmd.Parameters.AddWithValue("LocU", CLoc.LocU);
+                cmd.Parameters.AddWithValue("LocS", CLoc.LocS);
+                cmd.Parameters.AddWithValue("LocP", CLoc.LocP);
+                cmd.Parameters.AddWithValue("LocX", CLoc.LocA_X);
+                cmd.Parameters.AddWithValue("LocY", CLoc.LocA_Y);
+                cmd.Parameters.AddWithValue("Reachable", 0);
+                cnx.Open();
+                Int32 count = (Int32)cmd.ExecuteScalar();
+                if (count == 0)return true;
+                else return false;  
+                //cnx.Close(); 
                 }
             }
-
-
-
-
-            //public bool ChkTargetWalking(CharacterLoc CLoc) {
-            //    return true;
-            //}
-
         }
+
+        public List<Area> GetMap(int IdPlanet)
+        {
+            List<Area> TabArea = new List<Area>();
+
+
+            AreaMapper mapper = new AreaMapper();
+            using (SqlConnection cnx = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = cnx.CreateCommand())
+                {
+                    cmd.CommandText = "select * from MapLocArea where LocP=@LocP;";
+                    cmd.Parameters.AddWithValue("LocP", IdPlanet);
+                   
+                    cnx.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                       
+                        while (reader.Read())
+                        {
+                           
+                            TabArea.Add(mapper.DataToArea(reader)); 
+                        }
+                    }
+                    cnx.Close();
+                }
+            }
+            return TabArea;
+        }
+
     }
 }

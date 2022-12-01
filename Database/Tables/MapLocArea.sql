@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[MapLocArea]
 (
 	[Id] INT NOT NULL PRIMARY KEY identity,
-	name nvarchar(50),
+	Name nvarchar(50),
 	Owner int,
 	CONSTRAINT FK_MapLocPArea_Owner FOREIGN KEY (Owner)
     REFERENCES Character (Id),

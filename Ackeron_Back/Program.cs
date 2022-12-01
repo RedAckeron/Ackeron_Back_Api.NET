@@ -26,12 +26,13 @@ builder.Services.AddCors(options =>{
             policy.WithOrigins("https://localhost:4200", "http://localhost:4200");
         });
 });
+
 builder.Services.AddScoped<ICharacterService, CharacterService>();
 builder.Services.AddScoped<ICharacterRepo, CharacterRepo>();
 builder.Services.AddScoped<IItemService,ItemService>();
 builder.Services.AddScoped<IItemRepo, ItemRepo>();
-
-
+builder.Services.AddScoped<IMapService, MapService>();
+builder.Services.AddScoped<IMapRepo, MapRepo>();
 
 var app = builder.Build();
 

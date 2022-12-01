@@ -1,6 +1,7 @@
 ﻿using BLL.Interfaces;
 using DAL.Interfaces;
 using DAL.Models;
+using DAL.Models.Map;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +20,12 @@ namespace BLL.Services
         }
 
         public bool ChkTargetWalking(CharacterLoc CLoc) {
+            Console.WriteLine("couche BLL");
             return _mapRepo.ChkTargetWalking(CLoc);
+        }
+        public List<Area> GetMap(int IdPlanet) {
 
-            
+            return _mapRepo.GetMap(IdPlanet);
         }
     }
 }
