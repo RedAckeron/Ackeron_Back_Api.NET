@@ -47,8 +47,6 @@ namespace DAL.Repositories
         public List<Area> GetMap(int IdPlanet)
         {
             List<Area> TabArea = new List<Area>();
-
-
             AreaMapper mapper = new AreaMapper();
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
@@ -56,14 +54,12 @@ namespace DAL.Repositories
                 {
                     cmd.CommandText = "select * from MapLocArea where LocP=@LocP;";
                     cmd.Parameters.AddWithValue("LocP", IdPlanet);
-                   
+                    
                     cnx.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                       
                         while (reader.Read())
                         {
-                           
                             TabArea.Add(mapper.DataToArea(reader)); 
                         }
                     }

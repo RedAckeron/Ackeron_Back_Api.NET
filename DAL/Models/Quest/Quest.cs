@@ -12,6 +12,6 @@ namespace DAL.Models
         public string Name;
         public string Description;
         public bool Validate;
-        public List<Step> StepBook { get; set; }
+        public List<QuestStep> StepBook { get; set; }
     }
 }
