@@ -21,7 +21,6 @@
     [PriceWork]      INT           NULL DEFAULT 0,
     [BgroundImg]     NVARCHAR (50) NULL DEFAULT 'img.gif',
     PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_MapLocPlanet_Owner] FOREIGN KEY ([owner]) REFERENCES [dbo].[Character] ([Id]),
     CONSTRAINT [FK_MapLocPlanet_IdUnivers] FOREIGN KEY ([LocU]) REFERENCES [dbo].[MapLocUnivers] ([Id]),
     CONSTRAINT [FK_MapLocPlanet_IdSolar] FOREIGN KEY ([LocS]) REFERENCES [dbo].[MapLocSolar] ([Id])
 );

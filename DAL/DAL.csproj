@@ -71,7 +71,6 @@
     <Compile Include="Interfaces\ILocalisatorRepo.cs" />
     <Compile Include="Interfaces\IMapRepo.cs" />
     <Compile Include="Interfaces\IQuestRepo.cs" />
-    <Compile Include="Mapper\CharacterMapper.cs" />
     <Compile Include="Mapper\StatMapper.cs" />
     <Compile Include="Mapper\InfoMapper.cs" />
     <Compile Include="Mapper\QuestMapper.cs" />
