@@ -11,7 +11,6 @@ using System.Data.SqlClient;
 using System.Reflection;
 
 namespace DAL.Repositories
-
 {
     public class CharacterRepo:ICharacterRepo
     {

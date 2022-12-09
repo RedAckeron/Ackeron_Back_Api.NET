@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Models
 {
-    public class Step
+    public class QuestStep
     {
         public int IdStep { get; set; }
         public string NameStep { get; set; }
