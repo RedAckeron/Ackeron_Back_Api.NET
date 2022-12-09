@@ -25,17 +25,17 @@ namespace Ackeron_Back.Controllers
             return Ok(_characterService.GetOneCharacter(id));
         }
 
-        [HttpGet("/Character/GetLoc/{id}")]
-        public IActionResult GetCharacterLoc(int id)
+        [HttpGet("/Character/GetLocalisator/{id}")]
+        public IActionResult GetLocalisator(int id)
         {
-            return Ok(_characterService.GetCharacterLoc(id));
+            return Ok(_characterService.GetLocalisator(id));
         }
         
-        [HttpPut("/Character/UpdateLoc/{id}")]
-        public IActionResult UpdateCharacterLoc(CharacterLoc CLoc)
+        [HttpPut("/Character/UpdateLocalisator/{id}")]
+        public IActionResult UpdateLocalisator(int Id,Localisator Loc)
         {
-            Console.WriteLine("Mise a jours de la position du char "+CLoc.IdChar+":"+CLoc.LocP+" - "+CLoc.LocA_X+"/"+CLoc.LocA_Y);
-            return Ok(_characterService.UpdateCharacterLoc(CLoc));
+            
+            return Ok(_characterService.UpdateLocalisator(Id,Loc));
         }
 
         [HttpPost("/Character/Add")]

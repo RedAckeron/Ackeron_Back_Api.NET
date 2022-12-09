@@ -33,6 +33,7 @@ builder.Services.AddScoped<IItemService,ItemService>();
 builder.Services.AddScoped<IItemRepo, ItemRepo>();
 builder.Services.AddScoped<IMapService, MapService>();
 builder.Services.AddScoped<IMapRepo, MapRepo>();
+builder.Services.AddScoped<ILocalisatorRepo, LocalisatorRepo>();
 
 var app = builder.Build();
 

@@ -11,9 +11,9 @@ namespace BLL.Mapper
 {
     public class CharacterMapper
     {
-        public CharacterInfo CharacterToCharacterInfo(Character C)
+        public Info CharacterToCharacterInfo(Character C)
         {
-            CharacterInfo CInfo = new CharacterInfo();
+            Info CInfo = new Info();
             CInfo.IdChar = C.Id;
             CInfo.Name=C.Info.Name;
             CInfo.Race = C.Info.Race;
@@ -23,21 +23,20 @@ namespace BLL.Mapper
             CInfo.TsIn = C.Info.TsIn;
             return CInfo;
         }
-        public CharacterLoc CharacterToCharacterLoc(Character C)
+        public Localisator CharacterToCharacterLoc(Character C)
         {
-            CharacterLoc CLoc = new();
-            CLoc.IdChar = C.Id;
-            CLoc.LocU = C.Loc.LocU;
-            CLoc.LocS = C.Loc.LocS;
-            CLoc.LocP = C.Loc.LocP;
-            CLoc.LocA = C.Loc.LocA;
-            CLoc.LocA_X = C.Loc.LocA_X;
-            CLoc.LocA_Y = C.Loc.LocA_Y;
-            return CLoc;
+            Localisator Loc = new();
+            //CLoc.IdChar = C.Id;
+            Loc.LocUId = C.Loc.LocUId;
+            Loc.LocSId = C.Loc.LocSId;
+            Loc.LocPId = C.Loc.LocPId;
+            Loc.LocAId = C.Loc.LocAId;
+            Loc.LocZId = C.Loc.LocZId;
+            return Loc;
         }
-        public CharacterStat CharacterToCharacterStat(Character C)
+        public Stat CharacterToCharacterStat(Character C)
         {
-            CharacterStat CStat = new();
+            Stat CStat = new();
             CStat.IdChar = C.Id;
             CStat.TimestampSimul = C.Stat.TimestampSimul;
             CStat.PtMove = C.Stat.PtMove;
@@ -50,9 +49,9 @@ namespace BLL.Mapper
             CStat.PwMax = C.Stat.PwMax;
             return CStat;
         }
-        public CharacterPower CharacterToCharacterPower(Character C)
+        public Power CharacterToCharacterPower(Character C)
         {
-            CharacterPower CPow = new();
+            Power CPow = new();
             CPow.IdChar = C.Id;
             CPow.Eau = C.Power.Eau;
             CPow.Feu = C.Power.Terre;
@@ -66,9 +65,9 @@ namespace BLL.Mapper
             CPow.Poison = C.Power.Poison;
             return CPow;
         }
-        public CharacterResist CharacterToCharacterResist(Character C)
+        public Resist CharacterToCharacterResist(Character C)
         {
-            CharacterResist CRes = new();
+            Resist CRes = new();
             CRes.IdChar = C.Id;
             CRes.Eau = C.Resist.Eau;
             CRes.Feu = C.Resist.Terre;

@@ -1,5 +1,4 @@
 ﻿insert into [Character] values('Admin',0,0,0,0,1666362817);
-insert into CharacterLoc(IdChar,LocU,LocS,LocP,LocA,LocA_X,LocA_Y)values(1,1,1,1,1,10,15);
 insert into CharacterStat values(1,1,5,20,0,80,100,30,50,0);
 insert into CharacterPower values(1,10,10,10,10,10,10,10,10,10,10);
 insert into CharacterResist values(1,10,10,10,10,10,10,10,10,10,10);
@@ -19,7 +18,6 @@ insert into CharacterSpell values(1,1);
 insert into CharacterSpell values(1,2);
 insert into CharacterSpell values(1,3);
 insert into CharacterSpell values(1,4);
-
 
 insert into Quest values('L eveil des Nagmas','Introduction a la quest des Nagmas',0);
 
@@ -41,11 +39,12 @@ insert into MapLocPlanet(name,LocU,LocS,LocX,LocY)values('Nagma Pyrgos',1,1,10,1
 insert into MapLocPlanet(name,LocU,LocS,LocX,LocY)values('Meka Tackyon',1,2,10,10);
 insert into MapLocPlanet(name,LocU,LocS,LocX,LocY)values('Hangus Omega',1,3,10,10);
 
-insert into MapLocArea(name,LocU,LocS,LocP,LocX,LocY,MainTrigger,SubTrigger,ImgItem,Reachable,Lvl,Refresh)values('Rocher',1,1,1,5,5,'mt','st','rocher.gif',0,10,60);
-insert into MapLocArea(name,LocU,LocS,LocP,LocX,LocY,MainTrigger,SubTrigger,ImgItem,Reachable,Lvl,Refresh)values('Rocher',1,1,1,3,7,'mt','st','rocher.gif',0,10,60);
-insert into MapLocArea(name,LocU,LocS,LocP,LocX,LocY,MainTrigger,SubTrigger,ImgItem,Reachable,Lvl,Refresh)values('Buisson',1,1,1,1,9,'mt','st','bush.gif',0,10,60);
-insert into MapLocArea(name,LocU,LocS,LocP,LocX,LocY,MainTrigger,SubTrigger,ImgItem,Reachable,Lvl,Refresh)values('Buisson',1,1,1,9,1,'mt','st','bush.gif',0,10,60);
-insert into MapLocArea(name,LocU,LocS,LocP,LocX,LocY,MainTrigger,SubTrigger,ImgItem,Reachable,Lvl,Refresh)values('Buisson',1,1,1,7,3,'mt','st','bush.gif',0,10,60);
-insert into MapLocArea(name,LocU,LocS,LocP,LocX,LocY,MainTrigger,SubTrigger,ImgItem,Reachable,Lvl,Refresh)values('Stair',1,1,1,7,9,'mt','st','stair.gif',1,10,60);
+insert into MapLocArea(name,LocU,LocS,LocP,LocX,LocY,MainTrigger,SubTrigger,ImgItem,Reachable,Lvl,Refresh)values('Rocher',1,1,1,5,5,'mt','st','map/RockGreen.gif',0,10,60);
+insert into MapLocArea(name,LocU,LocS,LocP,LocX,LocY,MainTrigger,SubTrigger,ImgItem,Reachable,Lvl,Refresh)values('Rocher',1,1,1,3,7,'mt','st','map/RockGreen.gif',0,10,60);
+insert into MapLocArea(name,LocU,LocS,LocP,LocX,LocY,MainTrigger,SubTrigger,ImgItem,Reachable,Lvl,Refresh)values('Buisson',1,1,1,1,9,'mt','st','map/BushGreen.gif',0,10,60);
+insert into MapLocArea(name,LocU,LocS,LocP,LocX,LocY,MainTrigger,SubTrigger,ImgItem,Reachable,Lvl,Refresh)values('Buisson',1,1,1,9,1,'mt','st','map/BushGreen.gif',0,10,60);
+insert into MapLocArea(name,LocU,LocS,LocP,LocX,LocY,MainTrigger,SubTrigger,ImgItem,Reachable,Lvl,Refresh)values('Buisson',1,1,1,7,3,'mt','st','map/BushGreen.gif',0,10,60);
+insert into MapLocArea(name,LocU,LocS,LocP,LocX,LocY,MainTrigger,SubTrigger,ImgItem,Reachable,Lvl,Refresh)values('Escalier',1,1,1,7,9,'mt','st','map/StairGreen.gif',1,10,60);
 
-
+insert into MapLocZone(name,Owner,LocU,LocS,LocP,LocA,LocX,LocY)values('Free Area',1,1,1,1,1,1,1);
+insert into Localisator(LocUId,LocSId,LocPId,LocAId,LocZId)values(1,1,1,1,1);

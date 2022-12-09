@@ -68,15 +68,20 @@
   <ItemGroup>
     <Compile Include="Interfaces\ICharacterRepo.cs" />
     <Compile Include="Interfaces\IItemRepo.cs" />
+    <Compile Include="Interfaces\ILocalisatorRepo.cs" />
     <Compile Include="Interfaces\IMapRepo.cs" />
-    <Compile Include="Mapper\CharacterMapper.cs" />
+    <Compile Include="Mapper\StatMapper.cs" />
+    <Compile Include="Mapper\InfoMapper.cs" />
     <Compile Include="Mapper\ItemMapper.cs" />
+    <Compile Include="Mapper\LocalisatorMapper.cs" />
     <Compile Include="Mapper\Map\AreaMapper.cs" />
-    <Compile Include="Models\Character\CharacterInfo.cs" />
-    <Compile Include="Models\Character\CharacterPower.cs" />
-    <Compile Include="Models\Character\CharacterResist.cs" />
-    <Compile Include="Models\Character\CharacterStat.cs" />
-    <Compile Include="Models\Character\CharacterLoc.cs" />
+    <Compile Include="Mapper\PowerMapper.cs" />
+    <Compile Include="Mapper\ResistMapper.cs" />
+    <Compile Include="Models\Character\Info.cs" />
+    <Compile Include="Models\Power.cs" />
+    <Compile Include="Models\Resist.cs" />
+    <Compile Include="Models\Character\Stat.cs" />
+    <Compile Include="Models\Localisator.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Map\Area.cs" />
     <Compile Include="Models\Step.cs" />
@@ -85,6 +90,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CharacterRepo.cs" />
     <Compile Include="Repositories\ItemRepo.cs" />
+    <Compile Include="Repositories\LocalisatorRepo.cs" />
     <Compile Include="Repositories\MapRepo.cs" />
   </ItemGroup>
   <ItemGroup>

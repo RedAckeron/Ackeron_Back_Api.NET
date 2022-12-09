@@ -10,11 +10,11 @@ namespace BLL.Models
     public class Character
     {
         public int Id { get; set; }
-        public CharacterInfo Info { get; set; }
-        public CharacterLoc Loc { get; set; }
-        public CharacterStat Stat { get; set; }
-        public CharacterPower Power { get; set; }
-        public CharacterResist Resist { get; set; }
+        public Info Info { get; set; }
+        public Localisator Loc { get; set; }
+        public Stat Stat { get; set; }
+        public Power Power { get; set; }
+        public Resist Resist { get; set; }
         public List<Item> Inventory { get; set; }
         public List<Spell> SpellBook{ get; set; }
         public List<Quest>QuestBook{ get; set; }

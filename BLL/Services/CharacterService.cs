@@ -2,6 +2,7 @@
 using BLL.Mapper;
 using BLL.Models;
 using DAL.Interfaces;
+using DAL.Mapper;
 using DAL.Models;
 using System;
 using System.Data;
@@ -12,45 +13,42 @@ namespace BLL.Services
     public class CharacterService:ICharacterService
     {
         private readonly ICharacterRepo _characterRepo;
-        public CharacterService(ICharacterRepo characterRepo)
-        { 
+        private readonly ILocalisatorRepo _localisatorRepo;
+        public CharacterService(ICharacterRepo characterRepo,ILocalisatorRepo localisatorRepo)
+        {
             _characterRepo = characterRepo;
+            _localisatorRepo = localisatorRepo;
         }
-        /*
-        public IEnumerable<Character> GetAllCharacters()
+       
+        public Localisator GetLocalisator(int id)
         {
-            throw new NotImplementedException();
-        }
-        */
-        public CharacterLoc GetCharacterLoc(int id)
-        {
-            CharacterLoc datacharloc = new();
-            datacharloc = _characterRepo.GetCharacterLoc(id);
+            Localisator datacharloc = new();
+            datacharloc = _localisatorRepo.GetLocalisator(id);
             return datacharloc;
         }
-        public bool UpdateCharacterLoc(CharacterLoc CLoc)
+        public bool UpdateLocalisator(int Id, Localisator Loc)
         {
            // CharacterMapper mapper = new();
             //CLoc = mapper.CharacterToCharacterLoc(CLoc);
-            bool loc = (_characterRepo.UpdateCharacterLoc(CLoc) == 1);
-            return loc; 
+            bool loc = (_localisatorRepo.UpdateLocalisator(Id,Loc) == 1);
+            return loc;
         }
         public Character GetOneCharacter(int id)
         {
             //on creez l objet
             Character C = new Character();
             //on recupere les dataset
-            CharacterInfo datacharinfo = new();
-            CharacterLoc datacharloc = new();
-            CharacterStat datacharstat = new();
-            CharacterPower datacharpow = new();
-            CharacterResist datacharres = new();
+            Info datacharinfo = new();
+            Localisator datacharloc = new();
+            Stat datacharstat = new();
+            Power datacharpow = new();
+            Resist datacharres = new();
             //List<Item>inventory = new List<Item>();
             //List<Spell>spellbook = new List<Spell>();
             //List<Quest>questbook= new List<Quest>();
 
             datacharinfo = _characterRepo.GetCharacterInfo(id);
-            datacharloc = _characterRepo.GetCharacterLoc(id);
+            datacharloc = _localisatorRepo.GetLocalisator(id);
             datacharstat = _characterRepo.GetCharacterStat(id);
             datacharpow = _characterRepo.GetCharacterPower(id);
             datacharres = _characterRepo.GetCharacterResist(id);
@@ -69,11 +67,11 @@ namespace BLL.Services
         public int AddCharacter(Character C)
         {
             CharacterMapper mapper = new();
-            CharacterInfo CInfo;
-            CharacterStat CStat;
-            CharacterLoc CLoc;
-            CharacterPower CPow;
-            CharacterResist CRes;
+            Info CInfo;
+            Stat CStat;
+            Localisator CLoc;
+            Power CPow;
+            Resist CRes;
         
             CInfo=mapper.CharacterToCharacterInfo(C);
             int IdChar = _characterRepo.AddCharacterInfo(CInfo);
@@ -83,8 +81,8 @@ namespace BLL.Services
             _characterRepo.AddCharacterStat(CStat);
            
             CLoc = mapper.CharacterToCharacterLoc(C);
-            CLoc.IdChar = IdChar;
-            _characterRepo.AddCharacterLoc(CLoc);
+            //CLoc.IdChar = IdChar;
+            _characterRepo.AddCharacterLoc(C.Id, CLoc);
         
             CPow=mapper.CharacterToCharacterPower(C);
             CPow.IdChar = IdChar;
@@ -99,18 +97,19 @@ namespace BLL.Services
         public bool UpdateCharacter(Character C)
         {
             CharacterMapper mapper = new();
-            CharacterInfo CInfo;
-            CharacterStat CStat;
-            CharacterLoc CLoc;
-            CharacterPower CPow;
-            CharacterResist CRes;
+            LocalisatorMapper locMapper = new();    
+            Info CInfo;
+            Stat CStat;
+            Localisator CLoc;
+            Power CPow;
+            Resist CRes;
 
             CInfo = mapper.CharacterToCharacterInfo(C);
-            bool info =(_characterRepo.UpdateCharacterInfo(CInfo)==1);
+            bool info =(_characterRepo.UpdateCharacterInfo(C.Id,CInfo)==1);
             
             CLoc = mapper.CharacterToCharacterLoc(C);
-            CLoc.IdChar = C.Id;
-            bool loc = (_characterRepo.UpdateCharacterLoc(CLoc)==1);
+            //CLoc.IdChar = C.Id;
+            bool loc = (_localisatorRepo.UpdateLocalisator(C.Id,CLoc)==1);
 
             CStat = mapper.CharacterToCharacterStat(C);
             CStat.IdChar = C.Id;

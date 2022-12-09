@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Character.sql" />
-    <Build Include="Tables\CharacterLoc.sql" />
+    <Build Include="Tables\Localisator.sql" />
     <Build Include="Tables\CharacterStat.sql" />
     <Build Include="Tables\CharacterResist.sql" />
     <Build Include="Tables\CharacterPower.sql" />
@@ -76,6 +76,7 @@
     <Build Include="Tables\MapLocSolar.sql" />
     <Build Include="Tables\MapLocUnivers.sql" />
     <Build Include="Tables\MapLocArea.sql" />
+    <Build Include="Tables\MapLocZone.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Database.publish.xml" />

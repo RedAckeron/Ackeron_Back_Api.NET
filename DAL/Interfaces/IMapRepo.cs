@@ -11,7 +11,7 @@ namespace DAL.Interfaces
 {
     public interface IMapRepo
     {
-        bool ChkTargetWalking(CharacterLoc CLoc);
+        bool ChkAreaReachable(Localisator Loc);
         List<Area> GetMap(int IdPlanet);
     }
 }

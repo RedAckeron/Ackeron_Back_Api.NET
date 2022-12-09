@@ -19,9 +19,9 @@ namespace BLL.Services
             _mapRepo = mapRepo;
         }
 
-        public bool ChkTargetWalking(CharacterLoc CLoc) {
-            Console.WriteLine("couche BLL");
-            return _mapRepo.ChkTargetWalking(CLoc);
+        public bool ChkAreaReachable(Localisator Loc) {
+           
+            return _mapRepo.ChkAreaReachable(Loc);
         }
         public List<Area> GetMap(int IdPlanet) {
 

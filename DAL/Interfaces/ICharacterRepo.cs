@@ -10,26 +10,26 @@ namespace DAL.Interfaces
 {
     public interface ICharacterRepo
     {
-        int AddCharacterInfo(CharacterInfo CInfo);
-        int AddCharacterStat(CharacterStat CStat);
-        int AddCharacterLoc(CharacterLoc CLoc);
-        int AddCharacterPower(CharacterPower CPow);
-        int AddCharacterResist(CharacterResist CRes);
+        int AddCharacterInfo(Info CInfo);
+        int AddCharacterStat(Stat CStat);
+        int AddCharacterLoc(int IdChar, Localisator CLoc);
+        int AddCharacterPower(Power CPow);
+        int AddCharacterResist(Resist CRes);
        
-        CharacterInfo GetCharacterInfo(int id);
-        CharacterLoc GetCharacterLoc(int id);
-        CharacterStat GetCharacterStat(int id);
-        CharacterPower GetCharacterPower(int id);
-        CharacterResist GetCharacterResist(int id);
+        Info GetCharacterInfo(int id);
+        //Localisator GetLocalisator(int id);
+        Stat GetCharacterStat(int id);
+        Power GetCharacterPower(int id);
+        Resist GetCharacterResist(int id);
         List<Item> GetCharacterInventory(int id);
         List<Spell> GetCharacterSpell(int id);
         List<Quest> GetCharacterQuest(int id);
 
-        int UpdateCharacterInfo(CharacterInfo CInfo);
-        int UpdateCharacterLoc(CharacterLoc CLoc);
-        int UpdateCharacterStat(CharacterStat CStat);
-        int UpdateCharacterResist(CharacterResist CStat);
-        int UpdateCharacterPower(CharacterPower CPow);
+        int UpdateCharacterInfo(int IdChar,Info CInfo);
+        //int UpdateCharacterLoc(int IdChar, Localisator CLoc);
+        int UpdateCharacterStat(Stat CStat);
+        int UpdateCharacterResist(Resist CStat);
+        int UpdateCharacterPower(Power CPow);
 
     }
 }

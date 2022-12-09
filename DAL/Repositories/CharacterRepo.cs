@@ -1,6 +1,7 @@
 ﻿using BLL.Models;
 using DAL.Interfaces;
 using DAL.Mapper;
+using DAL.Mapper.Map;
 using DAL.Models;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -23,7 +24,7 @@ namespace DAL.Repositories
             //_connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Ackeron;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             //_connection = connection;
         }
-        public int AddCharacterInfo(CharacterInfo CInfo)
+        public int AddCharacterInfo(Info CInfo)
         {
         using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
@@ -42,27 +43,27 @@ namespace DAL.Repositories
             }
         }
     }
-        public int AddCharacterLoc(CharacterLoc CLoc)
+        public int AddCharacterLoc(int IdChar,Localisator CLoc)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
                     cmd.CommandText = "insert into CharacterLoc(IdChar,LocU,LocS,LocP,LocA,LocA_X,LocA_Y)values(@IdChar,@LocU,@LocS,@LocP,@LocU,@LocA_X,@LocA_Y);";
-                    cmd.Parameters.AddWithValue("IdChar", CLoc.IdChar);
-                    cmd.Parameters.AddWithValue("LocU", CLoc.LocU);
-                    cmd.Parameters.AddWithValue("LocS", CLoc.LocS);
-                    cmd.Parameters.AddWithValue("LocP", CLoc.LocP);
-                    cmd.Parameters.AddWithValue("LocA", CLoc.LocA);
-                    cmd.Parameters.AddWithValue("LocA_X", CLoc.LocA_X);
-                    cmd.Parameters.AddWithValue("LocA_Y", CLoc.LocA_Y);
+                    cmd.Parameters.AddWithValue("IdChar", IdChar);
+                    cmd.Parameters.AddWithValue("LocU", CLoc.LocUId);
+                    cmd.Parameters.AddWithValue("LocS", CLoc.LocSId);
+                    cmd.Parameters.AddWithValue("LocP", CLoc.LocPId);
+                    cmd.Parameters.AddWithValue("LocA", CLoc.LocAId);
+                    cmd.Parameters.AddWithValue("LocA_X", CLoc.LocAX);
+                    cmd.Parameters.AddWithValue("LocA_Y", CLoc.LocAY);
                     cnx.Open();
                     return (cmd.ExecuteNonQuery());
                     //cnx.Close();
                 }
             }
         }
-        public int AddCharacterStat(CharacterStat CStat)
+        public int AddCharacterStat(Stat CStat)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
@@ -87,7 +88,7 @@ namespace DAL.Repositories
                 }
             }
         }
-        public int AddCharacterPower(CharacterPower CPow)
+        public int AddCharacterPower(Power CPow)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
@@ -112,7 +113,7 @@ namespace DAL.Repositories
                 }
             }
         }
-        public int AddCharacterResist(CharacterResist CRes)
+        public int AddCharacterResist(Resist CRes)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
@@ -138,9 +139,10 @@ namespace DAL.Repositories
             }
         }
         
-        public CharacterInfo GetCharacterInfo(int id)
+        public Info GetCharacterInfo(int id)
         {
-            CharacterMapper mapper = new CharacterMapper();
+            //StatMapper mapper = new StatMapper();
+            InfoMapper mapper = new InfoMapper();
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
@@ -158,9 +160,9 @@ namespace DAL.Repositories
             }
             return null;
         }
-        public CharacterStat GetCharacterStat(int id)
+        public Stat GetCharacterStat(int id)
         {
-            CharacterMapper mapper = new CharacterMapper();
+            StatMapper mapper = new StatMapper();
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
@@ -179,29 +181,11 @@ namespace DAL.Repositories
             }
             return null;
         }
-        public CharacterLoc GetCharacterLoc(int id)
+
+        public Power GetCharacterPower(int id)
         {
-            CharacterMapper mapper = new CharacterMapper();
-            using (SqlConnection cnx = new SqlConnection(_connectionString))
-            {
-                using (SqlCommand cmd = cnx.CreateCommand())
-                {
-                    cmd.CommandText = "SELECT * FROM CharacterLoc where idChar = " + id;
-                    cnx.Open();
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            return mapper.CharacterLocMapper(reader);
-                        }
-                    }
-                }
-            }
-            return null;
-        }
-        public CharacterPower GetCharacterPower(int id)
-        {
-            CharacterMapper mapper = new CharacterMapper();
+            //StatMapper mapper = new StatMapper();
+            PowerMapper mapper = new PowerMapper();
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
@@ -214,15 +198,15 @@ namespace DAL.Repositories
                         {
                             return mapper.CharacterPowerMapper(reader);
                         }
-
                     }
                 }
             }
             return null;
         }
-        public CharacterResist GetCharacterResist(int id)
+        public Resist GetCharacterResist(int id)
         {
-            CharacterMapper mapper = new CharacterMapper();
+            //StatMapper mapper = new StatMapper();
+            ResistMapper mapper = new ResistMapper();
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
@@ -321,7 +305,7 @@ namespace DAL.Repositories
             }
         }
         
-        public int UpdateCharacterInfo(CharacterInfo CInfo)
+        public int UpdateCharacterInfo(int IdChar,Info CInfo)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
@@ -341,27 +325,8 @@ namespace DAL.Repositories
                 }
             }
         }
-        public int UpdateCharacterLoc(CharacterLoc CLoc)
-        {
-            using (SqlConnection cnx = new SqlConnection(_connectionString))
-            {
-                using (SqlCommand cmd = cnx.CreateCommand())
-                {
-                    cmd.CommandText = "UPDATE CharacterLoc SET LocU=@LocU,LocS=@LocS,LocP=@LocP,LocA=@LocA,LocA_X=@LocA_X,LocA_Y=@LocA_Y WHERE IdChar=@IdChar;";
-                    cmd.Parameters.AddWithValue("IdChar", CLoc.IdChar);
-                    cmd.Parameters.AddWithValue("LocU", CLoc.LocU);
-                    cmd.Parameters.AddWithValue("LocS", CLoc.LocS);
-                    cmd.Parameters.AddWithValue("LocP", CLoc.LocP);
-                    cmd.Parameters.AddWithValue("LocA", CLoc.LocA);
-                    cmd.Parameters.AddWithValue("LocA_X", CLoc.LocA_X);
-                    cmd.Parameters.AddWithValue("LocA_Y", CLoc.LocA_Y);
-                    cnx.Open();
-                    return (cmd.ExecuteNonQuery());
-                    //cnx.Close();
-                }
-            }
-        }
-        public int UpdateCharacterStat(CharacterStat CStat)
+       
+        public int UpdateCharacterStat(Stat CStat)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
@@ -385,7 +350,7 @@ namespace DAL.Repositories
                 }
             }
         }
-        public int UpdateCharacterPower(CharacterPower CPow)
+        public int UpdateCharacterPower(Power CPow)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
@@ -410,7 +375,7 @@ namespace DAL.Repositories
                 }
             }
         }
-        public int UpdateCharacterResist(CharacterResist CRes)
+        public int UpdateCharacterResist(Resist CRes)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {

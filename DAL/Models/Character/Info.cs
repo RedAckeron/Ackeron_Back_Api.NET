@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Models
 {
-    public class CharacterInfo
+    public class Info
     {
         public int IdChar { get; set; }
         public string Name { get; set; }
@@ -15,6 +15,5 @@ namespace DAL.Models
         public int Classe { get; set; }
         public int CitizenPlanet { get; set; }
         public int TsIn { get; set; }
-
     }
 }

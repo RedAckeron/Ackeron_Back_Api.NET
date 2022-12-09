@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Models
 {
-    public class CharacterPower
+    public class Resist
     {
         public int IdChar { get; set; }
         public int Eau { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Models
 {
-    public class CharacterStat
+    public class Stat
     {
         public int IdChar { get; set; }
         public int TimestampSimul { get; set; }
