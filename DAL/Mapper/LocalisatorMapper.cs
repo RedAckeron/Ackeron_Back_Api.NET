@@ -13,15 +13,19 @@ namespace DAL.Mapper
         public Localisator LocMapper(IDataReader reader)
         {
             Localisator Loc = new Localisator();
-            //CLoc.IdChar = (int)reader[1];
             Loc.LocUId = (int)reader["LocUId"];
             Loc.LocSId = (int)reader["LocSId"];
+            Loc.LocSX = (int)reader["LocSX"];
+            Loc.LocSY = (int)reader["LocSY"];
             Loc.LocPId = (int)reader["LocPId"];
+            Loc.LocPX = (int)reader["LocPX"];
+            Loc.LocPY = (int)reader["LocPY"];
             Loc.LocAId = (int)reader["LocAId"];
             Loc.LocAX = (int)reader["LocAX"];
             Loc.LocAY = (int)reader["LocAY"];
             Loc.LocZId = (int)reader["LocZId"];
-            //Console.WriteLine("IdChar:" + CLoc.IdChar + " => " + CLoc.LocAX + "/" + CLoc.LocAY);
+            Loc.LocZX = (int)reader["LocZX"];
+            Loc.LocZY = (int)reader["LocZY"];
             return Loc;
         }
     }

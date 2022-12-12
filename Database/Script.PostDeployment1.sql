@@ -9,28 +9,24 @@ insert into maplocplanet(name,locu,locs,locx,locy)values('nagma pyrgos',1,1,10,1
 insert into maplocplanet(name,locu,locs,locx,locy)values('meka tackyon',1,2,10,10);
 insert into maplocplanet(name,locu,locs,locx,locy)values('hangus omega',1,3,10,10);
 
-insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('rocher',1,1,1,5,5,'mt','st','rocher.gif',0,10,60);
-insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('rocher',1,1,1,3,7,'mt','st','rocher.gif',0,10,60);
-insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('buisson',1,1,1,1,9,'mt','st','bush.gif',0,10,60);
-insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('buisson',1,1,1,9,1,'mt','st','bush.gif',0,10,60);
-insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('buisson',1,1,1,7,3,'mt','st','bush.gif',0,10,60);
-insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('stair',1,1,1,7,9,'mt','st','stair.gif',1,10,60);
-insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('rocher',1,1,1,5,5,'mt','st','map/rockgreen.gif',0,10,60);
-insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('rocher',1,1,1,3,7,'mt','st','map/rockgreen.gif',0,10,60);
-insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('buisson',1,1,1,1,9,'mt','st','map/bushgreen.gif',0,10,60);
-insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('buisson',1,1,1,9,1,'mt','st','map/bushgreen.gif',0,10,60);
-insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('buisson',1,1,1,7,3,'mt','st','map/bushgreen.gif',0,10,60);
-insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('escalier',1,1,1,7,9,'mt','st','map/stairgreen.gif',1,10,60);
+
+insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('rocher',1,1,1,5,5,'mt','st','GreenRock.gif',0,10,60);
+insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('rocher',1,1,1,3,7,'mt','st','GreenRock.gif',0,10,60);
+insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('buisson',1,1,1,1,9,'mt','st','GreenBush.gif',0,10,60);
+insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('buisson',1,1,1,9,1,'mt','st','GreenBush.gif',0,10,60);
+insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('buisson',1,1,1,7,3,'mt','st','GreenBush.gif',0,10,60);
+insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('escalier',1,1,1,7,9,'mt','st','GreenStair.gif',1,10,60);
 
 insert into maploczone(name,owner,locu,locs,locp,loca,locx,locy)values('free area',1,1,1,1,1,1,1);
 
-insert into Localisator(LocUId,LocSId,LocPId,LocAId,LocAX,LocAY)values(1,1,1,1,10,15);
+insert into Localisator(LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZx,LocZy)
+values(1,1,10,10,1,10,10,1,10,10,1,10,10);
+
 insert into [Character] (Name, Race, Sexe, Classe, LocalisatorId, CitizenPlanet, TsIn)values('Admin',0,0,0,1,0,1666362817);
 
 insert into CharacterStat values(1,1,5,20,0,80,100,30,50,0);
 insert into CharacterPower values(1,10,10,10,10,10,10,10,10,10,10);
 insert into CharacterResist values(1,10,10,10,10,10,10,10,10,10,10);
-
 
 insert into characterstat values(1,1,5,20,0,80,100,30,50,0);
 insert into characterpower values(1,10,10,10,10,10,10,10,10,10,10);

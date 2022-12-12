@@ -36,7 +36,8 @@ builder.Services.AddScoped<IMapRepo, MapRepo>();
 builder.Services.AddScoped<ILocalisatorRepo, LocalisatorRepo>();
 builder.Services.AddScoped<IQuestService, QuestService>();
 builder.Services.AddScoped<IQuestRepo, QuestRepo>();
-
+builder.Services.AddScoped<ILocalisatorService, LocalisatorService>();
+builder.Services.AddScoped<ILocalisatorRepo , LocalisatorRepo>();
 
 var app = builder.Build();
 
