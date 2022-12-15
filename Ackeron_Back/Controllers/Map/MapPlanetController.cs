@@ -17,7 +17,7 @@ namespace Ackeron_Back.Controllers.Map
         }
 
 
-        [HttpGet("/map/GetMap/{IdPlanet}")]
+        [HttpGet("/Map/Planet/GetMap/{IdPlanet}")]
         public IActionResult GetMap(int IdPlanet)
         {
             return Ok(_mapService.GetMap(IdPlanet));

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Ackeron_Back.Controllers.Map
 {
-    [Route("ackeron/MapArea/[controller]")]
+    [Route("ackeron/Map/Area/[controller]")]
     [ApiController]
     public class MapAreaController : ControllerBase
     {
@@ -14,7 +14,7 @@ namespace Ackeron_Back.Controllers.Map
         {
             _mapService = mapService;
         }
-        [HttpPost("/ChkAreaReachable/")]
+        [HttpPost("/Map/Area/ChkAreaReachable/")]
         public IActionResult ChkAreaReachable(Localisator Loc)
         {
             return Ok(_mapService.ChkAreaReachable(Loc));
