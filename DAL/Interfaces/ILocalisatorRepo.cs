@@ -12,7 +12,7 @@ namespace DAL.Interfaces
    
     public interface ILocalisatorRepo
     {
-        Localisator GetLocalisator(int id);
+        Localisator ReadLocalisator(int id);
         int UpdateLocalisator(int Id, Localisator Loc);
 
     }

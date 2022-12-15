@@ -9,6 +9,6 @@ namespace BLL.Interfaces
 {
     public interface ILocalisatorService
     {
-        Localisator GetLocalisator(int Id);
+        Localisator ReadLocalisator(int Id);
     }
 }

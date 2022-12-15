@@ -23,7 +23,7 @@ namespace DAL.Repositories
             //_connection = connection;
         }
 
-        public Localisator GetLocalisator(int id)
+        public Localisator ReadLocalisator(int id)
         {
             LocalisatorMapper mapper = new LocalisatorMapper();
             using (SqlConnection cnx = new SqlConnection(_connectionString))

@@ -8,7 +8,7 @@ using System.ComponentModel;
 namespace Ackeron_Back.Controllers
 {
 
-    [Route("ackeron/character/[controller]")]
+    [Route("ackeron/Character/[controller]")]
     [ApiController]
     public class CharacterController : ControllerBase
     {
@@ -28,7 +28,7 @@ namespace Ackeron_Back.Controllers
         [HttpGet("/Character/GetLocalisator/{id}")]
         public IActionResult GetLocalisator(int id)
         {
-            return Ok(_characterService.GetLocalisator(id));
+            return Ok(_characterService.ReadLocalisator(id));
         }
         
         [HttpPut("/Character/UpdateLocalisator/{id}")]

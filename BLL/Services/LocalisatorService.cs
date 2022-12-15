@@ -17,10 +17,10 @@ namespace BLL.Services
         {
             _localisatorRepo = localisatorRepo;
         }
-        public Localisator GetLocalisator(int id)
+        public Localisator ReadLocalisator(int id)
         {
             Localisator datalocalisator = new();
-            datalocalisator = _localisatorRepo.GetLocalisator(id);
+            datalocalisator = _localisatorRepo.ReadLocalisator(id);
             return datalocalisator;
         }
     }

@@ -20,10 +20,10 @@ namespace BLL.Services
             _localisatorRepo = localisatorRepo;
         }
        
-        public Localisator GetLocalisator(int id)
+        public Localisator ReadLocalisator(int id)
         {
             Localisator datacharloc = new();
-            datacharloc = _localisatorRepo.GetLocalisator(id);
+            datacharloc = _localisatorRepo.ReadLocalisator(id);
             return datacharloc;
         }
         public bool UpdateLocalisator(int Id, Localisator Loc)
@@ -48,7 +48,7 @@ namespace BLL.Services
             //List<Quest>questbook= new List<Quest>();
 
             datacharinfo = _characterRepo.GetCharacterInfo(id);
-            datacharloc = _localisatorRepo.GetLocalisator(id);
+            datacharloc = _localisatorRepo.ReadLocalisator(id);
             datacharstat = _characterRepo.GetCharacterStat(id);
             datacharpow = _characterRepo.GetCharacterPower(id);
             datacharres = _characterRepo.GetCharacterResist(id);
