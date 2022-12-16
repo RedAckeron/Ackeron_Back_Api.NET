@@ -3,18 +3,8 @@
 	[Id] INT NOT NULL PRIMARY KEY identity,
 	Name nvarchar(50),
 	Owner int,
-	
-	LocU int,
-	CONSTRAINT FK_MapLocArea_IdUnivers FOREIGN KEY (LocU)
-    REFERENCES MapLocUnivers (Id),
-	LocS int,
-	CONSTRAINT FK_MapLocArea_IdSolar FOREIGN KEY (LocS)
-    REFERENCES MapLocSolar (Id),
-	LocP int,
-	CONSTRAINT FK_MapLocArea_IdPlanet FOREIGN KEY (LocP)
-    REFERENCES MapLocPlanet (Id),
-	LocX int,
-	LocY int,
+	IdLocalisator int,
+	    CONSTRAINT [FK_MapLocArea_IdLocalisator] FOREIGN KEY ([IdLocalisator]) REFERENCES [dbo].[Localisator] ([Id]),
 	MainTrigger nvarchar(50),
 	SubTrigger nvarchar(50),
 	ImgItem nvarchar(50),

@@ -20,11 +20,12 @@ namespace BLL.Services
         }
 
         public bool ChkAreaReachable(Localisator Loc) {
-           
+        
             return _mapRepo.ChkAreaReachable(Loc);
         }
-        public List<Area> GetMap(int IdPlanet) {
 
+        public List<Area> GetMap(int IdPlanet) {
+            Console.WriteLine(_mapRepo.GetMap(IdPlanet));
             return _mapRepo.GetMap(IdPlanet);
         }
     }

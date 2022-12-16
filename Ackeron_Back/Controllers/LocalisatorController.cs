@@ -14,7 +14,6 @@ namespace Ackeron_Back.Controllers
             _localisatorService = localisatorService;
         }
 
-
         [HttpPut("/Localisator/Create/{Id}")]
         public IActionResult CreateLocalisator(int Id)
         {
@@ -26,15 +25,14 @@ namespace Ackeron_Back.Controllers
         {
             Console.WriteLine("couche controller");
             return Ok(_localisatorService.ReadLocalisator(Id));
-           
         }
 
         [HttpPost("/Localisator/Update/{Id}")]
         public IActionResult UpdateLocalisator(int Id)
         {
-           
             return null;
         }
+
         [HttpDelete("/Localisator/Delete/{Id}")]
         public IActionResult DeleteLocalisator(int Id)
         {
