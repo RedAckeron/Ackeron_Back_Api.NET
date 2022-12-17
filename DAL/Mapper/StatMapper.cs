@@ -14,7 +14,6 @@ namespace DAL.Mapper
         {
             Stat CStat = new Stat();
             //CStat.IdChar = (int)reader[1];
-            CStat.TimestampSimul = (int)reader[2];
             CStat.PtMove = (int)reader[3];
             CStat.PtMoveMax = (int)reader[4];
             CStat.Xp = (int)reader[5];
@@ -22,11 +21,7 @@ namespace DAL.Mapper
             CStat.PvMax = (int)reader[7];
             CStat.Pw = (int)reader[8];
             CStat.PwMax = (int)reader[9];
-            CStat.Gold = (int)reader[10];
             return CStat;
-        }
-       
-        
-       
+        }      
     }
 }

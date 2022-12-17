@@ -1,10 +1,11 @@
 ﻿CREATE TABLE [dbo].[MapLocSolar]
 (
 	[Id] INT NOT NULL PRIMARY KEY identity,
-	Name nvarchar(50),
-	Owner int,
+	[LocalisatorId] int,
+	CONSTRAINT FK_MapLocSolar_Localisator FOREIGN KEY (LocalisatorId)
+    REFERENCES Localisator (Id),
+	[Name] nvarchar(50),
+	[Owner] int,
 	
-	LocU int,
-	CONSTRAINT FK_MapLocSolar_IdUnivers FOREIGN KEY (LocU)
-    REFERENCES MapLocUnivers (Id),
+	
 )

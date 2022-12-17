@@ -10,6 +10,7 @@ namespace DAL.Mapper
 {
     public class InfoMapper
     {
+        /*
         public Info CharacterInfoMapper(IDataReader reader)
         {
             Info CInfo = new Info();
@@ -22,5 +23,6 @@ namespace DAL.Mapper
             CInfo.TsIn = (int)reader[6];
             return CInfo;
         }
+        */
     }
 }

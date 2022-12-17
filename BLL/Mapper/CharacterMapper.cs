@@ -11,9 +11,9 @@ namespace BLL.Mapper
 {
     public class CharacterMapper
     {
+        /*
         public Info CharacterToCharacterInfo(Character C)
         {
-            Info CInfo = new Info();
             CInfo.IdChar = C.Id;
             CInfo.Name=C.Info.Name;
             CInfo.Race = C.Info.Race;
@@ -23,6 +23,8 @@ namespace BLL.Mapper
             CInfo.TsIn = C.Info.TsIn;
             return CInfo;
         }
+        */
+        /*
         public Localisator CharacterToCharacterLoc(Character C)
         {
             Localisator Loc = new();
@@ -34,11 +36,11 @@ namespace BLL.Mapper
             Loc.LocZId = C.Loc.LocZId;
             return Loc;
         }
+        */
+
         public Stat CharacterToCharacterStat(Character C)
         {
             Stat CStat = new();
-            CStat.IdChar = C.Id;
-            CStat.TimestampSimul = C.Stat.TimestampSimul;
             CStat.PtMove = C.Stat.PtMove;
             CStat.PtMoveMax = C.Stat.PtMoveMax;
             CStat.Xp = C.Stat.Xp;

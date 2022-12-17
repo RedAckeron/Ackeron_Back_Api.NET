@@ -23,6 +23,40 @@ namespace DAL.Repositories
             //_connection = connection;
         }
 
+        public int CreateLocalisator(Localisator loc)
+        {
+        using (SqlConnection cnx = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = cnx.CreateCommand())
+                {
+                    cmd.CommandText = "insert into Localisator (LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZX,LocZY) " +
+                        "values(@LocUId,@LocSId,@LocSX,@LocSY,@LocPId,@LocPX,@LocPY,@LocAId,@LocAX,@LocAY,@LocZId,@LocZX,@LocZY);";
+                    cmd.Parameters.AddWithValue("LocUId", loc.LocUId);
+
+                    cmd.Parameters.AddWithValue("LocSId", loc.LocSId);
+                    cmd.Parameters.AddWithValue("LocSX", loc.LocSX);
+                    cmd.Parameters.AddWithValue("LocSY", loc.LocSY);
+
+                    cmd.Parameters.AddWithValue("LocPId", loc.LocPId);
+                    cmd.Parameters.AddWithValue("LocPX", loc.LocPX);
+                    cmd.Parameters.AddWithValue("LocPY", loc.LocPY);
+
+                    cmd.Parameters.AddWithValue("LocAId", loc.LocAId);
+                    cmd.Parameters.AddWithValue("LocAX", loc.LocAX);
+                    cmd.Parameters.AddWithValue("LocAY", loc.LocAY);
+
+                    cmd.Parameters.AddWithValue("LocZId", loc.LocZId);
+                    cmd.Parameters.AddWithValue("LocZX", loc.LocZX);
+                    cmd.Parameters.AddWithValue("LocZY", loc.LocZY);
+                    cnx.Open();
+                    return ((int)cmd.ExecuteScalar());
+                    //cnx.Close();
+                }
+            }
+            
+        }
+
+
         public Localisator ReadLocalisator(int id)
         {
             LocalisatorMapper mapper = new LocalisatorMapper();

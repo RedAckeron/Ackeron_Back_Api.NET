@@ -9,11 +9,10 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
-   
     public interface ILocalisatorRepo
     {
+        int CreateLocalisator(Localisator Loc);
         Localisator ReadLocalisator(int id);
         int UpdateLocalisator(int Id, Localisator Loc);
-
     }
 }

@@ -23,25 +23,27 @@ namespace DAL.Repositories
             //_connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Ackeron;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             //_connection = connection;
         }
+        /*
         public int AddCharacterInfo(Info CInfo)
         {
         using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
             using (SqlCommand cmd = cnx.CreateCommand())
-            {
-                cmd.CommandText = "Insert into [dbo].[Character] (Name,Race,Sexe,Classe,CitizenPlanet,TsIn)output inserted.Id values(@Name,@Race,@Sexe,@Classe,@CitizenPlanet,@TsIn);";
-                cmd.Parameters.AddWithValue("Name", CInfo.Name);
-                cmd.Parameters.AddWithValue("Race", CInfo.Race);
-                cmd.Parameters.AddWithValue("Sexe", CInfo.Sexe);
-                cmd.Parameters.AddWithValue("Classe", CInfo.Classe);
-                cmd.Parameters.AddWithValue("CitizenPlanet", CInfo.CitizenPlanet);
-                cmd.Parameters.AddWithValue("TsIn", CInfo.TsIn);
-                cnx.Open();
-                return (int)(cmd.ExecuteScalar());
-                //cnx.Close(); 
+                {
+                    cmd.CommandText = "Insert into [dbo].[Character] (Name,Race,Sexe,Classe,CitizenPlanet,TsIn)output inserted.Id values(@Name,@Race,@Sexe,@Classe,@CitizenPlanet,@TsIn);";
+                    cmd.Parameters.AddWithValue("Name", CInfo.Name);
+                    cmd.Parameters.AddWithValue("Race", CInfo.Race);
+                    cmd.Parameters.AddWithValue("Sexe", CInfo.Sexe);
+                    cmd.Parameters.AddWithValue("Classe", CInfo.Classe);
+                    cmd.Parameters.AddWithValue("CitizenPlanet", CInfo.CitizenPlanet);
+                    cmd.Parameters.AddWithValue("TsIn", CInfo.TsIn);
+                    cnx.Open();
+                    return (int)(cmd.ExecuteScalar());
+                    //cnx.Close(); 
+                }
             }
         }
-    }
+        */
         public int AddCharacterLoc(int IdChar,Localisator CLoc)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
@@ -62,7 +64,7 @@ namespace DAL.Repositories
                 }
             }
         }
-        public int AddCharacterStat(Stat CStat)
+        public int AddCharacterStat(Hero CStat)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
@@ -137,7 +139,7 @@ namespace DAL.Repositories
                 }
             }
         }
-        
+        /*
         public Info GetCharacterInfo(int id)
         {
             //StatMapper mapper = new StatMapper();
@@ -159,6 +161,7 @@ namespace DAL.Repositories
             }
             return null;
         }
+        */
         public Stat GetCharacterStat(int id)
         {
             StatMapper mapper = new StatMapper();
@@ -174,7 +177,6 @@ namespace DAL.Repositories
                         {
                             return mapper.CharacterStatMapper(reader);
                         }
-                        
                     }
                 }
             }
@@ -304,20 +306,20 @@ namespace DAL.Repositories
             }
         }
         
-        public int UpdateCharacterInfo(int IdChar,Info CInfo)
+        public int UpdateCharacter(int IdChar,Character C)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
                     cmd.CommandText = "UPDATE [dbo].[Character] SET Name=@Name,Race=@Race,Sexe=@Sexe,Classe=@Classe,CitizenPlanet=@CitizenPlanet,TsIn=@TsIn WHERE Id = @IdChar;";
-                    cmd.Parameters.AddWithValue("IdChar", CInfo.IdChar);
-                    cmd.Parameters.AddWithValue("Name", CInfo.Name);
-                    cmd.Parameters.AddWithValue("Race", CInfo.Race);
-                    cmd.Parameters.AddWithValue("Sexe", CInfo.Sexe);
-                    cmd.Parameters.AddWithValue("Classe", CInfo.Classe);
-                    cmd.Parameters.AddWithValue("CitizenPlanet", CInfo.CitizenPlanet);
-                    cmd.Parameters.AddWithValue("TsIn", CInfo.TsIn);
+                    cmd.Parameters.AddWithValue("IdChar", C.IdChar);
+                    cmd.Parameters.AddWithValue("Name", C.Name);
+                    cmd.Parameters.AddWithValue("Race", C.Race);
+                    cmd.Parameters.AddWithValue("Sexe", C.Sexe);
+                    cmd.Parameters.AddWithValue("Classe", C.Classe);
+                    cmd.Parameters.AddWithValue("CitizenPlanet", C.CitizenPlanet);
+                    cmd.Parameters.AddWithValue("TsIn", C.TsIn);
                     cnx.Open();
                     return (cmd.ExecuteNonQuery());
                     //cnx.Close();
@@ -325,7 +327,7 @@ namespace DAL.Repositories
             }
         }
        
-        public int UpdateCharacterStat(Stat CStat)
+        public int UpdateCharacterStat(Hero CStat)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {

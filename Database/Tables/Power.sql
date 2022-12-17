@@ -1,9 +1,6 @@
-﻿CREATE TABLE [dbo].[CharacterPower]
+﻿CREATE TABLE [dbo].[Power]
 (
 	[Id] INT NOT NULL PRIMARY KEY identity,
-	[IdChar] int,
-		CONSTRAINT FK_CharacterPower_IdChar FOREIGN KEY (IdChar)
-        REFERENCES Character (Id),
 	[eau] int,
 	[feu] int,
 	[air] int,

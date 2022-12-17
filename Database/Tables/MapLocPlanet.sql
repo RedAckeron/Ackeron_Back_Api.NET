@@ -2,10 +2,8 @@
     [Id]             INT           IDENTITY (1, 1) NOT NULL,
     [name]           VARCHAR (50)  NULL,
     [owner]          INT           NULL DEFAULT 1,
-    [LocU]           INT           NULL ,
-    [LocS]           INT           NULL ,
-    [LocX]           INT           NULL ,
-    [LocY]           INT           NULL ,
+    LocalisatorId int,
+    	    CONSTRAINT [FK_MapLocPlanet_IdLocalisator] FOREIGN KEY ([LocalisatorId]) REFERENCES [dbo].[Localisator] ([Id]),
     [TypeItem]       VARCHAR (3)   NULL DEFAULT 'pla',
     [ImgItem]        NVARCHAR (50) NULL DEFAULT 'planet.gif',
     [Lvl]            INT           NULL DEFAULT 0,
@@ -21,7 +19,6 @@
     [PriceWork]      INT           NULL DEFAULT 0,
     [BgroundImg]     NVARCHAR (50) NULL DEFAULT 'img.gif',
     PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_MapLocPlanet_IdUnivers] FOREIGN KEY ([LocU]) REFERENCES [dbo].[MapLocUnivers] ([Id]),
-    CONSTRAINT [FK_MapLocPlanet_IdSolar] FOREIGN KEY ([LocS]) REFERENCES [dbo].[MapLocSolar] ([Id])
+    
 );
 

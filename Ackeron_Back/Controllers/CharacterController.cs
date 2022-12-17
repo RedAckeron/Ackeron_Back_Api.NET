@@ -19,29 +19,20 @@ namespace Ackeron_Back.Controllers
             _characterService = characterService;
         }
 
-        [HttpGet("/Character/GetOne/{id}")]
-        public IActionResult GetById(int id)
-        {
-            return Ok(_characterService.GetOneCharacter(id));
-        }
 
-        [HttpGet("/Character/GetLocalisator/{id}")]
-        public IActionResult GetLocalisator(int id)
-        {
-            return Ok(_characterService.ReadLocalisator(id));
-        }
-        
-        [HttpPut("/Character/UpdateLocalisator/{id}")]
-        public IActionResult UpdateLocalisator(int Id,Localisator Loc)
-        {
-            
-            return Ok(_characterService.UpdateLocalisator(Id,Loc));
-        }
 
-        [HttpPost("/Character/Add")]
+
+
+        [HttpPost("/Character/Create")]
         public IActionResult AddCharacter(Character c)
         {
             return Ok(_characterService.AddCharacter(c));
+        }
+
+        [HttpGet("/Character/Read/{id}")]
+        public IActionResult GetById(int id)
+        {
+            return Ok(_characterService.GetById(id));
         }
 
         [HttpPut("/Character/Update/{id}")]
@@ -49,5 +40,25 @@ namespace Ackeron_Back.Controllers
         {
             return Ok(_characterService.UpdateCharacter(c));
         }
+
+        [HttpDelete("/Character/Delete/{id}")]
+        public IActionResult DeleteCharacter(int id)
+        {
+            return Ok(_characterService.DeleteCharacter(id));
+        }
     }
 }
+/*
+       [HttpGet("/Character/GetLocalisator/{id}")]
+       public IActionResult GetLocalisator(int id)
+       {
+           return Ok(_characterService.ReadLocalisator(id));
+       }
+
+       [HttpPut("/Character/UpdateLocalisator/{id}")]
+       public IActionResult UpdateLocalisator(int Id,Localisator Loc)
+       {
+
+           return Ok(_characterService.UpdateLocalisator(Id,Loc));
+       }
+       */

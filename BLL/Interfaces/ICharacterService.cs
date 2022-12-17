@@ -13,9 +13,10 @@ namespace BLL.Interfaces
     //public IEnumerable<Character> GetAllCharacters();
     //public Character GetCharacter(int id);
     int AddCharacter(Character c);
-    Localisator ReadLocalisator(int id);
-    bool UpdateLocalisator(int Id,Localisator Loc);
-    Character GetOneCharacter(int id);
+    //Localisator ReadLocalisator(int id);
+    //bool UpdateLocalisator(int Id,Localisator Loc);
+    Character GetById(int id);
     bool UpdateCharacter(Character c);
+    bool DeleteCharacter(int Id);   
     }
 }
