@@ -27,7 +27,7 @@ builder.Services.AddCors(options =>{
         });
 });
 
-builder.Services.AddScoped<ICharacterService, CharacterService>();
+//builder.Services.AddScoped<ICharacterService, CharacterService>();
 builder.Services.AddScoped<ICharacterRepo, CharacterRepo>();
 builder.Services.AddScoped<IItemService,ItemService>();
 builder.Services.AddScoped<IItemRepo, ItemRepo>();

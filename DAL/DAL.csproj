@@ -79,13 +79,9 @@
     <Compile Include="Mapper\Map\AreaMapper.cs" />
     <Compile Include="Mapper\PowerMapper.cs" />
     <Compile Include="Mapper\ResistMapper.cs" />
-    <Compile Include="Models\Character\Character.cs" />
-    <Compile Include="Models\Character\Pnj.cs" />
-    <Compile Include="Models\Character\Mob.cs" />
     <Compile Include="Models\Stat.cs" />
     <Compile Include="Models\Power.cs" />
     <Compile Include="Models\Resist.cs" />
-    <Compile Include="Models\Character\Hero.cs" />
     <Compile Include="Models\Localisator.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Map\Area.cs" />

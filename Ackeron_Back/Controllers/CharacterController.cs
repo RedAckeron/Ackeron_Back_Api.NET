@@ -19,10 +19,7 @@ namespace Ackeron_Back.Controllers
             _characterService = characterService;
         }
 
-
-
-
-
+        /*
         [HttpPost("/Character/Create")]
         public IActionResult AddCharacter(Character c)
         {
@@ -46,6 +43,7 @@ namespace Ackeron_Back.Controllers
         {
             return Ok(_characterService.DeleteCharacter(id));
         }
+        */
     }
 }
 /*

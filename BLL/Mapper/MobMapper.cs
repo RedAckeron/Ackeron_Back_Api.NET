@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Mapper
 {
-    public class CharacterMapper
+    public class MobMapper
     {
         /*
         public Info CharacterToCharacterInfo(Character C)

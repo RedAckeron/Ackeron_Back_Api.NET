@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Models
+namespace BLL.Models
 {
-    public class Pnj:Character
+    public class Mob:Character
     {
-        public int TimestampSimul { get; set; }
         public int PtMove { get; set; }
         public int PtMoveMax { get; set; }
         public int Xp { get; set; }
@@ -23,5 +22,6 @@ namespace DAL.Models
         public Power Power { get; set; }
         public Resist Resist { get; set; }
         public List<Item> Inventory { get; set; }
+        public List<Spell> SpellBook { get; set; }
     }
 }

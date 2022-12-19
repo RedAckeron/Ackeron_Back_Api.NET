@@ -11,7 +11,7 @@ namespace DAL.Interfaces
     public interface ICharacterRepo
     {
        // int AddCharacterInfo(Info CInfo);
-        int AddCharacterStat(Hero CStat);
+        int AddCharacterStat(Stat CStat);
         int AddCharacterLoc(int IdChar, Localisator CLoc);
         int AddCharacterPower(Power CPow);
         int AddCharacterResist(Resist CRes);
@@ -27,7 +27,7 @@ namespace DAL.Interfaces
 
         //int UpdateCharacterInfo(int IdChar,Info CInfo);
         //int UpdateCharacterLoc(int IdChar, Localisator CLoc);
-        int UpdateCharacterStat(Hero CStat);
+        int UpdateCharacterStat(Stat CStat);
         int UpdateCharacterResist(Resist CStat);
         int UpdateCharacterPower(Power CPow);
 

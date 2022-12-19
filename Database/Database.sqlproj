@@ -61,7 +61,7 @@
   <ItemGroup>
     <Build Include="Tables\Character.sql" />
     <Build Include="Tables\Localisator.sql" />
-    <Build Include="Tables\CharacterStat.sql" />
+    <Build Include="Tables\Stat.sql" />
     <Build Include="Tables\Resist.sql" />
     <Build Include="Tables\Power.sql" />
     <Build Include="Tables\Item.sql" />

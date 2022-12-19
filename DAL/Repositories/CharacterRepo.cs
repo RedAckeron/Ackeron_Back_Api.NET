@@ -2,7 +2,6 @@
 using DAL.Interfaces;
 using DAL.Mapper;
 using DAL.Mapper.Map;
-using DAL.Models;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -11,7 +10,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Reflection;
 
-namespace DAL.Repositories
+namespace BLL.Repositories
 {
     public class CharacterRepo:ICharacterRepo
     {
@@ -64,19 +63,16 @@ namespace DAL.Repositories
                 }
             }
         }
-        public int AddCharacterStat(Hero CStat)
+        public int AddCharacterStat(Stat CStat)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
                     cmd.CommandText = "insert into CharacterStat values(@IdChar,@TimestampSimul,@PtMove,@PtMoveMax,@Xp,@Gold,@Pv,@PvMax,@Pw,@PwMax);";
-                    cmd.Parameters.AddWithValue("IdChar", CStat.IdChar);
-                    cmd.Parameters.AddWithValue("TimestampSimul", CStat.TimestampSimul);
                     cmd.Parameters.AddWithValue("PtMove", CStat.PtMove);
                     cmd.Parameters.AddWithValue("PtMoveMax", CStat.PtMoveMax);
                     cmd.Parameters.AddWithValue("Xp", CStat.Xp);
-                    cmd.Parameters.AddWithValue("Gold", CStat.Gold);
                     cmd.Parameters.AddWithValue("Pv", CStat.Pv);
                     cmd.Parameters.AddWithValue("PvMax", CStat.PvMax);
                     cmd.Parameters.AddWithValue("Pw", CStat.Pw);
@@ -313,7 +309,7 @@ namespace DAL.Repositories
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
                     cmd.CommandText = "UPDATE [dbo].[Character] SET Name=@Name,Race=@Race,Sexe=@Sexe,Classe=@Classe,CitizenPlanet=@CitizenPlanet,TsIn=@TsIn WHERE Id = @IdChar;";
-                    cmd.Parameters.AddWithValue("IdChar", C.IdChar);
+                    cmd.Parameters.AddWithValue("IdChar", IdChar);
                     cmd.Parameters.AddWithValue("Name", C.Name);
                     cmd.Parameters.AddWithValue("Race", C.Race);
                     cmd.Parameters.AddWithValue("Sexe", C.Sexe);
@@ -327,19 +323,16 @@ namespace DAL.Repositories
             }
         }
        
-        public int UpdateCharacterStat(Hero CStat)
+        public int UpdateCharacterStat(Stat CStat)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
                     cmd.CommandText = "UPDATE CharacterStat SET TimestampSimul=@TimestampSimul,PtMove=@PtMove,PtMoveMax=@PtMoveMax,Xp=@Xp,Gold=@Gold,Pv=@Pv,PvMax=@PvMax,Pw=@Pw,PwMax=@PwMax WHERE IdChar=@IdChar;";
-                    cmd.Parameters.AddWithValue("IdChar", CStat.IdChar);
-                    cmd.Parameters.AddWithValue("TimestampSimul", CStat.TimestampSimul);
                     cmd.Parameters.AddWithValue("PtMove", CStat.PtMove);
                     cmd.Parameters.AddWithValue("PtMoveMax", CStat.PtMoveMax);
                     cmd.Parameters.AddWithValue("Xp", CStat.Xp);
-                    cmd.Parameters.AddWithValue("Gold", CStat.Gold);
                     cmd.Parameters.AddWithValue("Pv", CStat.Pv);
                     cmd.Parameters.AddWithValue("PvMax", CStat.PvMax);
                     cmd.Parameters.AddWithValue("Pw", CStat.Pw);

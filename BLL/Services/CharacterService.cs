@@ -10,7 +10,7 @@ using System.Data.Common;
 
 namespace BLL.Services
 {
-    public class CharacterService : ICharacterService
+    public class CharacterService //: ICharacterService
     {
         private readonly ICharacterRepo _characterRepo;
         private readonly ILocalisatorRepo _localisatorRepo;
@@ -19,6 +19,8 @@ namespace BLL.Services
             _characterRepo = characterRepo;
             _localisatorRepo = localisatorRepo;
         }
+
+
         /*
          public Localisator ReadLocalisator(int id)
          {
@@ -34,10 +36,12 @@ namespace BLL.Services
              return loc;
          }
         */
+        /*
         public Character GetById(int id)
         {
             //on creez l objet
-            Character C = new Character();
+            //Character C = new Character();
+            Hero H = new Hero();
             Localisator datacharloc = new();
             Stat datacharstat = new();
             Power datacharpow = new();
@@ -73,7 +77,7 @@ namespace BLL.Services
             Localisator CLoc;
             Power CPow;
             Resist CRes;
-
+            
             CInfo = mapper.CharacterToCharacterInfo(C);
             int IdChar = _characterRepo.AddCharacterInfo(CInfo);
 
@@ -94,6 +98,7 @@ namespace BLL.Services
             _characterRepo.AddCharacterResist(CRes);
 
             return IdChar;
+            
         }
         public bool UpdateCharacter(Character C)
         {
@@ -130,6 +135,6 @@ namespace BLL.Services
         {
             return true;
         }
-
+        */
     }
 }
