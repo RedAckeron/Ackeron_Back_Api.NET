@@ -12,17 +12,23 @@ namespace DAL.Mapper.Map
     public class AreaMapper {
         public Area DataToArea(IDataReader reader)
         {
-            //Localisator loc=new Localisator();
+            Localisator loc=new Localisator(0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+            loc.LocAId= (int)reader["Id"];
+            loc.LocAX = (int)reader["LocAX"];
+            loc.LocAY = (int)reader["LocAY"];
+            loc.LocPId = (int)reader["LocPId"];
+
             Area area = new Area();
-            area.IdArea = (int)reader[0];
-            
-            area.Name = (string)reader[1];
-            //area.Localisator.LocAX = (int)reader[6];
-            //area.Localisator.LocAY = (int)reader[7];
-            area.MainTrigger = (string)reader[8];
-            area.SubTrigger = (string)reader[9];
-            area.ImgItem = (string)reader[10];
-            area.Reachable = (bool)reader[11];
+            area.IdArea = (int)reader["Id"];
+            area.Localisator = loc;
+            area.Name = (string)reader["Name"];
+            area.Owner = (int)reader["Owner"];
+            area.MainTrigger = (string)reader["MainTrigger"];
+            area.SubTrigger = (string)reader["SubTrigger"];
+            area.ImgItem = (string)reader["ImgItem"];
+            area.Reachable = (bool)reader["Reachable"];
+            area.Lvl = (int)reader["Lvl"];
+            area.Refresh = (int)reader["Refresh"];
             return area;
         }
     }

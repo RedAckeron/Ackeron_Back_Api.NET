@@ -8,7 +8,22 @@ namespace DAL.Models
 {
     public class Resist
     {
-        public int IdChar { get; set; }
+        public Resist(int resistId, int eau, int feu, int air, int terre, int lumiere, int tenebre, int tranchant, int ecrasant, int percant, int poison)
+        {
+            ResistId = resistId;
+            Eau = eau;
+            Feu = feu;
+            Air = air;
+            Terre = terre;
+            Lumiere = lumiere;
+            Tenebre = tenebre;
+            Tranchant = tranchant;
+            Ecrasant = ecrasant;
+            Percant = percant;
+            Poison = poison;
+        }
+
+        public int ResistId { get; set; }
         public int Eau { get; set; }
         public int Feu { get; set; }
         public int Air { get; set; }

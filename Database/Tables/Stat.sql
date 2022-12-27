@@ -7,5 +7,6 @@
 	Pv int,
 	PvMax int,
 	Pw int,
-	PwMax int
+	PwMax int,
+	TimestampSimul int
 	)

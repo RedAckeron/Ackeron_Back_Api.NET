@@ -12,20 +12,23 @@ namespace DAL.Mapper
     {
         public Localisator LocMapper(IDataReader reader)
         {
-            Localisator Loc = new Localisator();
-            Loc.LocUId = (int)reader["LocUId"];
-            Loc.LocSId = (int)reader["LocSId"];
-            Loc.LocSX = (int)reader["LocSX"];
-            Loc.LocSY = (int)reader["LocSY"];
-            Loc.LocPId = (int)reader["LocPId"];
-            Loc.LocPX = (int)reader["LocPX"];
-            Loc.LocPY = (int)reader["LocPY"];
-            Loc.LocAId = (int)reader["LocAId"];
-            Loc.LocAX = (int)reader["LocAX"];
-            Loc.LocAY = (int)reader["LocAY"];
-            Loc.LocZId = (int)reader["LocZId"];
-            Loc.LocZX = (int)reader["LocZX"];
-            Loc.LocZY = (int)reader["LocZY"];
+            Localisator Loc = new Localisator(
+                (int)reader["Id"],
+                (int)reader["LocUId"],
+                (int)reader["LocSId"],
+                (int)reader["LocSX"],
+                (int)reader["LocSY"],
+                (int)reader["LocPId"],
+                (int)reader["LocPX"],
+                (int)reader["LocPY"],
+                (int)reader["LocAId"],
+                (int)reader["LocAX"],
+                (int)reader["LocAY"],
+                (int)reader["LocZId"],
+                (int)reader["LocZX"],
+                (int)reader["LocZY"]
+                );
+          
             return Loc;
         }
     }

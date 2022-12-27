@@ -9,28 +9,24 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace DAL.Repositories
 {
     public class LocalisatorRepo:ILocalisatorRepo
     {
         private string _connectionString;
-        //private readonly IDbConnection _connection;
         public LocalisatorRepo(IConfiguration config, IDbConnection connection)
         {
             _connectionString = config.GetConnectionString("default");
-            //_connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Ackeron;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            //_connection = connection;
         }
-
-        public int CreateLocalisator(Localisator loc)
+//####################################################################################################################################################################
+        public int Create(Localisator loc)
         {
         using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
-                    cmd.CommandText = "insert into Localisator (LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZX,LocZY) " +
-                        "values(@LocUId,@LocSId,@LocSX,@LocSY,@LocPId,@LocPX,@LocPY,@LocAId,@LocAX,@LocAY,@LocZId,@LocZX,@LocZY);";
+                    cmd.CommandText = "insert into Localisator  (LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZX,LocZY) output inserted.id values(@LocUId,@LocSId,@LocSX,@LocSY,@LocPId,@LocPX,@LocPY,@LocAId,@LocAX,@LocAY,@LocZId,@LocZX,@LocZY);";
+                    
                     cmd.Parameters.AddWithValue("LocUId", loc.LocUId);
 
                     cmd.Parameters.AddWithValue("LocSId", loc.LocSId);
@@ -48,16 +44,17 @@ namespace DAL.Repositories
                     cmd.Parameters.AddWithValue("LocZId", loc.LocZId);
                     cmd.Parameters.AddWithValue("LocZX", loc.LocZX);
                     cmd.Parameters.AddWithValue("LocZY", loc.LocZY);
+                    
                     cnx.Open();
-                    return ((int)cmd.ExecuteScalar());
+                    
+                    return (int)cmd.ExecuteScalar();
+
                     //cnx.Close();
                 }
             }
-            
         }
-
-
-        public Localisator ReadLocalisator(int id)
+//####################################################################################################################################################################
+        public Localisator Read(int id)
         {
             LocalisatorMapper mapper = new LocalisatorMapper();
             using (SqlConnection cnx = new SqlConnection(_connectionString))
@@ -77,14 +74,15 @@ namespace DAL.Repositories
             }
             return null;
         }
-        public int UpdateLocalisator(int Id, Localisator Loc)
+//####################################################################################################################################################################
+        public bool Update(Localisator Loc)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
                     cmd.CommandText = "UPDATE Localisator SET LocUId=@LocU,LocSId=@LocS,LocPId=@LocP,LocAId=@LocA,LocAX=@LocAX,LocAY=@LocAY WHERE Id=@Id;";
-                    cmd.Parameters.AddWithValue("Id", Id);
+                    cmd.Parameters.AddWithValue("Id", Loc.LocalisatorId);
                     cmd.Parameters.AddWithValue("LocU", Loc.LocUId);
                     cmd.Parameters.AddWithValue("LocS", Loc.LocSId);
                     cmd.Parameters.AddWithValue("LocP", Loc.LocPId);
@@ -92,7 +90,23 @@ namespace DAL.Repositories
                     cmd.Parameters.AddWithValue("LocAX", Loc.LocAX);
                     cmd.Parameters.AddWithValue("LocAY", Loc.LocAY);
                     cnx.Open();
-                    return (cmd.ExecuteNonQuery());
+                    return (cmd.ExecuteNonQuery()==1);
+                    
+                }
+            }
+        }
+//####################################################################################################################################################################
+        public bool Delete(int IdLoc)
+        {
+            using (SqlConnection cnx = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = cnx.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM Localisator WHERE Id=@Id;";
+                    cmd.Parameters.AddWithValue("Id", IdLoc);
+                   
+                    cnx.Open();
+                    return (cmd.ExecuteNonQuery()==1);
                     //cnx.Close();
                 }
             }

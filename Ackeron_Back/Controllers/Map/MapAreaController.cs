@@ -14,7 +14,32 @@ namespace Ackeron_Back.Controllers.Map
         {
             _mapService = mapService;
         }
-        [HttpPost("/Map/Area/ChkAreaReachable/")]
+
+        [HttpPost("/MapArea/Create")]
+        public IActionResult Create(Localisator Loc)
+        {
+            return Ok(_mapService.ChkAreaReachable(Loc));
+        }
+        
+        [HttpGet("/MapArea/Read/{IdArea}")]
+        public IActionResult Read(Localisator Loc)
+        {
+            return Ok(_mapService.ChkAreaReachable(Loc));
+        }
+        
+        [HttpPut("/MapArea/Update/")]
+        public IActionResult Update(Localisator Loc)
+        {
+            return Ok(_mapService.ChkAreaReachable(Loc));
+        }
+        
+        [HttpDelete("/MapArea/Delete/")]
+        public IActionResult Delete(Localisator Loc)
+        {
+            return Ok(_mapService.ChkAreaReachable(Loc));
+        }
+
+        [HttpPost("/MapArea/ChkAreaReachable/")]
         public IActionResult ChkAreaReachable(Localisator Loc)
         {
             return Ok(_mapService.ChkAreaReachable(Loc));

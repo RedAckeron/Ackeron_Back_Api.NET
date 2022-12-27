@@ -8,7 +8,22 @@ namespace DAL.Models
 {
     public class Power
     {
-        public int IdChar { get; set; }
+        public Power(int powerId, int eau, int feu, int air, int terre, int lumiere, int tenebre, int tranchant, int ecrasant, int percant, int poison)
+        {
+            PowerId = powerId;
+            Eau = eau;
+            Feu = feu;
+            Air = air;
+            Terre = terre;
+            Lumiere = lumiere;
+            Tenebre = tenebre;
+            Tranchant = tranchant;
+            Ecrasant = ecrasant;
+            Percant = percant;
+            Poison = poison;
+        }
+
+        public int PowerId { get; set; }
         public int Eau { get; set; }
         public int Feu { get; set; }
         public int Air { get; set; }

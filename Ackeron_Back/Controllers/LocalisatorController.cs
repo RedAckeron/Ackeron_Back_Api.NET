@@ -1,6 +1,6 @@
 ﻿using BLL.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-
+using DAL.Models;
 namespace Ackeron_Back.Controllers
 {
     [Route("ackeron/Localisator/[controller]")]
@@ -14,27 +14,27 @@ namespace Ackeron_Back.Controllers
             _localisatorService = localisatorService;
         }
 
-        [HttpPut("/Localisator/Create/{Id}")]
-        public IActionResult CreateLocalisator(int Id)
+        [HttpPut("/Localisator/Create/")]
+        public IActionResult Create(Localisator Loc)
         {
-            return null;
+            return Ok(_localisatorService.Create(Loc));
         }
 
         [HttpGet("/Localisator/Read/{Id}")]
         public IActionResult ReadLocalisator(int Id)
         {
             Console.WriteLine("couche controller");
-            return Ok(_localisatorService.ReadLocalisator(Id));
+            return Ok(_localisatorService.Read(Id));
         }
 
         [HttpPost("/Localisator/Update/{Id}")]
-        public IActionResult UpdateLocalisator(int Id)
+        public IActionResult Update(int Id)
         {
             return null;
         }
 
         [HttpDelete("/Localisator/Delete/{Id}")]
-        public IActionResult DeleteLocalisator(int Id)
+        public IActionResult Delete(int Id)
         {
             return null;
         }

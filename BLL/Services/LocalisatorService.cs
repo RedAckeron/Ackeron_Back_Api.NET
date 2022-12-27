@@ -17,11 +17,28 @@ namespace BLL.Services
         {
             _localisatorRepo = localisatorRepo;
         }
-        public Localisator ReadLocalisator(int id)
+
+        public int Create(Localisator Loc)
         {
-            Localisator datalocalisator = new();
-            datalocalisator = _localisatorRepo.ReadLocalisator(id);
+            //Localisator datalocalisator = new(1,1,1,1,1,1,1,1,1,1,1,1,1,1);
+            return (_localisatorRepo.Create(Loc));
+        }
+
+        public bool Delete(int IdLoc)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Localisator Read(int IdLoc)
+        {
+            Localisator datalocalisator = new Localisator(0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+            datalocalisator = _localisatorRepo.Read(IdLoc);
             return datalocalisator;
+        }
+
+        public bool Update(Localisator Loc)
+        {
+            throw new NotImplementedException();
         }
     }
 }

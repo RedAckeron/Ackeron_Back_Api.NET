@@ -1,4 +1,5 @@
 ﻿using BLL.Interfaces;
+using BLL.Models;
 using DAL.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,6 +10,10 @@ namespace Ackeron_Back.Controllers.Character
     public class MobController : Controller
     {
         private readonly IMobService _mobService;
+        public MobController(IMobService mobService)
+        {
+            _mobService = mobService;
+        }
 
 
         [HttpPost("/Mob/Create")]

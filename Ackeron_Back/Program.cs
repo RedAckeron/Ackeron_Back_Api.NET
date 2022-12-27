@@ -28,7 +28,7 @@ builder.Services.AddCors(options =>{
 });
 
 //builder.Services.AddScoped<ICharacterService, CharacterService>();
-builder.Services.AddScoped<ICharacterRepo, CharacterRepo>();
+//builder.Services.AddScoped<ICharacterRepo, CharacterRepo>();
 builder.Services.AddScoped<IItemService,ItemService>();
 builder.Services.AddScoped<IItemRepo, ItemRepo>();
 builder.Services.AddScoped<IMapService, MapService>();
@@ -38,6 +38,12 @@ builder.Services.AddScoped<IQuestService, QuestService>();
 builder.Services.AddScoped<IQuestRepo, QuestRepo>();
 builder.Services.AddScoped<ILocalisatorService, LocalisatorService>();
 builder.Services.AddScoped<ILocalisatorRepo , LocalisatorRepo>();
+builder.Services.AddScoped<IMobService, MobService>();
+builder.Services.AddScoped<IInfoRepo, InfoRepo>();
+builder.Services.AddScoped<IStatRepo, StatRepo>();
+builder.Services.AddScoped<IPowerRepo, PowerRepo>();
+builder.Services.AddScoped<IResistRepo, ResistRepo>();
+builder.Services.AddScoped<IMobrepo, MobRepo>();
 
 var app = builder.Build();
 
@@ -49,9 +55,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
 app.UseCors(MyAllowSpecificOrigins);
 app.Run();

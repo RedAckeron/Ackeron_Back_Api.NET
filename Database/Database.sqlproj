@@ -57,9 +57,10 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Tables" />
+    <Folder Include="Vues" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Tables\Character.sql" />
+    <Build Include="Tables\Hero.sql" />
     <Build Include="Tables\Localisator.sql" />
     <Build Include="Tables\Stat.sql" />
     <Build Include="Tables\Resist.sql" />
@@ -77,6 +78,10 @@
     <Build Include="Tables\MapLocUnivers.sql" />
     <Build Include="Tables\MapLocArea.sql" />
     <Build Include="Tables\MapLocZone.sql" />
+    <Build Include="Vues\AreaLoc.sql" />
+    <Build Include="Tables\Mob.sql" />
+    <Build Include="Tables\Info.sql" />
+    <Build Include="Vues\MobPlanet.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Database.publish.xml" />

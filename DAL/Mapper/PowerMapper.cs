@@ -10,21 +10,22 @@ namespace DAL.Mapper.Map
 {
     public class PowerMapper
     {
-        public Power CharacterPowerMapper(IDataReader reader)
+        public Power DataToPower(IDataReader reader)
         {
-            Power CPow = new Power();
-            //CPow.IdChar = (int)reader[1];
-            CPow.Eau = (int)reader[2];
-            CPow.Feu = (int)reader[3];
-            CPow.Air = (int)reader[4];
-            CPow.Terre = (int)reader[5];
-            CPow.Lumiere = (int)reader[6];
-            CPow.Tenebre = (int)reader[7];
-            CPow.Tranchant = (int)reader[8];
-            CPow.Ecrasant = (int)reader[9];
-            CPow.Percant = (int)reader[10];
-            CPow.Poison = (int)reader[11];
-            return CPow;
+            Power Pow = new Power(
+                (int)reader["id"],
+                (int)reader["eau"],
+                (int)reader["feu"],
+                (int)reader["air"],
+                (int)reader["terre"],
+                (int)reader["lumiere"],
+                (int)reader["tenebre"],
+                (int)reader["tranchant"],
+                (int)reader["ecrasant"],
+                (int)reader["percant"],
+                (int)reader["poison"]
+                );
+            return Pow;
         }
     }
 }

@@ -30,16 +30,15 @@ namespace DAL.Repositories
             {
             using (SqlCommand cmd = cnx.CreateCommand())
                 {
-                cmd.CommandText = "select count(*) from MapLocArea where LocP=@LocP and LocX=@LocX and LocY=@LocY and reachable=0;";
-
-                cmd.Parameters.AddWithValue("LocP", Loc.LocPId);
-                cmd.Parameters.AddWithValue("LocX", Loc.LocAX);
-                cmd.Parameters.AddWithValue("LocY", Loc.LocAY);
+                cmd.CommandText = "select count(*) from ViewAreaLoc where LocPId=@LocPId and LocAX=@LocAX and LocAY=@LocAY and Reachable=0;";
+                cmd.Parameters.AddWithValue("LocPId", Loc.LocPId);
+                cmd.Parameters.AddWithValue("LocAX", Loc.LocAX);
+                cmd.Parameters.AddWithValue("LocAY", Loc.LocAY);
                 cnx.Open();
+                
                 Int32 count = (Int32)cmd.ExecuteScalar();
-                if (count == 0)return true;
-                else return false;  
-                //cnx.Close(); 
+                Console.WriteLine("Result count : "+count);
+                    return count == 0;
                 }
             }
         }
@@ -52,7 +51,7 @@ namespace DAL.Repositories
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
-                    cmd.CommandText = "select * from MapLocArea where LocP=@LocP;";
+                    cmd.CommandText = "select * from ViewAreaLoc where LocPId=@LocP;";
                     cmd.Parameters.AddWithValue("LocP", IdPlanet);
                     
                     cnx.Open();

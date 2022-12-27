@@ -10,18 +10,22 @@ namespace DAL.Mapper
 {
     public class StatMapper
     {
-        public Stat CharacterStatMapper(IDataReader reader)
+        public Stat DataToStat(IDataReader reader)
         {
-            Stat CStat = new Stat();
-            //CStat.IdChar = (int)reader[1];
-            CStat.PtMove = (int)reader[3];
-            CStat.PtMoveMax = (int)reader[4];
-            CStat.Xp = (int)reader[5];
-            CStat.Pv = (int)reader[6];
-            CStat.PvMax = (int)reader[7];
-            CStat.Pw = (int)reader[8];
-            CStat.PwMax = (int)reader[9];
-            return CStat;
+            
+            Stat stat = new Stat(
+                (int)reader["id"], 
+                (int)reader["PtMove"], 
+                (int)reader["PtMoveMax"], 
+                (int)reader["Xp"], 
+                (int)reader["Pv"], 
+                (int)reader["PvMax"], 
+                (int)reader["Pw"], 
+                (int)reader["PwMax"],
+                (int)reader["Timestampsimul"]
+                );
+            
+            return stat;
         }      
     }
 }

@@ -10,6 +10,7 @@ namespace DAL.Interfaces
 {
     public interface ICharacterRepo
     {
+        /*
        // int AddCharacterInfo(Info CInfo);
         int AddCharacterStat(Stat CStat);
         int AddCharacterLoc(int IdChar, Localisator CLoc);
@@ -30,6 +31,6 @@ namespace DAL.Interfaces
         int UpdateCharacterStat(Stat CStat);
         int UpdateCharacterResist(Resist CStat);
         int UpdateCharacterPower(Power CPow);
-
+        */
     }
 }

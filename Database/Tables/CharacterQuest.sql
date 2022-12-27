@@ -3,7 +3,7 @@
 	[Id] INT NOT NULL PRIMARY KEY identity,
 	IdChar int ,
 		CONSTRAINT FK_CharacterQuest_IdCharacter FOREIGN KEY (IdChar)
-        REFERENCES Character (Id),
+        REFERENCES Hero (Id),
 	IdQuest int,
 		CONSTRAINT FK_CharacterQuest_IdQuest FOREIGN KEY (IdQuest)
         REFERENCES Quest (Id),

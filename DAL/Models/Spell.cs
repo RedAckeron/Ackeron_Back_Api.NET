@@ -11,6 +11,15 @@ namespace BLL.Models
         public int IdSpell { get; set; }
         public int Name { get; set; }
         public int Description { get; set; }
-        public int Qt { get; set; }
+        public int Eau { get; set; }
+        public int Feu { get; set; }
+        public int Air { get; set; }
+        public int Terre { get; set; }
+        public int Lumiere { get; set; }
+        public int Tenebre { get; set; }
+        public int Tranchant { get; set; }
+        public int Ecrasant { get; set; }
+        public int Percant { get; set; }
+        public int Poison { get; set; }
     }
 }

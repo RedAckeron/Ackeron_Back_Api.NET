@@ -1,54 +1,61 @@
 ﻿
-insert into Localisator(LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZx,LocZy)
-values(1,0,0,0,0,0,0,0,0,0,0,0,0);
+insert into Localisator(LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZx,LocZy)values(1,0,0,0,0,0,0,0,0,0,0,0,0);--1
 insert into MapLocUnivers(name,owner)values('arkhe',1);
 
-insert into Localisator(LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZx,LocZy)
-values(1,1,10,10,0,0,0,0,0,0,0,0,0);
+insert into Localisator(LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZx,LocZy)values(1,1,10,10,0,0,0,0,0,0,0,0,0);--2
 insert into maplocsolar(LocalisatorId,name,owner)values(2,'inferno',1);
 
-insert into Localisator(LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZx,LocZy)
-values(1,2,5,7,0,0,0,0,0,0,0,0,0);
+insert into Localisator(LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZx,LocZy)values(1,2,5,7,0,0,0,0,0,0,0,0,0);--3
 insert into maplocsolar(LocalisatorId,name,owner)values(3,'alpha',1);
 
-insert into Localisator(LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZx,LocZy)
-values(1,3,12,13,0,0,0,0,0,0,0,0,0);
+insert into Localisator(LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZx,LocZy)values(1,3,12,13,0,0,0,0,0,0,0,0,0);--4
 insert into maplocsolar(LocalisatorId,name,owner)values(4,'anthares',1);
 
---insert into maplocplanet(name,locu,locs,locx,locy)values('nagma pyrgos',1,1,10,10);
---insert into maplocplanet(name,locu,locs,locx,locy)values('meka tackyon',1,2,10,10);
---insert into maplocplanet(name,locu,locs,locx,locy)values('hangus omega',1,3,10,10);
+
+insert into Localisator(LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZx,LocZy) values(1,1,12,13,1,10,16,0,0,0,0,0,0);--5
+insert into maplocplanet(name,owner,LocalisatorId)values('nagma pyrgos',0,5);
+
+insert into Localisator(LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZx,LocZy) values(1,2,12,13,2,8,6,0,0,0,0,0,0);--6
+insert into maplocplanet(name,owner,LocalisatorId)values('meka tackyon',0,6);
+
+insert into Localisator(LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZx,LocZy) values(1,3,12,13,3,12,3,0,0,0,0,0,0);--7
+insert into maplocplanet(name,owner,LocalisatorId)values('hangus omega',0,7);
+
+insert into Localisator(LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZx,LocZy) values(1,3,12,13,1,2,6,0,2,6,0,0,0);--8
+insert into Localisator(LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZx,LocZy) values(1,3,12,13,1,12,4,0,12,4,0,0,0);--9
+insert into Localisator(LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZx,LocZy) values(1,3,12,13,1,8,14,0,8,14,0,0,0);--10
+insert into Localisator(LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZx,LocZy) values(1,3,12,13,1,4,8,0,4,8,0,0,0);--11
+insert into Localisator(LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZx,LocZy) values(1,3,12,13,1,14,10,0,14,10,0,0,0);--12
+insert into Localisator(LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZx,LocZy) values(1,3,12,13,1,16,4,0,16,4,0,0,0);--13
 
 
---insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('rocher',1,1,1,5,5,'mt','st','GreenRock.gif',0,10,60);
---insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('rocher',1,1,1,3,7,'mt','st','GreenRock.gif',0,10,60);
---insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('buisson',1,1,1,1,9,'mt','st','GreenBush.gif',0,10,60);
---insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('buisson',1,1,1,9,1,'mt','st','GreenBush.gif',0,10,60);
---insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('buisson',1,1,1,7,3,'mt','st','GreenBush.gif',0,10,60);
---insert into maplocarea(name,locu,locs,locp,locx,locy,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('escalier',1,1,1,7,9,'mt','st','GreenStair.gif',1,10,60);
+insert into maplocarea(name,Owner,IdLocalisator,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('Rocher',0,8,'mt','st','GreenRock.gif',0,10,60);
+insert into maplocarea(name,Owner,IdLocalisator,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('Rocher',0,9,'mt','st','GreenRock.gif',0,10,60);
+insert into maplocarea(name,Owner,IdLocalisator,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('Buisson',0,10,'mt','st','GreenBush.gif',0,10,60);
+insert into maplocarea(name,Owner,IdLocalisator,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('Buisson',0,11,'mt','st','GreenBush.gif',0,10,60);
+insert into maplocarea(name,Owner,IdLocalisator,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('Rocher',0,12,'mt','st','GreenRock.gif',0,10,60);
+insert into maplocarea(name,Owner,IdLocalisator,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('Escalier',0,13,'mt','st','GreenStair.gif',1,10,60);
 
---insert into maploczone(name,owner,locu,locs,locp,loca,locx,locy)values('free area',1,1,1,1,1,1,1);
+insert into item values('kredit','[kr] - la monnaie du royaume',1,1,99,10,'img','yellow',1,1,60,600,'no','no');
+insert into item values('potion de vie mineur','petit poition de vie qui rend 10 pv',1,1,99,10,'img','yellow',1,1,60,600,'no','no');
 
---insert into Localisator(LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocAX,LocAY,LocZId,LocZx,LocZy)
---values(1,1,10,10,1,10,10,1,10,10,1,10,10);
+insert into spell values('Coup de poing mineur','Envoi un coup de poing sur la cible 10 Hit',0,1000,0,0,0,0,0,0,0,10,0,0);
+insert into spell values('Coup de poing majeur','Envoi un coup de poing sur la cible 30 Hit',0,1000,0,0,0,0,0,0,0,30,0,0);
 
---insert into [Character] (Name, Race, Sexe, Classe, LocalisatorId, CitizenPlanet, TsIn)values('Admin',0,0,0,1,0,1666362817);
+insert into spell values('Flame Wave','envoi une boule de feu qui vas bruler 10 Hit ',0,1000,0,10,0,0,0,0,0,0,0,0);
+insert into spell values('Rain of Fire','envoi une boule de feu qui vas bruler 10 Hit ',0,1000,0,10,0,0,0,0,0,0,0,0);
+insert into spell values('Flare','envoi une boule de feu qui vas bruler 10 Hit ',0,1000,0,10,0,0,0,0,0,0,0,0);
+insert into spell values('FireStorm','envoi une boule de feu qui vas bruler 30 Hit',0,1000,0,30,0,0,0,0,0,0,0,0);
+insert into spell values('Inferno','envoi une boule de feu qui vas bruler 10 Hit ',0,1000,0,10,0,0,0,0,0,0,0,0);
+insert into spell values('Meteor','envoi une boule de feu qui vas bruler 100 Hit',0,1000,0,100,0,0,0,0,0,0,0,0);
 
---insert into CharacterStat values(1,1,5,20,0,80,100,30,50,0);
---insert into CharacterPower values(1,10,10,10,10,10,10,10,10,10,10);
---insert into CharacterResist values(1,10,10,10,10,10,10,10,10,10,10);
+insert into spell values('soin mineur','envoi un soin qui rend 10 Heal',0,1000,0,0,0,0,10,0,0,0,0,0);
+insert into spell values('soin majeur','envoi un soins qui rend 30 Heal',0,1000,0,0,0,0,30,0,0,0,0,0);
 
---insert into characterstat values(1,1,5,20,0,80,100,30,50,0);
---insert into characterpower values(1,10,10,10,10,10,10,10,10,10,10);
---insert into characterresist values(1,10,10,10,10,10,10,10,10,10,10);
+insert into spell values('Vol de vie mineur','Sort de drain de vie qui retire 10 Hit',0,1000,0,0,0,0,10,0,0,0,0,0);
+insert into spell values('Vol de vie majeur','Sort de drain de vie qui retire 30 Hit',0,1000,0,0,0,0,30,0,0,0,0,0);
 
---insert into item values('kredit','[kr] - la monnaie du royaume',1,1,99,10,'img','yellow',1,1,60,600,'no','no');
---insert into item values('potion de vie mineur','petit poition de vie qui rend 10 pv',1,1,99,10,'img','yellow',1,1,60,600,'no','no');
 
---insert into spell values('boule de feu mineur','envoi une boule de feu qui vas tout bruler dans un rayon de 1 case',10);
---insert into spell values('boule de feu majeur','envoi une boule de feu qui vas tout bruler dans un rayon de 3 cases',30);
---insert into spell values('soin mineur','envoi un soin qui rend 100% de pv',10);
---insert into spell values('soin majeur','envoi un soins qui rend 300% de pv',30);
 
 --insert into characteritem values(1,1,1);
 --insert into characteritem values(1,2,1);

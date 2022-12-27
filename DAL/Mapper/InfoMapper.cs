@@ -10,19 +10,18 @@ namespace DAL.Mapper
 {
     public class InfoMapper
     {
-        /*
-        public Info CharacterInfoMapper(IDataReader reader)
+        public Info DataToInfo(IDataReader reader)
         {
-            Info CInfo = new Info();
-            //CInfo.IdChar = (int)reader[0];
-            CInfo.Name = (string)reader[1];
-            CInfo.Race = (int)reader[2];
-            CInfo.Sexe = (int)reader[3];
-            CInfo.Classe = (int)reader[4];
-            CInfo.CitizenPlanet = (int)reader[5];
-            CInfo.TsIn = (int)reader[6];
-            return CInfo;
+            Info info = new Info(
+                (int)reader["id"],
+                (string)reader["Name"],
+                (int)reader["race"],
+                (int)reader["sexe"],
+                (int)reader["classe"],
+                (int)reader["gold"],
+                (int)reader["CitizenPlanet"]
+                );
+        return info;
         }
-        */
     }
 }
