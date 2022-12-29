@@ -41,7 +41,7 @@ namespace BLL.Services
             Console.WriteLine("LocalisatorId : "+localisator.LocalisatorId);
             
             //on creez linfo et on retourne l id qu on attribue au infoId du mob 
-            Info info = new(0,M.Info.Name,M.Info.Race,M.Info.Sexe,M.Info.Classe,M.Info.Gold,M.Info.CitizenPlanet);
+            Info info = new Info(0,M.Info.Name,M.Info.Race,M.Info.Sexe,M.Info.Classe,M.Info.Gold,M.Info.CitizenPlanet);
             info.InfoId=_infoRepo.Create(info);
             Console.WriteLine("InfoId : "+info.InfoId);
 
@@ -72,7 +72,7 @@ namespace BLL.Services
             Console.WriteLine("Ts Creation : " + TsIn);
 
             //et finalement on creez le mob a remonter vers le controler
-            Mob mob = new Mob(0, TsIn, info,localisator,0,stat, power, resist, inventory, spellBook); ;
+            Mob mob = new Mob(0, TsIn, info,localisator,0,stat, power, resist, inventory, spellBook);
             mob.Id=_mobrepo.Create(mob);
             Console.WriteLine("Mob ID : "+mob.Id);
 
@@ -97,12 +97,16 @@ namespace BLL.Services
             
             info = _infoRepo.Read(mob.Info.InfoId);
             mob.Info = info;
+            
             localisator = _localisatorRepo.Read(mob.Localisator.LocalisatorId);
             mob.Localisator = localisator;
+            
             stat = _statRepo.Read(mob.Stat.StatId);
             mob.Stat = stat;
+            
             power = _powerRepo.Read(mob.Power.PowerId);
             mob.Power = power;
+            
             resist = _resistRepo.Read(mob.Resist.ResistId);
             mob.Resist = resist;
 
