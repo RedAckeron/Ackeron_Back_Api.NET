@@ -28,6 +28,12 @@ namespace Ackeron_Back.Controllers.Character
             return Ok(_mobService.Read(id));
         }
 
+        [HttpGet("/Mob/ReadAllOfPlanet/{id}")]
+        public IActionResult ReadAllOfPlanet(int id)
+        {
+            return Ok(_mobService.ReadAllOfPlanet(id));
+        }
+
         [HttpPut("/Mob/Update/{id}")]
         public IActionResult Update(Mob M)
         {

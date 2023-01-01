@@ -19,7 +19,9 @@ namespace DAL.Mapper
                 (int)reader["sexe"],
                 (int)reader["classe"],
                 (int)reader["gold"],
-                (int)reader["CitizenPlanet"]
+                (int)reader["CitizenPlanet"],
+                (string)reader["Img"],
+                (string)reader["Orientation"]
                 );
         return info;
         }

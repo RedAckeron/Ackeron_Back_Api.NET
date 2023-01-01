@@ -6,5 +6,7 @@
 	Sexe int,
 	Classe int,
 	Gold int,
-	CitizenPlanet int
+	CitizenPlanet int,
+	Img nvarchar(50),
+	Orientation nvarchar(5) DEFAULT 'nord'
 )

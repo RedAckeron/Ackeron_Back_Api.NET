@@ -41,10 +41,9 @@ namespace BLL.Services
             Console.WriteLine("LocalisatorId : "+localisator.LocalisatorId);
             
             //on creez linfo et on retourne l id qu on attribue au infoId du mob 
-            Info info = new Info(0,M.Info.Name,M.Info.Race,M.Info.Sexe,M.Info.Classe,M.Info.Gold,M.Info.CitizenPlanet);
+            Info info = new Info(0,M.Info.Name,M.Info.Race,M.Info.Sexe,M.Info.Classe,M.Info.Gold,M.Info.CitizenPlanet,M.Info.Img,"nord");
             info.InfoId=_infoRepo.Create(info);
             Console.WriteLine("InfoId : "+info.InfoId);
-
             //on creez le stat et on retourne l id qu on attribue au powerid du mob 
             Stat stat = new Stat(0,M.Stat.PtMove,M.Stat.PtMoveMax,M.Stat.Xp,M.Stat.Pv,M.Stat.PvMax,M.Stat.Pw,M.Stat.PwMax,M.Stat.TimeStampSimul);
             stat.StatId = _statRepo.Create(stat);
@@ -119,7 +118,50 @@ namespace BLL.Services
 
             return mob;
         }
-//####################################################################################################################################################################
+        //####################################################################################################################################################################
+        public List<Mob> ReadAllOfPlanet(int IdPlanet)
+        {
+            List<int> Idmob = _mobrepo.ReadAllOfPlanet(IdPlanet);
+            List<Mob> Mobs = new(); 
+            Console.WriteLine("Recuperation du nombre mobs de la planet "+IdPlanet+" : "+Idmob.Count());
+            
+            
+            foreach (var idmob in Idmob)
+            {
+                Info info;
+                Localisator localisator;
+                Stat stat;
+
+                Power power;
+                Resist resist;
+
+                List<Spell> spellbook = new();
+                List<Item> inventory = new();
+
+                //recuperation et reconstruction du mob
+                Mob mob;
+                mob = _mobrepo.Read(idmob);
+
+                info = _infoRepo.Read(mob.Info.InfoId);
+                mob.Info = info;
+
+                localisator = _localisatorRepo.Read(mob.Localisator.LocalisatorId);
+                mob.Localisator = localisator;
+
+                stat = _statRepo.Read(mob.Stat.StatId);
+                mob.Stat = stat;
+
+                power = _powerRepo.Read(mob.Power.PowerId);
+                mob.Power = power;
+
+                resist = _resistRepo.Read(mob.Resist.ResistId);
+                mob.Resist = resist;
+
+                Mobs.Add(mob);
+            };
+            return Mobs;
+        }
+        //####################################################################################################################################################################
         public int Update(Mob M) {
             return 0;
         }

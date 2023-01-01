@@ -12,6 +12,7 @@ namespace BLL.Interfaces
     {
         int Create(Mob mob);
         Mob Read(int id);
+        List<Mob> ReadAllOfPlanet(int IdPlanet);
         int Update(Mob mob);    
         int Delete(int id);
     }

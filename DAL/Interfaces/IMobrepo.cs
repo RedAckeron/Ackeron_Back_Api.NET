@@ -11,6 +11,7 @@ namespace DAL.Interfaces
     {
         int Create(Mob M);
         Mob Read(int IdMob);
+        List<int> ReadAllOfPlanet(int IdPlanet);
         int Update(Mob M);
     }
 }

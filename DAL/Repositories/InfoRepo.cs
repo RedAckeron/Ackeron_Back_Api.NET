@@ -29,7 +29,7 @@ namespace DAL.Repositories
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
-                    cmd.CommandText = "insert into Info (Name,Race,Sexe,Classe,Gold,CitizenPlanet) output inserted.id values(@Name,@Race,@Sexe,@Classe,@Gold,@CitizenPlanet);";
+                    cmd.CommandText = "insert into Info (Name,Race,Sexe,Classe,Gold,CitizenPlanet,Img) output inserted.id values(@Name,@Race,@Sexe,@Classe,@Gold,@CitizenPlanet,@Img);";
 
                     cmd.Parameters.AddWithValue("Name", info.Name);
                     cmd.Parameters.AddWithValue("Race", info.Race);
@@ -37,6 +37,7 @@ namespace DAL.Repositories
                     cmd.Parameters.AddWithValue("Classe", info.Classe);
                     cmd.Parameters.AddWithValue("Gold", info.Gold);
                     cmd.Parameters.AddWithValue("CitizenPlanet", info.CitizenPlanet);
+                    cmd.Parameters.AddWithValue("Img", info.Img);
                     cnx.Open();
                     return (int)cmd.ExecuteScalar();
                 }

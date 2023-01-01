@@ -63,7 +63,34 @@ namespace DAL.Repositories
             }
             return null;
         }
+
 //####################################################################################################################################################################
+        public List<int> ReadAllOfPlanet(int IdPlanet)
+        {
+            List<int> IdMob = new List<int>();   
+            //MobMapper mapper = new MobMapper();
+            using (SqlConnection cnx = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = cnx.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT Id FROM MobPlanet where LocPId = " + IdPlanet;
+                    cnx.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            IdMob.Add(reader.GetInt32(0));
+                            
+                        }
+                    }
+                }
+            }
+            return IdMob;
+        }
+
+
+
+        //####################################################################################################################################################################
         public int Update(Mob M)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
