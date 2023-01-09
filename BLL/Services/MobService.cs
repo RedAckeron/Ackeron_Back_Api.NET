@@ -67,11 +67,11 @@ namespace BLL.Services
             //on creez la date d insertion en timestamp
             DateTimeOffset now = (DateTimeOffset)DateTime.UtcNow;
             long TsIn= now.ToUnixTimeSeconds();
-                       
+            int coolDown = 1000;
             Console.WriteLine("Ts Creation : " + TsIn);
 
             //et finalement on creez le mob a remonter vers le controler
-            Mob mob = new Mob(0, TsIn, info,localisator,0,stat, power, resist, inventory, spellBook);
+            Mob mob = new Mob(0, TsIn,coolDown , info,localisator,0,stat, power, resist, inventory, spellBook);
             mob.Id=_mobrepo.Create(mob);
             Console.WriteLine("Mob ID : "+mob.Id);
 
@@ -80,6 +80,7 @@ namespace BLL.Services
         }
 //####################################################################################################################################################################
         public Mob Read(int IdMob) {
+
             Info info;
             Localisator localisator;
             Stat stat;

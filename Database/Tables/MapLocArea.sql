@@ -7,7 +7,7 @@
 	    CONSTRAINT [FK_MapLocArea_IdLocalisator] FOREIGN KEY ([IdLocalisator]) REFERENCES [dbo].[Localisator] ([Id]),
 	MainTrigger nvarchar(50),
 	SubTrigger nvarchar(50),
-	ImgItem nvarchar(50),
+	ImgItem nvarchar(100),
 	Reachable bit,
 	Lvl int,
 	Refresh int

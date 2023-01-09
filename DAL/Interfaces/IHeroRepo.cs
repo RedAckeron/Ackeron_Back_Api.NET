@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
-    public interface IQuestRepo
+    public interface IHeroRepo
     {
-        int Create(Quest quest);
-        List<Quest> GetCharacterAllQuest(int IdChar);
+        int Create(Hero hero);
     }
 }

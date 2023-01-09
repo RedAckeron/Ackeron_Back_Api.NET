@@ -9,5 +9,4 @@
 	Pw int NOT NULL DEFAULT 100,
 	PwMax int NOT NULL DEFAULT 100,
 	TimestampSimul int,
-	[CoolDown] int DEFAULT 1000 NOT NULL
 	)

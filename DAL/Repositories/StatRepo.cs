@@ -27,7 +27,7 @@ namespace DAL.Repositories
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
-                    cmd.CommandText = "insert into Stat output inserted.id values(@PtMove,@PtMoveMax,@Xp,@Pv,@PvMax,@Pw,@PwMax,@TimestampSimul,@CoolDown);";
+                    cmd.CommandText = "insert into Stat output inserted.id values(@PtMove,@PtMoveMax,@Xp,@Pv,@PvMax,@Pw,@PwMax,@TimestampSimul);";
                     cmd.Parameters.AddWithValue("PtMove", stat.PtMove);
                     cmd.Parameters.AddWithValue("PtMoveMax", stat.PtMoveMax);
                     cmd.Parameters.AddWithValue("Xp", stat.Xp);
@@ -36,7 +36,6 @@ namespace DAL.Repositories
                     cmd.Parameters.AddWithValue("Pw", stat.Pw);
                     cmd.Parameters.AddWithValue("PwMax", stat.PwMax);
                     cmd.Parameters.AddWithValue("TimestampSimul", stat.TimeStampSimul);
-                    cmd.Parameters.AddWithValue("CoolDown", stat.CoolDown);
 
                     cnx.Open();
                     return (int)cmd.ExecuteScalar();

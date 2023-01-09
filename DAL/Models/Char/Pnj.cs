@@ -16,8 +16,8 @@ namespace DAL.Models
         public List<Item> Inventory { get; set; }
         public List<Spell> SpellBook { get; set; }
 
-        public Pnj(int id, int tsin, Info info, Localisator localisator, Stat stat, Power power, Resist resist, List<Item> inventory, List<Spell> spellBook)
-            : base(id, tsin, info, localisator)
+        public Pnj(int id, int tsin,int coolDown, Info info, Localisator localisator, Stat stat, Power power, Resist resist, List<Item> inventory, List<Spell> spellBook)
+            : base(id, tsin,coolDown, info, localisator)
         {
             Stat = stat;
             Power = power;

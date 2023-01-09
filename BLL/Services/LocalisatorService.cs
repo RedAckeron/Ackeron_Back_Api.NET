@@ -33,12 +33,14 @@ namespace BLL.Services
         {
             Localisator datalocalisator = new Localisator(0,0,0,0,0,0,0,0,0,0,0,0,0,0);
             datalocalisator = _localisatorRepo.Read(IdLoc);
+            Console.WriteLine("Localisator read : "+datalocalisator.LocalisatorId+" : "+datalocalisator.LocAX+"/"+datalocalisator.LocAY);
             return datalocalisator;
         }
 
         public bool Update(Localisator Loc)
         {
-            throw new NotImplementedException();
+            return (_localisatorRepo.Update(Loc));
+
         }
     }
 }

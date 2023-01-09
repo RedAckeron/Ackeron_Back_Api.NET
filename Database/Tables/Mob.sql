@@ -4,6 +4,7 @@
 	
 	[MobGabaritId] int,
  	TsIn int,
+	[CoolDown] int DEFAULT 1000 NOT NULL,
 
 	LocalisatorId int,
 		CONSTRAINT FK_Mob_LocalisatorId FOREIGN KEY (LocalisatorId) REFERENCES Localisator (Id),

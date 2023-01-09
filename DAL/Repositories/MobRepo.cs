@@ -31,6 +31,7 @@ namespace DAL.Repositories
 
                     cmd.Parameters.AddWithValue("MobGabaritId", M.MobGabaritId);
                     cmd.Parameters.AddWithValue("TsIn", M.TsIn);
+                    cmd.Parameters.AddWithValue("CoolDown", M.CoolDown);
                     cmd.Parameters.AddWithValue("LocalisatorId", M.Localisator.LocalisatorId);
                     cmd.Parameters.AddWithValue("InfoId", M.Info.InfoId);
                     cmd.Parameters.AddWithValue("StatId", M.Stat.StatId);

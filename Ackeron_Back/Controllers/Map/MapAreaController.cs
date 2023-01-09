@@ -14,19 +14,26 @@ namespace Ackeron_Back.Controllers.Map
         {
             _mapService = mapService;
         }
-
+        /*
         [HttpPost("/MapArea/Create")]
         public IActionResult Create(Localisator Loc)
         {
             return Ok(_mapService.ChkAreaReachable(Loc));
         }
-        
-        [HttpGet("/MapArea/Read/{IdArea}")]
-        public IActionResult Read(Localisator Loc)
+        */
+
+        [HttpPost("/MapArea/CheckExist/")]
+        public IActionResult CheckExist(Localisator Localisator)
         {
-            return Ok(_mapService.ChkAreaReachable(Loc));
+            return Ok(_mapService.CheckExist(Localisator));
         }
-        
+
+        [HttpGet("/MapArea/Read/{IdArea}")]
+        public IActionResult Read(int IdArea)
+        {
+            return Ok(_mapService.Read(IdArea));
+        }
+        /*
         [HttpPut("/MapArea/Update/")]
         public IActionResult Update(Localisator Loc)
         {
@@ -38,7 +45,7 @@ namespace Ackeron_Back.Controllers.Map
         {
             return Ok(_mapService.ChkAreaReachable(Loc));
         }
-
+        */
         [HttpPost("/MapArea/ChkAreaReachable/")]
         public IActionResult ChkAreaReachable(Localisator Loc)
         {

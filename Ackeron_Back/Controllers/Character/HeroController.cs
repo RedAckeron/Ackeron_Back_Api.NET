@@ -1,12 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BLL.Interfaces;
+using DAL.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Ackeron_Back.Controllers.Character
 {
+    [Route("/[controller]")]
+    [ApiController]
     public class HeroController : Controller
     {
-        public IActionResult Index()
+        private readonly IHeroService _heroService;
+        public HeroController(IHeroService heroService)
         {
-            return View();
+            _heroService = heroService;
+        }
+
+
+        [HttpPost("Create")]
+        public IActionResult Create(Hero hero)
+        {
+        return Ok(_heroService.Create(hero));
         }
     }
 }

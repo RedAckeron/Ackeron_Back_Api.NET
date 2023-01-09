@@ -8,10 +8,10 @@ namespace DAL.Models
 {
     public class Quest
     {
-        public int IdQuest;
-        public string Name;
-        public string Description;
-        public bool Validate;
-        public List<QuestStep> StepBook { get; set; }
+        public int IdQuest { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public bool Validate { get; set; }
+        //public List<QuestStep> StepBook { get; set; }
     }
 }

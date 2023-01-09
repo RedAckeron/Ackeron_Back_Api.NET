@@ -17,10 +17,13 @@ namespace BLL.Services
         {
             _questRepo = questRepo;
         }
+        public int Create(Quest quest) 
+        {
+            return _questRepo.Create(quest);
+        }
 
         public List<Quest> GetCharacterAllQuest(int IdChar)
         {
-            Console.WriteLine("couche service");
             return _questRepo.GetCharacterAllQuest(IdChar);
         }
 

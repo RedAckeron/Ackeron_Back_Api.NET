@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Interfaces
+namespace BLL.Interfaces
 {
-    public interface IQuestRepo
+    public interface IHeroService
     {
-        int Create(Quest quest);
-        List<Quest> GetCharacterAllQuest(int IdChar);
+        int Create(Hero hero);
     }
 }

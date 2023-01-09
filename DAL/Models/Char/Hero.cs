@@ -16,8 +16,8 @@ namespace DAL.Models
         public List<Item> Inventory { get; set; }
         public List<Spell> SpellBook { get; set; }
 
-        public Hero(int id, long tsin, Info info, Localisator localisator, Stat stat, Power power, Resist resist, List<Item> inventory, List<Spell> spellBook)
-            : base(id, tsin, info, localisator)
+        public Hero(int id, long tsin,int coolDown, Info info, Localisator localisator, Stat stat, Power power, Resist resist, List<Item> inventory, List<Spell> spellBook)
+            : base(id, tsin, coolDown, info, localisator)
         {
             Stat = stat;
             Power = power;

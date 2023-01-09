@@ -18,7 +18,7 @@ namespace DAL.Models
         public int Pw { get; set; } = 100;  
         public int PwMax { get; set; } = 100;
         public int TimeStampSimul { get; set; } = 1;
-        public int CoolDown { get; set; } = 1000;
+        
         public Stat(int statId, int ptMove, int ptMoveMax, int xp, int pv, int pvMax, int pw, int pwMax, int timeStampSimul)
         {
             StatId = statId;

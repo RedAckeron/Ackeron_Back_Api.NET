@@ -23,14 +23,14 @@ namespace Ackeron_Back.Controllers
         [HttpGet("/Localisator/Read/{Id}")]
         public IActionResult ReadLocalisator(int Id)
         {
-            Console.WriteLine("couche controller");
+
             return Ok(_localisatorService.Read(Id));
         }
 
-        [HttpPost("/Localisator/Update/{Id}")]
-        public IActionResult Update(int Id)
+        [HttpPut("/Localisator/Update")]
+        public IActionResult Update(Localisator Loc)
         {
-            return null;
+            return Ok(_localisatorService.Update(Loc));
         }
 
         [HttpDelete("/Localisator/Delete/{Id}")]

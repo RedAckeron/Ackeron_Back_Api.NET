@@ -24,6 +24,56 @@ namespace DAL.Repositories
             //_connection = connection;
         }
 
+
+        public int CheckExist(Localisator loc)
+        {
+            using (SqlConnection cnx = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = cnx.CreateCommand())
+                {
+                    cmd.CommandText = "select Id from ViewAreaLoc where LocPId=@LocPId and LocAX=@LocAX and LocAY=@LocAY;";
+                    cmd.Parameters.AddWithValue("LocPId", loc.LocPId);
+                    cmd.Parameters.AddWithValue("LocAX", loc.LocAX);
+                    cmd.Parameters.AddWithValue("LocAY", loc.LocAY);
+
+                    cnx.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Console.WriteLine("ID "+reader["Id"]);
+                        }
+                    }
+                    cnx.Close();
+                }
+            }
+            return 0;
+        }
+
+        public Area Read(int IdArea)
+        {
+            Area area = new Area();
+            AreaMapper mapper = new AreaMapper();
+            using (SqlConnection cnx = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = cnx.CreateCommand())
+                {
+                    cmd.CommandText = "select * from ViewAreaLoc where Id=@LocA;";
+                    cmd.Parameters.AddWithValue("LocA", IdArea);
+
+                    cnx.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            area=(mapper.DataToArea(reader));
+                        }
+                    }
+                    cnx.Close();
+                }
+            }
+            return area;
+        }
         public bool ChkAreaReachable(Localisator Loc)
         {
         using (SqlConnection cnx = new SqlConnection(_connectionString))

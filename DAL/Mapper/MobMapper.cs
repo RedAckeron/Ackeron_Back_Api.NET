@@ -25,6 +25,7 @@ namespace DAL.Mapper
             Mob mob = new Mob(
                 (int)reader["Id"],
                 (int)reader["TsIn"],
+                (int)reader["CoolDown"],
                 info,
                 localisator,
                 (int)reader["MobGabaritId"],

@@ -7,4 +7,4 @@
 	Localisator.LocAY
 	from Mob 
 	JOIN Localisator ON mob.LocalisatorId = Localisator.Id
-	 
+	

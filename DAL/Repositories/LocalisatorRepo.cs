@@ -81,21 +81,44 @@ namespace DAL.Repositories
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
-                    cmd.CommandText = "UPDATE Localisator SET LocUId=@LocU,LocSId=@LocS,LocPId=@LocP,LocAId=@LocA,LocAX=@LocAX,LocAY=@LocAY WHERE Id=@Id;";
-                    cmd.Parameters.AddWithValue("Id", Loc.LocalisatorId);
-                    cmd.Parameters.AddWithValue("LocU", Loc.LocUId);
-                    cmd.Parameters.AddWithValue("LocS", Loc.LocSId);
-                    cmd.Parameters.AddWithValue("LocP", Loc.LocPId);
-                    cmd.Parameters.AddWithValue("LocA", Loc.LocAId);
+                    Console.WriteLine("Mise a jours du localisator "+ Loc.LocalisatorId+" a la loc P" + Loc.LocPId+ " : X"+Loc.LocAX+" / Y"+Loc.LocAY);
+                    cmd.CommandText = "UPDATE Localisator SET LocUId=@LocUId,LocSId=@LocSId,LocSX=@LocSX,LocSY=@LocSY,LocPId=@LocPId,LocPX=@LocPX,LocPY=@LocPY,LocAId=@LocAId,LocAX=@LocAX,LocAY=@LocAY,LocZId=@LocZId,LocZX=@LocZX,LocZY=@LocZY WHERE Id=@LocalisatorID;";
+                    cmd.Parameters.AddWithValue("LocalisatorID", Loc.LocalisatorId);
+                    cmd.Parameters.AddWithValue("LocUId", Loc.LocUId);
+
+                    cmd.Parameters.AddWithValue("LocSId", Loc.LocSId);
+                    cmd.Parameters.AddWithValue("LocSX", Loc.LocSX);
+                    cmd.Parameters.AddWithValue("LocSY", Loc.LocSY);
+
+                    cmd.Parameters.AddWithValue("LocPId", Loc.LocPId);
+                    cmd.Parameters.AddWithValue("LocPX", Loc.LocPX);
+                    cmd.Parameters.AddWithValue("LocPY", Loc.LocPY);
+
+                    cmd.Parameters.AddWithValue("LocAId", Loc.LocAId);
                     cmd.Parameters.AddWithValue("LocAX", Loc.LocAX);
                     cmd.Parameters.AddWithValue("LocAY", Loc.LocAY);
+
+                    cmd.Parameters.AddWithValue("LocZId", Loc.LocZId);
+                    cmd.Parameters.AddWithValue("LocZX", Loc.LocZX);
+                    cmd.Parameters.AddWithValue("LocZY", Loc.LocZY);
                     cnx.Open();
                     return (cmd.ExecuteNonQuery()==1);
                     
                 }
             }
         }
-//####################################################################################################################################################################
+
+
+      
+                  
+
+                  
+
+
+
+
+
+        //####################################################################################################################################################################
         public bool Delete(int IdLoc)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))

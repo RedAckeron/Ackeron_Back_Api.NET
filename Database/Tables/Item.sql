@@ -3,6 +3,7 @@
 	[Id] INT NOT NULL PRIMARY KEY identity,
 	[Name] nvarchar(50),
 	[Description] varchar(100),
+	[Qt] int ,
 	[Type] nvarchar(50),
 	[SubType] nvarchar(50),
 	[Quality] int,

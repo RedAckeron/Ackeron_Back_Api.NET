@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[CharacterItem]
+﻿CREATE TABLE [dbo].[HeroItem]
 (
 	[Id] INT NOT NULL PRIMARY KEY identity,
 	IdChar int ,

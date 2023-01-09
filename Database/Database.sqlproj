@@ -66,7 +66,7 @@
     <Build Include="Tables\Resist.sql" />
     <Build Include="Tables\Power.sql" />
     <Build Include="Tables\Item.sql" />
-    <Build Include="Tables\CharacterItem.sql" />
+    <Build Include="Tables\HeroItem.sql" />
     <Build Include="Tables\Spell.sql" />
     <Build Include="Tables\CharacterSpell.sql" />
     <Build Include="Tables\Quest.sql" />
@@ -82,6 +82,7 @@
     <Build Include="Tables\Mob.sql" />
     <Build Include="Tables\Info.sql" />
     <Build Include="Vues\MobPlanet.sql" />
+    <Build Include="Vues\HeroInventory.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Database.publish.xml" />

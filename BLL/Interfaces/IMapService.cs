@@ -12,7 +12,10 @@ namespace BLL.Interfaces
 {
     public interface IMapService
     {
+        int CheckExist(Localisator loc);
+        Area Read(int IdArea);
         bool ChkAreaReachable(Localisator Loc);
+       
         List<Area> GetMap(int IdPlanet);
     }
 }

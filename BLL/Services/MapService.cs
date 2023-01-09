@@ -19,6 +19,16 @@ namespace BLL.Services
             _mapRepo = mapRepo;
         }
 
+        public int CheckExist(Localisator loc)
+        {
+            return _mapRepo.CheckExist(loc);
+        }
+
+        public Area Read(int IdArea)
+        {
+            return _mapRepo.Read(IdArea);
+
+        }
         public bool ChkAreaReachable(Localisator Loc) {
         
             return _mapRepo.ChkAreaReachable(Loc);

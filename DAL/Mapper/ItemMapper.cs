@@ -15,6 +15,7 @@ namespace DAL.Mapper
         public Item DataToItem(IDataReader reader)
         {
             Item item = new Item();
+           
             item.IdItem = (int)reader["Id"];
             item.Name = (string)reader["Name"];
             item.Description = (string)reader["Description"];
@@ -30,6 +31,7 @@ namespace DAL.Mapper
             item.TimeDelete= (int)reader["TimeDelete"];
             item.MainTrigger= (string)reader["MainTrigger"];
             item.SubTrigger = (string)reader["SubTrigger"];
+            
             return item;
         }
     }
