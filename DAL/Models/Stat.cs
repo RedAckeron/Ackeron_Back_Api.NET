@@ -12,6 +12,8 @@ namespace DAL.Models
         public int StatId { get; set; }=0;
         public int PtMove { get; set; } = 5;
         public int PtMoveMax { get; set; } = 20;
+        public int Strenght { get; set; } = 100;
+        public int Defence { get; set; } = 100;
         public int Xp { get; set; } = 0;
         public int Pv { get; set; } = 100;
         public int PvMax { get; set; } = 100;
@@ -19,11 +21,13 @@ namespace DAL.Models
         public int PwMax { get; set; } = 100;
         public int TimeStampSimul { get; set; } = 1;
         
-        public Stat(int statId, int ptMove, int ptMoveMax, int xp, int pv, int pvMax, int pw, int pwMax, int timeStampSimul)
+        public Stat(int statId, int ptMove, int ptMoveMax,int strenght,int defence, int xp, int pv, int pvMax, int pw, int pwMax, int timeStampSimul)
         {
             StatId = statId;
             PtMove = ptMove;
             PtMoveMax = ptMoveMax;
+            Strenght = strenght;
+            Defence = defence;
             Xp = xp;
             Pv = pv;
             PvMax = pvMax;

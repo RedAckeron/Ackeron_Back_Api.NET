@@ -16,7 +16,7 @@ namespace DAL.Mapper
         {
             Power power = new Power((int)reader["PowerId"], 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
             Resist resist = new Resist((int)reader["ResistId"], 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-            Stat stat = new Stat((int)reader["StatId"], 0, 0, 0, 0, 0, 0, 0, 0);
+            Stat stat = new Stat((int)reader["StatId"], 0, 0,0,0, 0, 0, 0, 0, 0, 0);
             Info info = new Info((int)reader["InfoId"], "",0,0,0,0,0,"","nord");
             Localisator localisator = new Localisator((int)reader["LocalisatorId"], 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
             List<Spell> spellbook = new List<Spell>();

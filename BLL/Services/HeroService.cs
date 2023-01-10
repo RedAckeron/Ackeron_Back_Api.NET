@@ -44,7 +44,7 @@ namespace BLL.Services
             info.InfoId = _infoRepo.Create(info);
             Console.WriteLine("InfoId : " + info.InfoId);
             //on creez le stat et on retourne l id qu on attribue au powerid du mob 
-            Stat stat = new Stat(0, H.Stat.PtMove, H.Stat.PtMoveMax, H.Stat.Xp, H.Stat.Pv, H.Stat.PvMax, H.Stat.Pw, H.Stat.PwMax, H.Stat.TimeStampSimul);
+            Stat stat = new Stat(0, H.Stat.PtMove, H.Stat.PtMoveMax,0,0, H.Stat.Xp, H.Stat.Pv, H.Stat.PvMax, H.Stat.Pw, H.Stat.PwMax, H.Stat.TimeStampSimul);
             stat.StatId = _statRepo.Create(stat);
             Console.WriteLine("StatId : " + stat.StatId);
 

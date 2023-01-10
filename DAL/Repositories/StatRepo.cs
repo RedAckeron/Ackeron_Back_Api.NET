@@ -27,9 +27,11 @@ namespace DAL.Repositories
             {
                 using (SqlCommand cmd = cnx.CreateCommand())
                 {
-                    cmd.CommandText = "insert into Stat output inserted.id values(@PtMove,@PtMoveMax,@Xp,@Pv,@PvMax,@Pw,@PwMax,@TimestampSimul);";
+                    cmd.CommandText = "insert into Stat output inserted.id values(@PtMove,@PtMoveMax,@Strenght,@Defence,@Xp,@Pv,@PvMax,@Pw,@PwMax,@TimestampSimul);";
                     cmd.Parameters.AddWithValue("PtMove", stat.PtMove);
                     cmd.Parameters.AddWithValue("PtMoveMax", stat.PtMoveMax);
+                    cmd.Parameters.AddWithValue("Strenght", stat.Strenght);
+                    cmd.Parameters.AddWithValue("Defence", stat.Defence);
                     cmd.Parameters.AddWithValue("Xp", stat.Xp);
                     cmd.Parameters.AddWithValue("Pv", stat.Pv);
                     cmd.Parameters.AddWithValue("PvMax", stat.PvMax);

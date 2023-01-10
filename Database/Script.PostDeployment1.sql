@@ -52,14 +52,14 @@ insert into Localisator(LocUId,LocSId,LocSX,LocSY,LocPId,LocPX,LocPY,LocAId,LocA
 insert into maplocarea(name,Owner,IdLocalisator,maintrigger,subtrigger,imgitem,reachable,lvl,refresh)values('Dungeon Entrance',0,19,'tp_dungeon','1','mainland/green/dungeon_entrance/c.gif',1,10,60);
 
 --Ajoute des items 
-insert into item values('1 Rubis','1 Rubis, la monnaie du royaume',1,1,99,10,'item/rubis_1.gif','yellow',1,1,60,600,'no','no');
-insert into item values('5 Rubis','1 paquet de 5 Rubis, la monnaie du royaume',1,1,99,10,'item/rubis_5.gif','blue',1,1,60,600,'no','no');
-insert into item values('10 Rubis','1 paquet de 10 Rubis, la monnaie du royaume',1,1,99,10,'item/rubis_10.gif','red',1,1,60,600,'no','no');
-insert into item values('20 Rubis','1 paquet de 20 Rubis, la monnaie du royaume',1,1,99,10,'item/rubis_20.gif','purple',1,1,60,600,'no','no');
-insert into item values('50 Rubis','1 paquet de 50 Rubis, la monnaie du royaume',1,1,99,10,'item/rubis_50.gif','grey',1,1,60,600,'no','no');
-insert into item values('100 Rubis','1 paquet de 100 Rubis, la monnaie du royaume',1,1,99,10,'item/rubis_100.gif','gold',1,1,60,600,'no','no');
-insert into item values('Potion de vie mineur','petit poition de vie qui rend 10 pv',1,1,99,10,'item/potion_pv.gif','yellow',1,1,60,600,'no','no');
-insert into item values('Potion de mana mineur','petit poition de mana qui rend 10 pm',1,1,99,10,'item/potion_pm.gif','yellow',1,1,60,600,'no','no');
+insert into item values('1 Rubis','1 Rubis, la monnaie du royaume',1,1,1,99,10,'item/rubis_1.gif','yellow',1,1,60,600,'no','no');
+insert into item values('5 Rubis','1 paquet de 5 Rubis, la monnaie du royaume',1,1,1,99,10,'item/rubis_5.gif','blue',1,1,60,600,'no','no');
+insert into item values('10 Rubis','1 paquet de 10 Rubis, la monnaie du royaume',1,1,1,99,10,'item/rubis_10.gif','red',1,1,60,600,'no','no');
+insert into item values('20 Rubis','1 paquet de 20 Rubis, la monnaie du royaume',1,1,1,99,10,'item/rubis_20.gif','purple',1,1,60,600,'no','no');
+insert into item values('50 Rubis','1 paquet de 50 Rubis, la monnaie du royaume',1,1,1,99,10,'item/rubis_50.gif','grey',1,1,60,600,'no','no');
+insert into item values('100 Rubis','1 paquet de 100 Rubis, la monnaie du royaume',1,1,1,99,10,'item/rubis_100.gif','gold',1,1,60,600,'no','no');
+insert into item values('Potion de vie mineur','petit poition de vie qui rend 10 pv',1,1,1,99,10,'item/potion_pv.gif','yellow',1,1,60,600,'no','no');
+insert into item values('Potion de mana mineur','petit poition de mana qui rend 10 pm',1,1,1,99,10,'item/potion_pm.gif','yellow',1,1,60,600,'no','no');
 
 insert into spell values('Coup de poing mineur','Envoi un coup de poing sur la cible 10 Hit',0,1000,0,0,0,0,0,0,0,10,0,0);
 insert into spell values('Coup de poing majeur','Envoi un coup de poing sur la cible 30 Hit',0,1000,0,0,0,0,0,0,0,30,0,0);

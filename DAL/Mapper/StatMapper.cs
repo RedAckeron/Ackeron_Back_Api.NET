@@ -16,7 +16,9 @@ namespace DAL.Mapper
             Stat stat = new Stat(
                 (int)reader["id"], 
                 (int)reader["PtMove"], 
-                (int)reader["PtMoveMax"], 
+                (int)reader["PtMoveMax"],
+                (int)reader["strenght"],
+                (int)reader["defence"],
                 (int)reader["Xp"], 
                 (int)reader["Pv"], 
                 (int)reader["PvMax"], 

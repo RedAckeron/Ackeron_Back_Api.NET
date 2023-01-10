@@ -8,5 +8,5 @@
 	Gold int,
 	CitizenPlanet int,
 	Img nvarchar(50),
-	Orientation nvarchar(5) DEFAULT 'nord'
+	Orientation nvarchar(5) DEFAULT 'n'
 )
