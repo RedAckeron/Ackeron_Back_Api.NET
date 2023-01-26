@@ -61,6 +61,13 @@ insert into item values('100 Rubis','1 paquet de 100 Rubis, la monnaie du royaum
 insert into item values('Potion de vie mineur','petit poition de vie qui rend 10 pv',1,1,1,99,10,'item/potion_pv.gif','yellow',1,1,60,600,'no','no');
 insert into item values('Potion de mana mineur','petit poition de mana qui rend 10 pm',1,1,1,99,10,'item/potion_pm.gif','yellow',1,1,60,600,'no','no');
 
+--insert into HeroItem (IdChar,IdItem,Qt)values(1,1,10);
+--insert into HeroItem (IdChar,IdItem,Qt)values(1,2,5);
+--insert into HeroItem (IdChar,IdItem,Qt)values(1,3,9);
+--insert into HeroItem (IdChar,IdItem,Qt)values(1,4,12);
+--insert into HeroItem (IdChar,IdItem,Qt)values(1,5,12);
+--insert into HeroItem (IdChar,IdItem,Qt)values(1,6,12);
+
 insert into spell values('Coup de poing mineur','Envoi un coup de poing sur la cible 10 Hit',0,1000,0,0,0,0,0,0,0,10,0,0);
 insert into spell values('Coup de poing majeur','Envoi un coup de poing sur la cible 30 Hit',0,1000,0,0,0,0,0,0,0,30,0,0);
 

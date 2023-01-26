@@ -41,7 +41,6 @@ namespace DAL.Repositories
 
                     cnx.Open();
                     return (int)cmd.ExecuteScalar();
-                    ;
                 }
             }
         }
