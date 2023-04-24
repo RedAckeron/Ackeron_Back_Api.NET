@@ -10,5 +10,6 @@ namespace DAL.Interfaces
     public interface IHeroRepo
     {
         int Create(Hero hero);
+        Hero Read(int id);
     }
 }

@@ -78,6 +78,7 @@
     <Compile Include="Interfaces\IQuestRepo.cs" />
     <Compile Include="Interfaces\IResistRepo.cs" />
     <Compile Include="Interfaces\IStatRepo.cs" />
+    <Compile Include="Mapper\HeroMapper.cs" />
     <Compile Include="Mapper\MobMapper.cs" />
     <Compile Include="Mapper\StatMapper.cs" />
     <Compile Include="Mapper\InfoMapper.cs" />

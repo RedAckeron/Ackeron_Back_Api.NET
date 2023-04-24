@@ -1,4 +1,5 @@
 ﻿using DAL.Interfaces;
+using DAL.Mapper;
 using DAL.Models;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -19,7 +20,7 @@ namespace DAL.Repositories
         {
             _connectionString = config.GetConnectionString("default");
         }
-        //####################################################################################################################################################################
+//####################################################################################################################################################################
         public int Create(Hero h)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
@@ -39,6 +40,27 @@ namespace DAL.Repositories
                     return (int)cmd.ExecuteScalar();
                 }
             }
+        }
+//####################################################################################################################################################################
+        public Hero Read(int IdHero)
+        {
+            HeroMapper mapper = new HeroMapper();
+            using (SqlConnection cnx = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = cnx.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM hero where id = " + IdHero;
+                    cnx.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            return mapper.DataToHero(reader);
+                        }
+                    }
+                }
+            }
+            return null;
         }
     }
 }

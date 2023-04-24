@@ -77,5 +77,49 @@ namespace BLL.Services
             Console.WriteLine("=============================================[  FIN CREATION HERO  ]=============================================");
             return hero.Id;
         }
+
+        public Hero Read(int IdHero)
+        {
+
+            Info info;
+            Localisator localisator;
+            Stat stat;
+
+            Power power;
+            Resist resist;
+
+            List<Spell> spellbook = new();
+            List<Item> inventory = new();
+
+            //recuperation et reconstruction du mob
+            Hero hero;
+            hero = _herorepo.Read(IdHero);
+
+            info = _infoRepo.Read(hero.Info.InfoId);
+            hero.Info = info;
+
+            localisator = _localisatorRepo.Read(hero.Localisator.LocalisatorId);
+            hero.Localisator = localisator;
+
+            stat = _statRepo.Read(hero.Stat.StatId);
+            hero.Stat = stat;
+
+            power = _powerRepo.Read(hero.Power.PowerId);
+            hero.Power = power;
+
+            resist = _resistRepo.Read(hero.Resist.ResistId);
+            hero.Resist = resist;
+
+
+            //Console.WriteLine(JsonSerializer.Serialize(mob));
+
+
+            // public Mob(int id,long tsin,Info info,Localisator localisator,int mobGabaritId,Stat stat, Power power, Resist resist, List<Item> inventory, List<Spell> spellBook)
+            //: base(id, tsin, info, localisator)
+
+            return hero;
+        }
+
+
     }
 }

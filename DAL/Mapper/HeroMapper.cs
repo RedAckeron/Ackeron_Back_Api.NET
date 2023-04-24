@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace DAL.Mapper
 {
-    public class MobMapper
+    public class HeroMapper
     {
-        public Mob DataToMob(IDataReader reader)
+        public Hero DataToHero(IDataReader reader)
         {
             Power power = new Power((int)reader["PowerId"], 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
             Resist resist = new Resist((int)reader["ResistId"], 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -22,20 +22,20 @@ namespace DAL.Mapper
             List<Spell> spellbook = new List<Spell>();
             List<Item> inventory = new List<Item>();
 
-            Mob mob = new Mob(
+            Hero hero = new Hero(
                 (int)reader["Id"],
                 (int)reader["TsIn"],
                 (int)reader["CoolDown"],
                 info,
                 localisator,
-                (int)reader["MobGabaritId"],
                 stat,
                 power,
                 resist,
                 inventory,
                 spellbook
                 );
-            return mob;
+            
+            return hero;
         }
     }
 }
