@@ -13,7 +13,6 @@ namespace BLL.Services
 {
     public class HeroService:IHeroService
     {
-
         private readonly ILocalisatorRepo _localisatorRepo;
         private readonly IInfoRepo _infoRepo;
         private readonly IStatRepo _statRepo;
@@ -77,5 +76,13 @@ namespace BLL.Services
             Console.WriteLine("=============================================[  FIN CREATION HERO  ]=============================================");
             return hero.Id;
         }
+        public Hero Read(int id)
+            {
+
+
+
+            //Hero hero = new Hero();
+            return null;
+            }
     }
 }

@@ -14,11 +14,16 @@ namespace Ackeron_Back.Controllers.Character
             _heroService = heroService;
         }
 
-
         [HttpPost("Create")]
         public IActionResult Create(Hero hero)
         {
         return Ok(_heroService.Create(hero));
+        }
+
+        [HttpPost("Read")]
+        public IActionResult Read(int id)
+        {
+            return Ok(_heroService.Read(id));
         }
     }
 }

@@ -10,5 +10,6 @@ namespace BLL.Interfaces
     public interface IHeroService
     {
         int Create(Hero hero);
+        Hero Read(int id);
     }
 }
