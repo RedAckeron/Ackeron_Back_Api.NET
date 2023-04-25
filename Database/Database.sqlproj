@@ -58,6 +58,7 @@
     <Folder Include="Properties" />
     <Folder Include="Tables" />
     <Folder Include="Vues" />
+    <Folder Include="PostDeployement" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Hero.sql" />
@@ -83,6 +84,8 @@
     <Build Include="Tables\Info.sql" />
     <Build Include="Vues\MobPlanet.sql" />
     <Build Include="Vues\HeroInventory.sql" />
+    <PostDeploy Include="PostDeployement\Script.PostDeployment1.sql" />
+    <None Include="PostDeployement\Hero.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Database.publish.xml" />
@@ -90,9 +93,12 @@
     <None Include="Home.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="Script.PostDeployment1.sql" />
+    <RefactorLog Include="Database.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <RefactorLog Include="Database.refactorlog" />
+    <None Include="PostDeployement\Quest.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PostDeployement\Spell.sql" />
   </ItemGroup>
 </Project>

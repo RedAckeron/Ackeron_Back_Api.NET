@@ -1,4 +1,5 @@
 ﻿using BLL.Interfaces;
+using BLL.Services;
 using DAL.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,14 +15,15 @@ namespace Ackeron_Back.Controllers.Character
             _heroService = heroService;
         }
 
-        [HttpPost("Create")]
+
+        [HttpPost("Hero/Create")]
         public IActionResult Create(Hero hero)
         {
         return Ok(_heroService.Create(hero));
         }
 
-        [HttpPost("Read")]
-        public IActionResult Read(int id)
+        [HttpGet("/Hero/Read/{id}")]
+        public IActionResult GetById(int id)
         {
             return Ok(_heroService.Read(id));
         }
