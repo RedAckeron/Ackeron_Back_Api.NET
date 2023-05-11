@@ -63,6 +63,47 @@ insert into item values('100 Rubis','1 paquet de 100 Rubis, la monnaie du royaum
 insert into item values('Potion de vie mineur','petit poition de vie qui rend 10 pv',1,1,1,99,10,'item/potion_pv.gif','yellow',1,1,60,600,'no','no');
 insert into item values('Potion de mana mineur','petit poition de mana qui rend 10 pm',1,1,1,99,10,'item/potion_pm.gif','yellow',1,1,60,600,'no','no');
 
+
+
+--Insertion des quest
+insert into quest (name,title,description,validate) values ('dungeon','Le dongeon','Serrez vous assez brave pour descendre les 100 etages du dongeon',0);
+insert into queststep (idquest,idstep,name,description,validate) values (1,1,'Etage -10','Descendez jusque au 10 eme sous sol et decouvrez le gardien du premier tresor',0);
+insert into queststep (idquest,idstep,name,description,validate) values (1,2,'Etage -20','test',0);
+insert into queststep (idquest,idstep,name,description,validate) values (1,3,'Etage -30','test',0);
+insert into queststep (idquest,idstep,name,description,validate) values (1,4,'Etage -40','test',0);
+insert into queststep (idquest,idstep,name,description,validate) values (1,5,'Etage -50','test',0);
+insert into queststep (idquest,idstep,name,description,validate) values (1,6,'Etage -60','test',0);
+insert into queststep (idquest,idstep,name,description,validate) values (1,7,'Etage -70','test',0);
+insert into queststep (idquest,idstep,name,description,validate) values (1,8,'Etage -80','',0);
+insert into queststep (idquest,idstep,name,description,validate) values (1,9,'Etage -90','',0);
+insert into queststep (idquest,idstep,name,description,validate) values (1,10,'Etage -100','',0);
+
+insert into quest (name,title,description,validate) values ('craft_intro','La Fabrication','Introduction a la collecte et a la fabrication d objets',0);
+insert into queststep (idquest,idstep,name,description,validate) values (2,1,'Recuperation de 3 bloc de pierre','',0);
+insert into queststep (idquest,idstep,name,description,validate) values (2,2,'Recuperation de 2 planches','',0);
+insert into queststep (idquest,idstep,name,description,validate) values (2,3,'Assemblage','',0);
+
+
+
+insert into spell values('Coup de poing mineur','Envoi un coup de poing sur la cible 10 Hit',0,1000,0,0,0,0,0,0,0,10,0,0);
+insert into spell values('Coup de poing majeur','Envoi un coup de poing sur la cible 30 Hit',0,1000,0,0,0,0,0,0,0,30,0,0);
+
+insert into spell values('Flame Wave','envoi une boule de feu qui vas bruler 10 Hit ',0,1000,0,10,0,0,0,0,0,0,0,0);
+insert into spell values('Rain of Fire','envoi une boule de feu qui vas bruler 10 Hit ',0,1000,0,10,0,0,0,0,0,0,0,0);
+insert into spell values('Flare','envoi une boule de feu qui vas bruler 10 Hit ',0,1000,0,10,0,0,0,0,0,0,0,0);
+insert into spell values('FireStorm','envoi une boule de feu qui vas bruler 30 Hit',0,1000,0,30,0,0,0,0,0,0,0,0);
+insert into spell values('Inferno','envoi une boule de feu qui vas bruler 10 Hit ',0,1000,0,10,0,0,0,0,0,0,0,0);
+insert into spell values('Meteor','envoi une boule de feu qui vas bruler 100 Hit',0,1000,0,100,0,0,0,0,0,0,0,0);
+
+insert into spell values('soin mineur','envoi un soin qui rend 10 Heal',0,1000,0,0,0,0,10,0,0,0,0,0);
+insert into spell values('soin majeur','envoi un soins qui rend 30 Heal',0,1000,0,0,0,0,30,0,0,0,0,0);
+
+insert into spell values('Vol de vie mineur','Sort de drain de vie qui retire 10 Hit',0,1000,0,0,0,0,10,0,0,0,0,0);
+insert into spell values('Vol de vie majeur','Sort de drain de vie qui retire 30 Hit',0,1000,0,0,0,0,30,0,0,0,0,0);
+
+
+
+
 --insert into HeroItem (IdChar,IdItem,Qt)values(1,1,10);
 --insert into HeroItem (IdChar,IdItem,Qt)values(1,2,5);
 --insert into HeroItem (IdChar,IdItem,Qt)values(1,3,9);
