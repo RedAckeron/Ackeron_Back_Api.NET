@@ -23,10 +23,54 @@ namespace DAL.Repositories
             //_connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Ackeron;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             //_connection = connection;
         }
-        
-       
+        #region CreateHero
+        public int CreateHero(Hero h)
+        {
+            using (SqlConnection cnx = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = cnx.CreateCommand())
+                {
+                    cmd.CommandText = "insert into Character  (Type,TsIn,LocalisatorId,InfoId,StatId,PowerId,ResistId) output inserted.id values(@Type,@TsIn,@LocalisatorId,@InfoId,@StatId,@PowerId,@ResistId);";
 
+                    cmd.Parameters.AddWithValue("Type", "Hro");
+                    cmd.Parameters.AddWithValue("TsIn", h.TsIn);
+                    cmd.Parameters.AddWithValue("CoolDown", h.CoolDown);
+                    cmd.Parameters.AddWithValue("LocalisatorId", h.Localisator.LocalisatorId);
+                    cmd.Parameters.AddWithValue("InfoId", h.Info.InfoId);
+                    cmd.Parameters.AddWithValue("StatId", h.Stat.StatId);
+                    cmd.Parameters.AddWithValue("PowerId", h.Power.PowerId);
+                    cmd.Parameters.AddWithValue("ResistId", h.Resist.ResistId);
+                    cnx.Open();
+                    return (int)cmd.ExecuteScalar();
+                }
+            }
+        }
+        #endregion
         
+        #region ReadHero
+        public Hero ReadHero(int IdHero)
+        {
+            HeroMapper mapper = new HeroMapper();
+            using (SqlConnection cnx = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = cnx.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM character where id = " + IdHero;
+                    cnx.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            return mapper.DataToHero(reader);
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+        #endregion
+
+
         /*
         public Info GetCharacterInfo(int id)
         {
@@ -206,7 +250,7 @@ namespace DAL.Repositories
         }
         */
 
-       
+
         /*
         public int UpdateCharacterStat(Stat CStat)
         {

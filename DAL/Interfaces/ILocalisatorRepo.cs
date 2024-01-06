@@ -13,5 +13,6 @@ namespace DAL.Interfaces
         Localisator Read(int IdLoc);
         bool Update(Localisator Loc);
         bool Delete(int IdLoc);
-    }
+        int GetCharLocalisator(int idChar);
+       }
 }

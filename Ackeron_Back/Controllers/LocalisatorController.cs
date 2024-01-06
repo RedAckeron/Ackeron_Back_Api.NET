@@ -14,6 +14,7 @@ namespace Ackeron_Back.Controllers
             _localisatorService = localisatorService;
         }
 
+        
         [HttpPut("/Localisator/Create/")]
         public IActionResult Create(Localisator Loc)
         {
@@ -38,5 +39,6 @@ namespace Ackeron_Back.Controllers
         {
             return null;
         }
+        
     }
 }

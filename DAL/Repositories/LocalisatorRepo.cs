@@ -18,7 +18,7 @@ namespace DAL.Repositories
         {
             _connectionString = config.GetConnectionString("default");
         }
-//####################################################################################################################################################################
+        #region Create
         public int Create(Localisator loc)
         {
         using (SqlConnection cnx = new SqlConnection(_connectionString))
@@ -53,7 +53,9 @@ namespace DAL.Repositories
                 }
             }
         }
-//####################################################################################################################################################################
+        #endregion
+
+        #region Read
         public Localisator Read(int id)
         {
             LocalisatorMapper mapper = new LocalisatorMapper();
@@ -74,7 +76,9 @@ namespace DAL.Repositories
             }
             return null;
         }
-//####################################################################################################################################################################
+        #endregion
+
+        #region Update
         public bool Update(Localisator Loc)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
@@ -107,18 +111,9 @@ namespace DAL.Repositories
                 }
             }
         }
+        #endregion
 
-
-      
-                  
-
-                  
-
-
-
-
-
-        //####################################################################################################################################################################
+        #region Delete
         public bool Delete(int IdLoc)
         {
             using (SqlConnection cnx = new SqlConnection(_connectionString))
@@ -127,12 +122,38 @@ namespace DAL.Repositories
                 {
                     cmd.CommandText = "DELETE FROM Localisator WHERE Id=@Id;";
                     cmd.Parameters.AddWithValue("Id", IdLoc);
-                   
+
                     cnx.Open();
-                    return (cmd.ExecuteNonQuery()==1);
+                    return (cmd.ExecuteNonQuery() == 1);
                     //cnx.Close();
                 }
             }
         }
+        #endregion
+
+        #region GetCharLocalisator
+        public int GetCharLocalisator(int idChar)
+        {
+            using (SqlConnection cnx = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = cnx.CreateCommand())
+                {
+                    cmd.CommandText = "select LocalisatorId from character where id = " + idChar;
+                    cnx.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            return (int)reader[0];
+                        }
+                    }
+                }
+            }
+            return 0;
+
+        }
+        #endregion
+
     }
 }

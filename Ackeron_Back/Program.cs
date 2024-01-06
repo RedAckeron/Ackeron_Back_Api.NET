@@ -44,10 +44,9 @@ builder.Services.AddScoped<IResistRepo, ResistRepo>();
 builder.Services.AddScoped<IInventoryService, InventoryService>();
 builder.Services.AddScoped<IInventoryRepo, InventoryRepo>();
 builder.Services.AddScoped<IHeroService, HeroService>();
-builder.Services.AddScoped<IHeroRepo, HeroRepo>();
+builder.Services.AddScoped<ICharacterRepo, CharacterRepo>();
 
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

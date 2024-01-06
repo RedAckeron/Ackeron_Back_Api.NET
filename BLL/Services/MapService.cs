@@ -29,11 +29,13 @@ namespace BLL.Services
             return _mapRepo.Read(IdArea);
 
         }
+       
         public bool ChkAreaReachable(Localisator Loc) {
-        
-            return _mapRepo.ChkAreaReachable(Loc);
-        }
 
+            //return _mapRepo.ChkAreaReachable(Loc);
+            return true;
+        }
+       
         public List<Area> GetMap(int IdPlanet) {
             Console.WriteLine(_mapRepo.GetMap(IdPlanet));
             return _mapRepo.GetMap(IdPlanet);

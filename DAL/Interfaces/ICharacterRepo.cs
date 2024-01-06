@@ -10,6 +10,9 @@ namespace DAL.Interfaces
 {
     public interface ICharacterRepo
     {
+        int CreateHero(Hero h);
+        Hero ReadHero(int IdHero);
+
         /*
        // int AddCharacterInfo(Info CInfo);
         int AddCharacterStat(Stat CStat);

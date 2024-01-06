@@ -18,15 +18,15 @@ namespace BLL.Services
         private readonly IStatRepo _statRepo;
         private readonly IPowerRepo _powerRepo;
         private readonly IResistRepo _resistRepo;
-        private readonly IHeroRepo _herorepo;
-        public HeroService(ILocalisatorRepo localisatorRepo, IInfoRepo infoRepo, IStatRepo statRepo, IPowerRepo powerRepo, IResistRepo resistRepo, IHeroRepo heroRepo)
+        private readonly ICharacterRepo _characterRepo;
+        public HeroService(ILocalisatorRepo localisatorRepo, IInfoRepo infoRepo, IStatRepo statRepo, IPowerRepo powerRepo, IResistRepo resistRepo, ICharacterRepo characterRepo)
         {
             _localisatorRepo = localisatorRepo;
             _infoRepo = infoRepo;
             _statRepo = statRepo;
             _powerRepo = powerRepo;
             _resistRepo = resistRepo;
-            _herorepo = heroRepo;
+            _characterRepo = characterRepo;
         }
 
         public int Create(Hero H)
@@ -70,7 +70,7 @@ namespace BLL.Services
 
             //et finalement on creez le mob a remonter vers le controler
             Hero hero = new Hero(0, TsIn, coolDown, info, localisator, stat, power, resist, inventory, spellBook);
-            hero.Id = _herorepo.Create(hero);
+            hero.Id = _characterRepo.CreateHero(hero);
             Console.WriteLine("Hero ID : " + hero.Id);
 
             Console.WriteLine("=============================================[  FIN CREATION HERO  ]=============================================");
@@ -90,9 +90,9 @@ namespace BLL.Services
             List<Spell> spellbook = new();
             List<Item> inventory = new();
 
-            //recuperation et reconstruction du mob
+            //recuperation et reconstruction du hero
             Hero hero;
-            hero = _herorepo.Read(IdHero);
+            hero = _characterRepo.ReadHero(IdHero);
 
             info = _infoRepo.Read(hero.Info.InfoId);
             hero.Info = info;
@@ -118,7 +118,143 @@ namespace BLL.Services
 
             return hero;
         }
+        public Localisator Move(int idchar, char orientation)
+        {
+            //on recupere l id du localisator du joueur 
+            int Idloc=_localisatorRepo.GetCharLocalisator(idchar);
 
 
+
+            Localisator loc = _localisatorRepo.Read(Idloc);
+
+            Console.WriteLine(loc.LocPId + " : " + loc.LocAX + "/" + loc.LocAY);
+
+            //on recupere le localisator du char 
+
+            //SP_Map_CheckAreaWalkable
+            // on calcule si la position d arriver est libre
+            // on valide la nouvelle position et on met a jours
+            //on retourne le localisator update
+
+            return loc;
+
+        }
+
+
+        /*
+         public Localisator ReadLocalisator(int id)
+         {
+             Localisator datacharloc = new();
+             datacharloc = _localisatorRepo.ReadLocalisator(id);
+             return datacharloc;
+         }
+         public bool UpdateLocalisator(int Id, Localisator Loc)
+         {
+            // CharacterMapper mapper = new();
+             //CLoc = mapper.CharacterToCharacterLoc(CLoc);
+             bool loc = (_localisatorRepo.UpdateLocalisator(Id,Loc) == 1);
+             return loc;
+         }
+        */
+        /*
+        public Character GetById(int id)
+        {
+            //on creez l objet
+            //Character C = new Character();
+            Hero H = new Hero();
+            Localisator datacharloc = new();
+            Stat datacharstat = new();
+            Power datacharpow = new();
+            Resist datacharres = new();
+
+            //List<Item>inventory = new List<Item>();
+            //List<Spell>spellbook = new List<Spell>();
+            //List<Quest>questbook= new List<Quest>();
+
+            //datacharinfo = _characterRepo.GetCharacterInfo(id);
+            datacharloc = _localisatorRepo.ReadLocalisator(id);
+            datacharstat = _characterRepo.GetCharacterStat(id);
+            datacharpow = _characterRepo.GetCharacterPower(id);
+            datacharres = _characterRepo.GetCharacterResist(id);
+
+            //on rempli l objet char avec ses sous objets
+            //C.Info = datacharinfo;
+
+            C.Localisator = datacharloc;
+            C.Stat = datacharstat;
+            C.Power = datacharpow;
+            C.Resist = datacharres;
+            C.Inventory = _characterRepo.GetCharacterInventory(id);
+            C.SpellBook = _characterRepo.GetCharacterSpell(id);
+            C.QuestBook = _characterRepo.GetCharacterQuest(id);
+            return C;
+        }
+        public int AddCharacter(Character C)
+        {
+            CharacterMapper mapper = new();
+            //Info CInfo;
+            Hero CStat;
+            Localisator CLoc;
+            Power CPow;
+            Resist CRes;
+            
+            CInfo = mapper.CharacterToCharacterInfo(C);
+            int IdChar = _characterRepo.AddCharacterInfo(CInfo);
+
+            CStat = mapper.CharacterToCharacterStat(C);
+            CStat.IdChar = IdChar;
+            _characterRepo.AddCharacterStat(CStat);
+
+            CLoc = mapper.CharacterToCharacterLoc(C);
+            //CLoc.IdChar = IdChar;
+            _characterRepo.AddCharacterLoc(C.Id, CLoc);
+
+            CPow = mapper.CharacterToCharacterPower(C);
+            CPow.IdChar = IdChar;
+            _characterRepo.AddCharacterPower(CPow);
+
+            CRes = mapper.CharacterToCharacterResist(C);
+            CRes.IdChar = IdChar;
+            _characterRepo.AddCharacterResist(CRes);
+
+            return IdChar;
+            
+        }
+        public bool UpdateCharacter(Character C)
+        {
+            CharacterMapper mapper = new();
+            LocalisatorMapper locMapper = new();
+            
+            Hero CStat;
+            Localisator CLoc;
+            Power CPow;
+            Resist CRes;
+
+            CInfo = mapper.CharacterToCharacterInfo(C);
+            bool info = (_characterRepo.UpdateCharacterInfo(C.Id, CInfo) == 1);
+
+            CLoc = mapper.CharacterToCharacterLoc(C);
+            //CLoc.IdChar = C.Id;
+            bool loc = (_localisatorRepo.UpdateLocalisator(C.Id, CLoc) == 1);
+
+            CStat = mapper.CharacterToCharacterStat(C);
+            CStat.IdChar = C.Id;
+            bool stat = (_characterRepo.UpdateCharacterStat(CStat) == 1);
+
+            CPow = mapper.CharacterToCharacterPower(C);
+            CPow.IdChar = C.Id;
+            bool power = (_characterRepo.UpdateCharacterPower(CPow) == 1);
+
+            CRes = mapper.CharacterToCharacterResist(C);
+            CRes.IdChar = C.Id;
+            bool resist = (_characterRepo.UpdateCharacterResist(CRes) == 1);
+
+            return (info || loc || stat || power || resist);
+        }
+        public bool DeleteCharacter(int id)
+        {
+            return true;
+        }
+        */
     }
 }

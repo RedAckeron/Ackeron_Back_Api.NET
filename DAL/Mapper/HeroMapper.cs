@@ -22,9 +22,13 @@ namespace DAL.Mapper
             List<Spell> spellbook = new List<Spell>();
             List<Item> inventory = new List<Item>();
 
+
+
+
             Hero hero = new Hero(
                 (int)reader["Id"],
-                (int)reader["TsIn"],
+                //(int)reader["TsIn"],
+                0,
                 (int)reader["CoolDown"],
                 info,
                 localisator,

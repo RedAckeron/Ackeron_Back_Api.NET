@@ -11,5 +11,7 @@ namespace BLL.Interfaces
     {
         int Create(Hero hero);
         Hero Read(int id);
+        Localisator Move(int idchar, char orientation);
+
     }
 }
